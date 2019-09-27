@@ -26,7 +26,7 @@ We remember for those that can't!
 ## File Directory
 
 Discretion has been taken to not describe what is inside some files as they are xcode specific metadata.
-
+```
 .
 ├── Backend_Code             # Backend codebase
 ├────── settings.py          # Django server configs
@@ -42,3 +42,4 @@ Discretion has been taken to not describe what is inside some files as they are 
 ├────── Info.plist           # metadata for the iOS app
 ├────── ViewController.swift # main controller for the home view of the iOS app
 └── README.md
+``
