@@ -4,7 +4,26 @@ This is memory bank.
 We remember for those that can't!
 
 #Folder List#:
-
+Starter_App:
+    Backend_Code:
+    
+    Chatter(Frontend_Code):
+    
+ #File list#:
+ Starter_App:
+    Backend_Code:
+        views.py
+        
+        urls.py
+        
+        settings.py
+    
+    Chatter(Frontend_Code):
+        AppDelegate.swift 
+        Chatt.swift	
+        ChattTableCell.swift	
+        Info.plist	
+        ViewController.swift
 
 *Members*
 * Benjamin Turner (bentur) -- Mobile Development/Visual Design
