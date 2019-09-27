@@ -16,7 +16,7 @@ We remember for those that can't!
 *Steps for how to build and run Chatter*
 1. Download the starter app files from the starter app directory
 2. Build and run the backend server code
-    Login to the Droplet virtual machine by using terminal command ssh root@167.71.84.124 and password: 
+    Login to the Droplet virtual machine by using terminal command ssh root@167.71.84.124 and custom password.  
     
     1. To run a GET request, run http://167.71.84.124/getchatts/ in the browser. 
     
