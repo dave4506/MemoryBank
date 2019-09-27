@@ -22,3 +22,23 @@ We remember for those that can't!
     2. Click play to build and run the app in the ios simulator
     3. Click in the simulator to interact with the app
     4. Click the stop button to close out of the app, or press Cmd+Q to close the simulator
+
+## File Directory
+
+Discretion has been taken to not describe what is inside some files as they are xcode specific metadata.
+
+.
+├── Backend_Code             # Backend codebase
+├────── settings.py          # Django server configs
+├────── urls.py              # Django routes
+├────── views.py             # Django routes handlers
+├── StarterApp-Frontend      # Frontend codebase
+├────── Chatter.xcodeproj    # Xcode related configs
+├────── AppIcon.appiconset   # metadata for app icons
+├────── Base.Iproj           # metadata related to project
+├────── AppDelegate.swift    # Main config class for iOS app
+├────── Chatt.swift          # Chat table view
+├────── ChattTableCell.swift # Cell view for the table
+├────── Info.plist           # metadata for the iOS app
+├────── ViewController.swift # main controller for the home view of the iOS app
+└── README.md
