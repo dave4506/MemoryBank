@@ -3,13 +3,13 @@
 This is memory bank.
 We remember for those that can't!
 
-#Folder List#:
+# Folder List #:
 Starter_App:
     Backend_Code:
     
     Chatter(Frontend_Code):
     
- #File list#:
+ # File list #:
  Starter_App:
     Backend_Code:
         views.py
