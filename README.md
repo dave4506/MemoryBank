@@ -3,27 +3,27 @@
 This is memory bank.
 We remember for those that can't!
 
-# Folder List #:
+# Folder List : #
 Starter_App:
-    Backend_Code:
+> Backend_Code:
     
-    Chatter(Frontend_Code):
+> Chatter(Frontend_Code):
     
- # File list #:
- Starter_App:
-    Backend_Code:
-        views.py
+# File list : #
+Starter_App:
+> Backend_Code:
+>> views.py
         
-        urls.py
+>> urls.py
         
-        settings.py
+>> settings.py
     
-    Chatter(Frontend_Code):
-        AppDelegate.swift 
-        Chatt.swift	
-        ChattTableCell.swift	
-        Info.plist	
-        ViewController.swift
+> Chatter(Frontend_Code):
+>> AppDelegate.swift 
+>> Chatt.swift	
+>> ChattTableCell.swift	
+>> Info.plist	
+>> ViewController.swift
 
 *Members*
 * Benjamin Turner (bentur) -- Mobile Development/Visual Design
