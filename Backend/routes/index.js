@@ -1,11 +1,9 @@
-module.exports = (app) => {
+module.exports = (app, db) => {
   // ======= Local ============
   app.get(
     '/health_check',
     async (req, res, next) => {
-      return res.status(200).json({ message: 'application is running '})
+      return res.status(200).json({ message: 'application is running' })
     }
-  );
-
-
-};
+  )
+}

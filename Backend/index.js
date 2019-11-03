@@ -3,31 +3,45 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const keys = require('./config/keys');
-
+const { MongoClient } = require('mongodb');
+const passport = require('passport');
 const routes = require('./routes');
-
 const app = express();
+
+let db;
 
 app.use(bodyParser.json({ type: '*/*' }));
 app.use(cors());
+app.use(passport.initialize());
 
-routes(app);
 
-// Start the application after the database connection is ready
-const PORT = process.env.PORT || 80;
+// Initialize mongoDB connection once
+MongoClient.connect(keys.mongoURL, {
+  useNewUrlParser: true,
+  w: 1,
+  native_parser: false,
+  ssl: keys.mongoSSL,
+  poolSize: 1,
+  connectTimeoutMS: 500,
+},
+(err, mongoClient) => {
+  if (err) throw err;
+  
+  db = mongoClient.db('MemoryBank');
 
-const server = http.createServer(app);
+  // tell pasport to use this strategy
+  // passport.use(strategies.jwtLogin);
+  // passport.use(strategies.localLogin);
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = keys.mongoUri;
-const client = new MongoClient(uri, { useNewUrlParser: true });
+  routes(app, db);
 
-client.connect(err => {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-    const db = client.db(dbConfig.DBName);
+  // Start the application after the database connection is ready
+  const PORT = process.env.PORT || 80;
 
-    server.listen(PORT, () => {
-      console.log(`Listening on port ${PORT}`);
-    });
+  // const server = https.createServer(httpsServerOptions, app);
+  const server = http.createServer(app);
+
+  server.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
+  });
 });
