@@ -17,6 +17,7 @@ class User {
     this.salt = uuidv4();
     const key = crypto.pbkdf2Sync(_password, this.salt, 100000, 512, 'sha512');
     this.password = key.toString('hex');
+    this.events = [];
   }
 }
 
