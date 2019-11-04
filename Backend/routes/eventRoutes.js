@@ -184,10 +184,10 @@ module.exports = (app, db) => {
                 return res.status(500).json({ error: 'Internal server error, unable to find user in the database.' });
             }
 
-            event_info.users.map(friend_id => {
+            event_info.users.map(user_id => {
                 db.collection('users').updateOne(
                     { _id: ObjectId(friend_id)},
-                    { $pull: { events: ObjectId(event_id) }}
+                    { $pull: { events: ObjectId(user_id) }}
                 );
             });
 
