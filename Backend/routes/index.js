@@ -1,4 +1,8 @@
+const authRoutes = require("./authRoutes");
+
 module.exports = (app, db) => {
+  authRoutes(app, db);
+
   // ======= Local ============
   app.get(
     '/health_check',

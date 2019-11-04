@@ -5,9 +5,12 @@ const cors = require('cors');
 const keys = require('./config/keys');
 const { MongoClient } = require('mongodb');
 const passport = require('passport');
-const routes = require('./routes');
-const app = express();
 
+
+const routes = require('./routes');
+const Strategies = require('./services/passport');
+
+const app = express();
 let db;
 
 app.use(bodyParser.json({ type: '*/*' }));
@@ -26,12 +29,15 @@ MongoClient.connect(keys.mongoURL, {
 },
 (err, mongoClient) => {
   if (err) throw err;
-  
+
   db = mongoClient.db('MemoryBank');
 
+  // set up startegies with current db pool
+  const strategies = new Strategies(db);
+
   // tell pasport to use this strategy
-  // passport.use(strategies.jwtLogin);
-  // passport.use(strategies.localLogin);
+  passport.use(strategies.jwtLogin);
+  passport.use(strategies.localLogin);
 
   routes(app, db);
 
