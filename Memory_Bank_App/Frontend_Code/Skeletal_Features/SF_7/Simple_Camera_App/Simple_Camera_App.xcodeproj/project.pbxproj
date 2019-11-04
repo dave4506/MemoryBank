@@ -14,6 +14,7 @@
 		0079B71F235A8124001862F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0079B71D235A8124001862F5 /* LaunchScreen.storyboard */; };
 		0079B72A235A8124001862F5 /* Simple_Camera_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0079B729235A8124001862F5 /* Simple_Camera_AppTests.swift */; };
 		0079B735235A8124001862F5 /* Simple_Camera_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0079B734235A8124001862F5 /* Simple_Camera_AppUITests.swift */; };
+		72372B132370CFFA00ED24DE /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72372B122370CFFA00ED24DE /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		0079B730235A8124001862F5 /* Simple_Camera_AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Simple_Camera_AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0079B734235A8124001862F5 /* Simple_Camera_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Simple_Camera_AppUITests.swift; sourceTree = "<group>"; };
 		0079B736235A8124001862F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72372B122370CFFA00ED24DE /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				0079B71B235A8124001862F5 /* Assets.xcassets */,
 				0079B71D235A8124001862F5 /* LaunchScreen.storyboard */,
 				0079B720235A8124001862F5 /* Info.plist */,
+				72372B122370CFFA00ED24DE /* CustomButton.swift */,
 			);
 			path = Simple_Camera_App;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				0079B717235A811A001862F5 /* ViewController.swift in Sources */,
 				0079B715235A811A001862F5 /* AppDelegate.swift in Sources */,
+				72372B132370CFFA00ED24DE /* CustomButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,7 +437,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MF7TBHZV3U;
+				DEVELOPMENT_TEAM = 3CX35MN7CX;
 				INFOPLIST_FILE = Simple_Camera_App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -451,7 +455,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MF7TBHZV3U;
+				DEVELOPMENT_TEAM = 3CX35MN7CX;
 				INFOPLIST_FILE = Simple_Camera_App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
