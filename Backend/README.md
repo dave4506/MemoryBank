@@ -1,1 +1,21 @@
 ### Express Skeleton
+
+This is the backend code for the app. It is an Express app built out in Javascript.
+We are using MongoDB for authentication. The user model can be found in the models
+folder and the authentication routes can be found in the routes/authRoutes.js folder.
+
+The driver of the authentication is a system called passport that allows the backend
+to keep track of user registration and when a user is logged in and is making
+requests to the backend. This code can be found in services/passport.js
+
+Other code necessary for the authentication aspect of the backend is found in the
+helpers folder. Specifically, the JWT tokens that notify the backend when a
+user is currently logged in.
+
+We are also using mongoDB for storing the events. The event model can be found
+in the models folder and the routes associated with events (creation, sharing,
+deleting and getting) can be found in the routes/eventRoutes.js folder.
+
+### Deployment
+
+This app is currently deployed and running on Heroku.
