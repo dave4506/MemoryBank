@@ -1,0 +1,12 @@
+FROM node:alpine
+
+WORKDIR "/backend"
+COPY ./package.json ./
+RUN npm install
+
+ENV MONGO_USER $MONGO_USER
+ENV MONGO_PASSWORD $MONGO_PASSWORD
+
+COPY . .
+
+CMD ["npm", "run", "start"]
