@@ -1,0 +1,35 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "starter",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js --ignore tests",
+    "test": "jest --detectOpenHandles"
+  },
+  "author": "Carlos Volante",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.15.3",
+    "jest": "^24.8.0",
+    "mongodb": "^3.2.4",
+    "passport": "^0.4.0",
+    "uuid": "^3.3.2",
+    "validator": "^10.11.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
+    "nodemon": "^1.19.0"
+  }
+}
