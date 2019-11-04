@@ -4,9 +4,45 @@ This is memory bank.
 We remember for those that can't!
 
 # Folder List : #
+Backend:
+> config:
+
+> helpers:
+
+> models:
+
+> routes:
+
+> services:
+
+MemoryBank:
+> MemoryBank:
+
+> MemoryBank.xcodeproj:
+
+> MemoryBankTests:
+
+> MemoryBankUITests:
+
+MemoryBank.xcodeproj:
+
+Memory_Bank_App:
+> Backend_Code:
+>> MVP_Features:
+>> Skeletal_Features:
+
+> Frontend_Code:
+>> MVP_Features:
+>> Skeletal_Features:
+
+Routes:
+
 Starter_App:
 > Backend_Code:
     
+StarterApp-Frontend:
+> Backend_Code:
+
 > Chatter(Frontend_Code):
     
 # File list : #
