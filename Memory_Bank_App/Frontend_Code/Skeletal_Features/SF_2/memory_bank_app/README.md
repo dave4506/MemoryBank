@@ -24,7 +24,7 @@ This uses the Amazon Cognito Identity Provider found in the AWS Mobile SDK for i
 
 4. If the image upload is successful, you should see an alert showing the key of the file uploaded to S3. Note this key(which is the string after 'username/images/') if you would like to download this file later. If the upload fails, you shuld get an alert indicating that the upload had failed due to a specific error. 
 
-##Using the S3 Image Download Feature
+## Using the S3 Image Download Feature
 
 1. If you are using the app for the first time, Sign Up and verify your email. 
 
