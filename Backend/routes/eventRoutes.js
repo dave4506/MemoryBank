@@ -213,7 +213,7 @@ app.get(
           console.log(user)
 
           let user_info;
-          let events = [];
+          let event_ids = [];
 
           try {
               user_info = await db.collection('users').findOne(
@@ -224,9 +224,10 @@ app.get(
               return res.status(500).json({ error: 'Internal server error, unable to find user in the database.' });
           }
 
-          console.log(user_info)
+          console.log(user_info);
+
           if (user_info) {
-              events.push(...user_info.events);
+              event_ids.push(...user_info.events);
           }
           else {
               return res.status(500).json({ error: 'Unable to locate user profile.' });
@@ -244,13 +245,13 @@ app.get(
                         catch (err) {}
                     })
                 )
-                eventPromiseArray.forEach(event_ => {
+                eventsPromiseArray.forEach(event_ => {
                     events.push(event_);
                 })
                 return events;
             }
 
-        GetEvents(events)
+        GetEvents(event_ids)
         .then((event_objects) => {
             return res.status(200).json({ events: event_objects });
         })
