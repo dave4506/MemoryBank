@@ -1,0 +1,7 @@
+**/node_modules
+**/config/dev.js
+**/config/prod.js
+*/ssl
+/ssl
+terraform.*
+.terraform/
