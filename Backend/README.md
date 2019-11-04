@@ -18,4 +18,4 @@ deleting and getting) can be found in the routes/eventRoutes.js folder.
 
 ### Deployment
 
-This app is currently deployed and running on Heroku.
+This app is currently deployed and running on Heroku. The application is deployed using Terraform, the Infrastructure Code is on the file staging.tf. The heroku deployment specification (specifying the Dockerfile) are inside the heroku.yml file and the Dockerfile specification on the Dockerfile.dev file. In order to deploy, you need two enviroment variables (HEROKU_EMAIL and HEROKU_API_KEY) which you can get from your Heroku account. After that you can deploy using the $ terraform apply command. To destroy the remote instance use $ terraform destroy.
