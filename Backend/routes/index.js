@@ -1,8 +1,5 @@
-<<<<<<< Updated upstream
 const authRoutes = require("./authRoutes");
-=======
-const eventRoutes = require('eventRoutes.js')
->>>>>>> Stashed changes
+const eventRoutes = require('./eventRoutes.js');
 
 module.exports = (app, db) => {
   authRoutes(app, db);

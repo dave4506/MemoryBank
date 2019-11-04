@@ -1,11 +1,14 @@
 const Event = require('../models/Event')
+const passport = require('passport');
+const ObjectId = require('mongodb').ObjectID;
 
 module.exports = (app, db) => {
 
     app.post(
       '/event/create',
-      async (req, res) => {
+      async (req, res, next) => {
             passport.authenticate('jwt', { session: false }, async (err, user) => {
+
                 if (!req.body.event_name) {
                   return res.status(400).send({
                         message: "Must have event_name field."
@@ -47,7 +50,7 @@ module.exports = (app, db) => {
                 try {
                     new_event = new Event(
                         user.displayName,
-                        user._id
+                        user._id,
                         event_name,
                         event_description,
                         event_location,
@@ -82,8 +85,10 @@ module.exports = (app, db) => {
                     )
                 }
                 catch (err) {
-                    return res.status(500).json({error: 'Internal server error, unable to add status_id to user entry.'});
+                    console.log(err);
+                    return res.status(500).json({error: 'Internal server error, unable to update status_id to user entry.'});
                 }
+
                 if (update_status.result.nModified != 1) {
                     return res.status(500).json({error: 'Internal server error, unable to add status_id to user entry.' });
                 }
