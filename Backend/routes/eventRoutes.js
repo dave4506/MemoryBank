@@ -210,6 +210,8 @@ app.get(
   async (req, res, next) => {
       passport.authenticate('jwt', { session: false }, async (err, user) => {
 
+          console.log(user)
+
           let user_info;
           let events = [];
 
@@ -222,6 +224,7 @@ app.get(
               return res.status(500).json({ error: 'Internal server error, unable to find user in the database.' });
           }
 
+          console.log(user_info)
           if (user_info) {
               events.push(...user_info.events);
           }
