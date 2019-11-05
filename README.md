@@ -21,6 +21,9 @@ frontend:
 > Skeletal_Features:
 
 >> SF_7:
+
+>>> Simple_Camera_App:
+
 >>>> Simple_Camera_App.xcodeproj:
 
 >>>>> project.xcworkspace:
@@ -40,8 +43,6 @@ frontend:
 >>>> Simple_Camera_AppTests:
 
 >>>> Simple_Camera_AppUITests:
-
->>> Simple_Camera_App: 
 
 Routes:
 
