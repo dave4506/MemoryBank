@@ -32,7 +32,26 @@ Memory_Bank_App:
 >> Skeletal_Features:
 >>> SF_2:
 
+>>>> memory_bank_app:
+
 >>> SF_7:
+>>>>> Simple_Camera_App.xcodeproj:
+
+>>>>>> project.xcworkspace:
+
+>>>>>>> xcshareddata:
+
+>>>>>>> xcuserdata:
+
+>>>>>> xcuserdata:
+
+>>>>> Simple_Camera_App:	
+
+>>>>> Simple_Camera_AppTests:
+
+>>>>> Simple_Camera_AppUITests:
+
+>>>> Simple_Camera_App: 
 
 > Frontend_Code:
 >> MVP_Features:
