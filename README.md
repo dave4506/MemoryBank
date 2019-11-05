@@ -45,6 +45,10 @@ Memory_Bank_App:
 
 >>>>>> xcuserdata:
 
+>>>>>>> benjaminturner.xcuserdatad/xcschemes:
+
+>>>>>>> stewartvhr.xcuserdatad:
+
 >>>>> Simple_Camera_App:	
 
 >>>>> Simple_Camera_AppTests:
