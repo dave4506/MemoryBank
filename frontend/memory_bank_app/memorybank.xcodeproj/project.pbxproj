@@ -23,6 +23,17 @@
 		29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */; };
 		29D28098235D48050020EAFA /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28097235D48050020EAFA /* utils.swift */; };
 		29DFA1172308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */; };
+		728C28AB237124D600C715A9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28AA237124D600C715A9 /* CustomButton.swift */; };
+		728C28AD2371269500C715A9 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28AC2371269500C715A9 /* GradientView.swift */; };
+		728C28B22371B3EE00C715A9 /* UIColorAdditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28B12371B3EE00C715A9 /* UIColorAdditions.swift */; };
+		728C28B42371B66F00C715A9 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28B32371B66F00C715A9 /* ChatViewController.swift */; };
+		728C28B62371B73B00C715A9 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28B52371B73B00C715A9 /* SampleData.swift */; };
+		728C28B92371B78400C715A9 /* MockMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28B82371B78400C715A9 /* MockMessage.swift */; };
+		728C28BB2371B78C00C715A9 /* MockSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28BA2371B78C00C715A9 /* MockSocket.swift */; };
+		728C28BD2371B79600C715A9 /* MockUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28BC2371B79600C715A9 /* MockUser.swift */; };
+		728C28C02371B86500C715A9 /* Lorem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28BF2371B86500C715A9 /* Lorem.swift */; };
+		728C28C22371B8E300C715A9 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28C12371B8E300C715A9 /* UserDefaults.swift */; };
+		728C28C42371BCE900C715A9 /* BasicExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728C28C32371BCE900C715A9 /* BasicExampleViewController.swift */; };
 		AFB2012B4595F84606A7E894 /* Pods_memorybank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +60,17 @@
 		2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.release.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.release.xcconfig"; sourceTree = "<group>"; };
 		2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
 		3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memorybank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		728C28AA237124D600C715A9 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomButton.swift; path = ../../Skeletal_Features/SF_7/Simple_Camera_App/Simple_Camera_App/CustomButton.swift; sourceTree = "<group>"; };
+		728C28AC2371269500C715A9 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		728C28B12371B3EE00C715A9 /* UIColorAdditions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorAdditions.swift; sourceTree = "<group>"; };
+		728C28B32371B66F00C715A9 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		728C28B52371B73B00C715A9 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
+		728C28B82371B78400C715A9 /* MockMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMessage.swift; sourceTree = "<group>"; };
+		728C28BA2371B78C00C715A9 /* MockSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSocket.swift; sourceTree = "<group>"; };
+		728C28BC2371B79600C715A9 /* MockUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUser.swift; sourceTree = "<group>"; };
+		728C28BF2371B86500C715A9 /* Lorem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lorem.swift; sourceTree = "<group>"; };
+		728C28C12371B8E300C715A9 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		728C28C32371BCE900C715A9 /* BasicExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicExampleViewController.swift; sourceTree = "<group>"; };
 		986B61E6285A06198EBBE2B8 /* Pods-memorybank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.debug.xcconfig"; sourceTree = "<group>"; };
 		B3896318C8CD13ABD7D4EE1D /* Pods-creko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-creko.release.xcconfig"; path = "Pods/Target Support Files/Pods-creko/Pods-creko.release.xcconfig"; sourceTree = "<group>"; };
 		DBEB9BB4F88788184F7DD583 /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,6 +109,9 @@
 		17FC2F7E1E258FC500174015 /* memorybank */ = {
 			isa = PBXGroup;
 			children = (
+				728C28BE2371B85C00C715A9 /* Data */,
+				728C28B72371B77000C715A9 /* Models */,
+				728C28B02371B3E000C715A9 /* Extensions */,
 				17FC2F941E2590D800174015 /* MFAViewController.xib */,
 				17FC2F7F1E258FC500174015 /* AppDelegate.swift */,
 				17FC2F831E258FC500174015 /* Main.storyboard */,
@@ -105,6 +130,11 @@
 				29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */,
 				2928E2762309038700F239A0 /* Celebrity.swift */,
 				29D28097235D48050020EAFA /* utils.swift */,
+				728C28AA237124D600C715A9 /* CustomButton.swift */,
+				728C28AC2371269500C715A9 /* GradientView.swift */,
+				728C28B32371B66F00C715A9 /* ChatViewController.swift */,
+				728C28C12371B8E300C715A9 /* UserDefaults.swift */,
+				728C28C32371BCE900C715A9 /* BasicExampleViewController.swift */,
 			);
 			path = memorybank;
 			sourceTree = "<group>";
@@ -122,6 +152,33 @@
 				3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		728C28B02371B3E000C715A9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				728C28B12371B3EE00C715A9 /* UIColorAdditions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		728C28B72371B77000C715A9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				728C28B82371B78400C715A9 /* MockMessage.swift */,
+				728C28BA2371B78C00C715A9 /* MockSocket.swift */,
+				728C28BC2371B79600C715A9 /* MockUser.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		728C28BE2371B85C00C715A9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				728C28B52371B73B00C715A9 /* SampleData.swift */,
+				728C28BF2371B86500C715A9 /* Lorem.swift */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		DB539DB17300E4375A37CCA6 /* Pods */ = {
@@ -267,18 +324,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				728C28B92371B78400C715A9 /* MockMessage.swift in Sources */,
 				17FC2FA31E25A5D000174015 /* ConfirmForgotPasswordViewController.swift in Sources */,
 				29DFA1172308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift in Sources */,
+				728C28AD2371269500C715A9 /* GradientView.swift in Sources */,
+				728C28B22371B3EE00C715A9 /* UIColorAdditions.swift in Sources */,
 				004087AE236FA086005A883B /* S3ImageDownloadViewController.swift in Sources */,
 				17FC2FA11E25A25900174015 /* ForgotPasswordViewController.swift in Sources */,
+				728C28AB237124D600C715A9 /* CustomButton.swift in Sources */,
+				728C28C42371BCE900C715A9 /* BasicExampleViewController.swift in Sources */,
+				728C28B62371B73B00C715A9 /* SampleData.swift in Sources */,
 				17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */,
 				17FC2F9F1E259F3200174015 /* ConfirmSignUpViewController.swift in Sources */,
 				17FC2F9B1E259E0500174015 /* Constants.swift in Sources */,
 				29D28098235D48050020EAFA /* utils.swift in Sources */,
+				728C28B42371B66F00C715A9 /* ChatViewController.swift in Sources */,
+				728C28C22371B8E300C715A9 /* UserDefaults.swift in Sources */,
+				728C28BB2371B78C00C715A9 /* MockSocket.swift in Sources */,
+				728C28C02371B86500C715A9 /* Lorem.swift in Sources */,
 				2928E2772309038700F239A0 /* Celebrity.swift in Sources */,
 				29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */,
 				17FC2F991E25940900174015 /* SignInViewController.swift in Sources */,
 				17FC2F971E25928900174015 /* MFAViewController.swift in Sources */,
+				728C28BD2371B79600C715A9 /* MockUser.swift in Sources */,
 				17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
