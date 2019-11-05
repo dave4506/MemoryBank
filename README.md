@@ -133,40 +133,6 @@ Full File list is at the end of this file.
 │   ├── services
 │   │   └── passport.js
 │   └── staging.tf
-├── MemoryBank
-│   ├── MemoryBank
-│   │   ├── AppDelegate.swift
-│   │   ├── Assets.xcassets
-│   │   │   ├── AppIcon.appiconset
-│   │   │   │   └── Contents.json
-│   │   │   └── Contents.json
-│   │   ├── Base.lproj
-│   │   │   └── LaunchScreen.storyboard
-│   │   ├── ContentView.swift
-│   │   ├── Info.plist
-│   │   ├── Preview Content
-│   │   │   └── Preview Assets.xcassets
-│   │   │       └── Contents.json
-│   │   └── SceneDelegate.swift
-│   ├── MemoryBank.xcodeproj
-│   │   ├── project.pbxproj
-│   │   ├── project.xcworkspace
-│   │   │   ├── contents.xcworkspacedata
-│   │   │   ├── xcshareddata
-│   │   │   │   └── IDEWorkspaceChecks.plist
-│   │   │   └── xcuserdata
-│   │   │       └── benjaminturner.xcuserdatad
-│   │   │           └── UserInterfaceState.xcuserstate
-│   │   └── xcuserdata
-│   │       └── benjaminturner.xcuserdatad
-│   │           └── xcschemes
-│   │               └── xcschememanagement.plist
-│   ├── MemoryBankTests
-│   │   ├── Info.plist
-│   │   └── MemoryBankTests.swift
-│   └── MemoryBankUITests
-│       ├── Info.plist
-│       └── MemoryBankUITests.swift
 ├── MemoryBank.xcodeproj
 │   └── project.xcworkspace
 │       └── contents.xcworkspacedata
