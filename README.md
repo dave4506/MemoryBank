@@ -30,6 +30,8 @@ Memory_Bank_App:
 > Backend_Code:
 >> MVP_Features:
 >> Skeletal_Features:
+>>> SF_2:
+>>> SF_7:
 
 > Frontend_Code:
 >> MVP_Features:
