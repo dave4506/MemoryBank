@@ -38,6 +38,12 @@ frontend:
 
 > Skeletal_Features:
 
+>> SF_2:
+
+>>> memory_bank_app:
+
+>>>> memorybank.xcworkspace:
+
 >> SF_7:
 
 >>> Simple_Camera_App:
