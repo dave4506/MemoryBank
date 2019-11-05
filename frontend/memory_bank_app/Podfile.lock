@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.9.1)
   - AWSCognitoIdentityProvider (2.10.3):
     - AWSCognitoIdentityProviderASF (= 1.0.1)
     - AWSCore (= 2.10.3)
@@ -10,31 +11,53 @@ PODS:
     - AWSCore (= 2.10.3)
   - AWSS3 (2.10.3):
     - AWSCore (= 2.10.3)
+  - InputBarAccessoryView (4.3.1):
+    - InputBarAccessoryView/Core (= 4.3.1)
+  - InputBarAccessoryView/Core (4.3.1)
+  - MessageKit (3.1.0):
+    - InputBarAccessoryView (~> 4.3.0)
 
 DEPENDENCIES:
+  - Alamofire
   - AWSCognitoIdentityProvider (~> 2.10.0)
   - AWSCore (~> 2.10.0)
   - AWSDynamoDB (~> 2.10.0)
   - AWSRekognition (~> 2.10.0)
   - AWSS3 (~> 2.10.0)
+  - MessageKit (from `https://github.com/MessageKit/MessageKit.git`, branch `3.0.0-swift5`)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
     - AWSCognitoIdentityProvider
     - AWSCognitoIdentityProviderASF
     - AWSCore
     - AWSDynamoDB
     - AWSRekognition
     - AWSS3
+    - InputBarAccessoryView
+
+EXTERNAL SOURCES:
+  MessageKit:
+    :branch: 3.0.0-swift5
+    :git: https://github.com/MessageKit/MessageKit.git
+
+CHECKOUT OPTIONS:
+  MessageKit:
+    :commit: 9a7d4b414be9050bf477f52303df8943d0264ec0
+    :git: https://github.com/MessageKit/MessageKit.git
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   AWSCognitoIdentityProvider: 70cfc80901b1b66bd68ef06893cb0ec3c6213510
   AWSCognitoIdentityProviderASF: f94f1a502e72ef3d0a1de93e10bf7a79c8698118
   AWSCore: f9b8a30d9e8ec07d1a6dd8f0ec5fe84b6a215041
   AWSDynamoDB: fdd2be78e412092fc4a35a326d19370eb3a4d097
   AWSRekognition: c28cbc52389702c405f449e8721a1723735c61b9
   AWSS3: c6f0f7a49a74384b9d0fe055c822d1fa5c633905
+  InputBarAccessoryView: 58a348be7ea2736c7eec60e5c315511c2dbb39fd
+  MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
 
-PODFILE CHECKSUM: 0ff2274bad1ad4ef316de70f94b278643b5689ea
+PODFILE CHECKSUM: d18dee5c826f4f39fc8a5a9f60f2eaed722c5999
 
 COCOAPODS: 1.8.4
