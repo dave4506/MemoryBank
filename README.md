@@ -15,23 +15,7 @@ Backend:
 
 > services:
 
-MemoryBank:
-> MemoryBank:
-
-> MemoryBank.xcodeproj:
-
-> MemoryBankTests:
-
-> MemoryBankUITests:
-
-MemoryBank.xcodeproj:
-
-Memory_Bank_App:
-> Backend_Code:
->> MVP_Features:
->> Skeletal_Features:
->>> SF_2:
-
+frontend:
 >>>> memory_bank_app:
 
 >>> SF_7:
