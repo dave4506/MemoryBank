@@ -682,26 +682,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wme-4B-4v4">
-                                <rect key="frame" x="144" y="288" width="86" height="30"/>
-                                <state key="normal" title="Identify Item"/>
-                                <connections>
-                                    <segue destination="qfz-LT-vco" kind="show" id="aZy-0R-i2K"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ymf-Cf-NJy">
+                                <rect key="frame" x="36" y="288" width="303" height="90"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wme-4B-4v4">
+                                        <rect key="frame" x="0.0" y="0.0" width="303" height="30"/>
+                                        <state key="normal" title="Identify Item"/>
+                                        <connections>
+                                            <segue destination="qfz-LT-vco" kind="show" id="aZy-0R-i2K"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NrL-3C-HGb">
+                                        <rect key="frame" x="0.0" y="30" width="303" height="30"/>
+                                        <state key="normal" title="Events"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVQ-ev-eqJ">
+                                        <rect key="frame" x="0.0" y="60" width="303" height="30"/>
+                                        <state key="normal" title="Messages"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="wme-4B-4v4" firstAttribute="leading" secondItem="pMr-Zm-f4D" secondAttribute="leadingMargin" constant="128" id="wD8-t9-nBK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="wme-4B-4v4" secondAttribute="trailing" constant="129" id="xLZ-2X-l9p"/>
-                            <constraint firstItem="wme-4B-4v4" firstAttribute="top" secondItem="DDm-4f-Fe0" secondAttribute="bottom" constant="200" id="zgc-hZ-QZu"/>
+                            <constraint firstItem="ymf-Cf-NJy" firstAttribute="top" secondItem="DDm-4f-Fe0" secondAttribute="bottom" constant="200" id="XcA-4f-cNy"/>
+                            <constraint firstItem="ymf-Cf-NJy" firstAttribute="leading" secondItem="pMr-Zm-f4D" secondAttribute="leadingMargin" constant="20" id="dU0-uZ-dUz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ymf-Cf-NJy" secondAttribute="trailing" constant="20" id="xLd-Q9-giX"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="oaD-N4-a7p"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvT-Do-WIY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3508" y="1353"/>
+            <point key="canvasLocation" x="-3508" y="1352.9556650246307"/>
         </scene>
     </scenes>
 </document>
