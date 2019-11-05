@@ -23,7 +23,7 @@
 		29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */; };
 		29D28098235D48050020EAFA /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28097235D48050020EAFA /* utils.swift */; };
 		29DFA1172308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */; };
-		D5B6E3B95F653E2FB6A6B71B /* Pods_creko.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F59F213B51F32AD2E062067 /* Pods_creko.framework */; };
+		AFB2012B4595F84606A7E894 /* Pods_memorybank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,8 +46,10 @@
 		29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ImageUploadViewController.swift; sourceTree = "<group>"; };
 		29D28097235D48050020EAFA /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoUserPoolIdentityProvider.swift; sourceTree = "<group>"; };
+		2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.release.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.release.xcconfig"; sourceTree = "<group>"; };
 		2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
-		4F59F213B51F32AD2E062067 /* Pods_creko.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_creko.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memorybank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		986B61E6285A06198EBBE2B8 /* Pods-memorybank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.debug.xcconfig"; sourceTree = "<group>"; };
 		B3896318C8CD13ABD7D4EE1D /* Pods-creko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-creko.release.xcconfig"; path = "Pods/Target Support Files/Pods-creko/Pods-creko.release.xcconfig"; sourceTree = "<group>"; };
 		DBEB9BB4F88788184F7DD583 /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5B6E3B95F653E2FB6A6B71B /* Pods_creko.framework in Frameworks */,
+				AFB2012B4595F84606A7E894 /* Pods_memorybank.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +119,7 @@
 		2B50A37AC16AACF9427C4F0F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4F59F213B51F32AD2E062067 /* Pods_creko.framework */,
+				3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,6 +131,8 @@
 				2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */,
 				0C29FBE9C482CC400E7EB58E /* Pods-creko.debug.xcconfig */,
 				B3896318C8CD13ABD7D4EE1D /* Pods-creko.release.xcconfig */,
+				986B61E6285A06198EBBE2B8 /* Pods-memorybank.debug.xcconfig */,
+				2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -215,7 +219,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-creko-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-memorybank-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -228,7 +232,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-creko/Pods-creko-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-memorybank/Pods-memorybank-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
@@ -247,7 +251,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-creko/Pods-creko-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memorybank/Pods-memorybank-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -397,7 +401,7 @@
 		};
 		17FC2F8F1E258FC500174015 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C29FBE9C482CC400E7EB58E /* Pods-creko.debug.xcconfig */;
+			baseConfigurationReference = 986B61E6285A06198EBBE2B8 /* Pods-memorybank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MF7TBHZV3U;
@@ -411,7 +415,7 @@
 		};
 		17FC2F901E258FC500174015 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3896318C8CD13ABD7D4EE1D /* Pods-creko.release.xcconfig */;
+			baseConfigurationReference = 2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MF7TBHZV3U;
