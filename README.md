@@ -18,6 +18,24 @@ Backend:
 frontend:
 > memory_bank_app:
 
+>> memorybank.xcodeproj:
+
+>>> xcshareddata:
+
+>>> project.xcworkspace:
+
+>>> xcshareddata/xcschemes:
+
+>> memorybank.xcworkspace:
+
+>>> xcshareddata:
+
+>> memorybank:
+
+>>>Assets.xcassets/AppIcon.appiconset:
+
+>>>Base.lproj:
+
 > Skeletal_Features:
 
 >> SF_7:
@@ -30,15 +48,15 @@ frontend:
 
 >>>>>> xcshareddata:
 
->>>>>> xcuserdata:
+>>>> Simple_Camera_App:
 
->>>>> xcuserdata:
+>>>>> Assets.xcassets:
 
->>>>>> benjaminturner.xcuserdatad/xcschemes:
+>>>>>> AppIcon.appiconset:
 
->>>>>> stewartvhr.xcuserdatad:
+>>>>>> defaultPhoto.imageset:
 
->>>> Simple_Camera_App:	
+>>>>> Base.lproj:
 
 >>>> Simple_Camera_AppTests:
 
