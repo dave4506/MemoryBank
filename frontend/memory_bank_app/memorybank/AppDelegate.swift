@@ -36,40 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        // Warn user if configuration not updated
-        if (CognitoIdentityUserPoolId == "YOUR_USER_POOL_ID") {
-            let alertController = UIAlertController(title: "Invalid Configuration",
-                                                    message: "Please configure user pool constants in Constants.swift file.",
-                                                    preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alertController.addAction(okAction)
-            
-            self.window?.rootViewController!.present(alertController, animated: true, completion:  nil)
-        }
-        
-        // setup logging
-        AWSDDLog.sharedInstance.logLevel = .verbose
-        
-        // setup service configuration
-        let serviceConfiguration = AWSServiceConfiguration(region: CognitoIdentityUserPoolRegion, credentialsProvider: nil)
-        
-        // create pool configuration
-        let poolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: CognitoIdentityUserPoolAppClientId,
-            clientSecret: CognitoIdentityUserPoolAppClientSecret,
-            poolId: CognitoIdentityUserPoolId)
-        
-        // initialize user pool client
-        AWSCognitoIdentityUserPool.register(with: serviceConfiguration, userPoolConfiguration: poolConfiguration, forKey: CognitoUserPoolsSignInProviderKey)
-        
-        // fetch the user pool client we initialized in above step
-        self.pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
-        self.storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.pool?.delegate = self
-    
-        self.refreshCredentials()
-        
         return true
     }
     

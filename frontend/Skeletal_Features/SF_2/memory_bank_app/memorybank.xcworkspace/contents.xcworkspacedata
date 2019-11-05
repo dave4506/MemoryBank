@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:/Users/stewartvhr/git/MemoryBank/Memory_Bank_App/Frontend_Code/Skeletal_Features/SF_2/memory_bank_app/memorybank.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:memorybank.xcodeproj">
+   </FileRef>
+</Workspace>

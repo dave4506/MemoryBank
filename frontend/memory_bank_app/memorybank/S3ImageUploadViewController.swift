@@ -20,16 +20,7 @@ class S3ImageUploadViewController : UIViewController, UIImagePickerControllerDel
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setToolbarHidden(false, animated: true)
-    }
-    
-    // MARK: - IBActions
-    @IBAction func signOut(_ sender: Any) {
-        let pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
-        pool.currentUser()?.signOut()
-        pool.clearLastKnownUser()
-        let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.refreshCredentials()
+        self.navigationController?.setToolbarHidden(true, animated: true)
     }
     
     @IBAction func useCamera(_ sender: Any) {
@@ -59,11 +50,11 @@ class S3ImageUploadViewController : UIViewController, UIImagePickerControllerDel
         dismiss(animated: true, completion: nil)
         let jpegData:Data = selectedImage.jpegData(compressionQuality: 0.95)!
         
-        var key: String
+        // var key: String
         
-        key = ""
+        // key = ""
         
-        key = self.uploadImageToS3(imageData: jpegData)
+        // key = self.uploadImageToS3(imageData: jpegData)
     }
     
     //MARK: - AWS Methods
