@@ -3,8 +3,18 @@
 This is memory bank.
 We remember for those that can't!
 
+# Running App: #
+1. Install app on phone via usb cable using Xcode. 
+
+2. Build and Run app and follow prompts on screen. 
+
 # Folder List : #
 Backend:
+> Tests:
+
+>> helpers:
+
+
 > config:
 
 > helpers:
