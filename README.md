@@ -16,34 +16,32 @@ Backend:
 > services:
 
 frontend:
->>>> memory_bank_app:
+> memory_bank_app:
 
->>> SF_7:
->>>>> Simple_Camera_App.xcodeproj:
+> Skeletal_Features:
 
->>>>>> project.xcworkspace:
+>> SF_7:
+>>>> Simple_Camera_App.xcodeproj:
 
->>>>>>> xcshareddata:
+>>>>> project.xcworkspace:
 
->>>>>>> xcuserdata:
+>>>>>> xcshareddata:
 
 >>>>>> xcuserdata:
 
->>>>>>> benjaminturner.xcuserdatad/xcschemes:
+>>>>> xcuserdata:
 
->>>>>>> stewartvhr.xcuserdatad:
+>>>>>> benjaminturner.xcuserdatad/xcschemes:
 
->>>>> Simple_Camera_App:	
+>>>>>> stewartvhr.xcuserdatad:
 
->>>>> Simple_Camera_AppTests:
+>>>> Simple_Camera_App:	
 
->>>>> Simple_Camera_AppUITests:
+>>>> Simple_Camera_AppTests:
 
->>>> Simple_Camera_App: 
+>>>> Simple_Camera_AppUITests:
 
-> Frontend_Code:
->> MVP_Features:
->> Skeletal_Features:
+>>> Simple_Camera_App: 
 
 Routes:
 
