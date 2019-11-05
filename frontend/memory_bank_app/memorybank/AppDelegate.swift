@@ -28,14 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var storyboard: UIStoryboard?
     var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
     
-    var pool: AWSCognitoIdentityUserPool?
-    var configuration: AWSServiceConfiguration?
-    var credentialsProvider: AWSCognitoCredentialsProvider?
-    var identityProvider: CognitoUserPoolIdentityProvider?
-    var session: AWSCognitoIdentityUserSession?
-    
+    var userSession: UserSession?;
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // userSession = getUserSessionFromLocalStorage()
+        checkForUserSessionAndRoute()
         return true
     }
     
@@ -61,133 +58,133 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
     }
     
-    func refreshCredentials() {
-
-        print("call logins")
-        self.pool?.logins().continueOnSuccessWith{ (task) -> AnyObject? in
-            DispatchQueue.main.async(execute: {
-                let logins = task.result
-                self.identityProvider = CognitoUserPoolIdentityProvider(tokens: logins as? [String : String])
-                self.credentialsProvider = AWSCognitoCredentialsProvider(regionType: CognitoIdentityUserPoolRegion,
-                                                                         identityPoolId: CognitoIdentityPoolId,
-                                                                         identityProviderManager: self.identityProvider)
-                self.configuration = AWSServiceConfiguration(region: CognitoIdentityUserPoolRegion,
-                                                             credentialsProvider: self.credentialsProvider)
-                AWSServiceManager.default().defaultServiceConfiguration = self.configuration
-                
-                self.pool!.currentUser()!.getSession().continueOnSuccessWith{ (task) -> AnyObject? in
-                    DispatchQueue.main.async(execute: {
-                        self.session = task.result
-                        print(self.session!.idToken!.tokenString as Any)
-                    })
-                    return nil
-                }
-            })
-            return nil
-        }
-    }
-    
-    func getTokens() -> AWSCognitoIdentityUserSession? {
-        return self.session
-    }
+//    func refreshCredentials() {
+//
+//        print("call logins")
+//        self.pool?.logins().continueOnSuccessWith{ (task) -> AnyObject? in
+//            DispatchQueue.main.async(execute: {
+//                let logins = task.result
+//                self.identityProvider = CognitoUserPoolIdentityProvider(tokens: logins as? [String : String])
+//                self.credentialsProvider = AWSCognitoCredentialsProvider(regionType: CognitoIdentityUserPoolRegion,
+//                                                                         identityPoolId: CognitoIdentityPoolId,
+//                                                                         identityProviderManager: self.identityProvider)
+//                self.configuration = AWSServiceConfiguration(region: CognitoIdentityUserPoolRegion,
+//                                                             credentialsProvider: self.credentialsProvider)
+//                AWSServiceManager.default().defaultServiceConfiguration = self.configuration
+//
+//                self.pool!.currentUser()!.getSession().continueOnSuccessWith{ (task) -> AnyObject? in
+//                    DispatchQueue.main.async(execute: {
+//                        self.session = task.result
+//                        print(self.session!.idToken!.tokenString as Any)
+//                    })
+//                    return nil
+//                }
+//            })
+//            return nil
+//        }
+//    }
+//
+//    func getTokens() -> AWSCognitoIdentityUserSession? {
+//        return self.session
+//    }
 }
 
 
 // MARK:- AWSCognitoIdentityInteractiveAuthenticationDelegate protocol delegate
 
-extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
-    
-    func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
-        if (self.navigationController == nil) {
-            self.navigationController = self.storyboard?.instantiateViewController(withIdentifier: "signinController") as? UINavigationController
-        }
-        
-        if (self.signInViewController == nil) {
-            self.signInViewController = self.navigationController?.viewControllers[0] as? SignInViewController
-        }
-        
-        DispatchQueue.main.async {
-            self.navigationController!.popToRootViewController(animated: true)
-            if (!self.navigationController!.isViewLoaded
-                || self.navigationController!.view.window == nil) {
-                self.window?.rootViewController?.present(self.navigationController!,
-                                                         animated: true,
-                                                         completion: nil)
-            }
-            
-        }
-        return self.signInViewController!
-    }
-    
-    func startMultiFactorAuthentication() -> AWSCognitoIdentityMultiFactorAuthentication {
-        if (self.mfaViewController == nil) {
-            self.mfaViewController = MFAViewController()
-            self.mfaViewController?.modalPresentationStyle = .popover
-        }
-        DispatchQueue.main.async {
-            if (!self.mfaViewController!.isViewLoaded
-                || self.mfaViewController!.view.window == nil) {
-                //display mfa as popover on current view controller
-                let viewController = self.window?.rootViewController!
-                viewController?.present(self.mfaViewController!,
-                                        animated: true,
-                                        completion: nil)
-                
-                // configure popover vc
-                let presentationController = self.mfaViewController!.popoverPresentationController
-                presentationController?.permittedArrowDirections = UIPopoverArrowDirection.left
-                presentationController?.sourceView = viewController!.view
-                presentationController?.sourceRect = viewController!.view.bounds
-            }
-        }
-        return self.mfaViewController!
-    }
-    
-    func startRememberDevice() -> AWSCognitoIdentityRememberDevice {
-        return self
-    }
-}
-
-// MARK:- AWSCognitoIdentityRememberDevice protocol delegate
-
-extension AppDelegate: AWSCognitoIdentityRememberDevice {
-    
-    func getRememberDevice(_ rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>) {
-        self.rememberDeviceCompletionSource = rememberDeviceCompletionSource
-        DispatchQueue.main.async {
-            // dismiss the view controller being present before asking to remember device
-            self.window?.rootViewController!.presentedViewController?.dismiss(animated: true, completion: nil)
-            let alertController = UIAlertController(title: "Remember Device",
-                                                    message: "Do you want to remember this device?.",
-                                                    preferredStyle: .actionSheet)
-            
-            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
-                self.rememberDeviceCompletionSource?.set(result: true)
-            })
-            let noAction = UIAlertAction(title: "No", style: .default, handler: { (action) in
-                self.rememberDeviceCompletionSource?.set(result: false)
-            })
-            alertController.addAction(yesAction)
-            alertController.addAction(noAction)
-            
-            self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    func didCompleteStepWithError(_ error: Error?) {
-        DispatchQueue.main.async {
-            if let error = error as NSError? {
-                let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
-                                                        message: error.userInfo["message"] as? String,
-                                                        preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
-                alertController.addAction(okAction)
-                DispatchQueue.main.async {
-                    self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
-                }
-            }
-        }
-    }
-    
-
-}
+//extension AppDelegate: AWSCognitoIdentityInteractiveAuthenticationDelegate {
+//
+//    func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
+//        if (self.navigationController == nil) {
+//            self.navigationController = self.storyboard?.instantiateViewController(withIdentifier: "signinController") as? UINavigationController
+//        }
+//
+//        if (self.signInViewController == nil) {
+//            self.signInViewController = self.navigationController?.viewControllers[0] as? SignInViewController
+//        }
+//
+//        DispatchQueue.main.async {
+//            self.navigationController!.popToRootViewController(animated: true)
+//            if (!self.navigationController!.isViewLoaded
+//                || self.navigationController!.view.window == nil) {
+//                self.window?.rootViewController?.present(self.navigationController!,
+//                                                         animated: true,
+//                                                         completion: nil)
+//            }
+//
+//        }
+//        return self.signInViewController!
+//    }
+//
+//    func startMultiFactorAuthentication() -> AWSCognitoIdentityMultiFactorAuthentication {
+//        if (self.mfaViewController == nil) {
+//            self.mfaViewController = MFAViewController()
+//            self.mfaViewController?.modalPresentationStyle = .popover
+//        }
+//        DispatchQueue.main.async {
+//            if (!self.mfaViewController!.isViewLoaded
+//                || self.mfaViewController!.view.window == nil) {
+//                //display mfa as popover on current view controller
+//                let viewController = self.window?.rootViewController!
+//                viewController?.present(self.mfaViewController!,
+//                                        animated: true,
+//                                        completion: nil)
+//
+//                // configure popover vc
+//                let presentationController = self.mfaViewController!.popoverPresentationController
+//                presentationController?.permittedArrowDirections = UIPopoverArrowDirection.left
+//                presentationController?.sourceView = viewController!.view
+//                presentationController?.sourceRect = viewController!.view.bounds
+//            }
+//        }
+//        return self.mfaViewController!
+//    }
+//
+//    func startRememberDevice() -> AWSCognitoIdentityRememberDevice {
+//        return self
+//    }
+//}
+//
+//// MARK:- AWSCognitoIdentityRememberDevice protocol delegate
+//
+//extension AppDelegate: AWSCognitoIdentityRememberDevice {
+//
+//    func getRememberDevice(_ rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>) {
+//        self.rememberDeviceCompletionSource = rememberDeviceCompletionSource
+//        DispatchQueue.main.async {
+//            // dismiss the view controller being present before asking to remember device
+//            self.window?.rootViewController!.presentedViewController?.dismiss(animated: true, completion: nil)
+//            let alertController = UIAlertController(title: "Remember Device",
+//                                                    message: "Do you want to remember this device?.",
+//                                                    preferredStyle: .actionSheet)
+//
+//            let yesAction = UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+//                self.rememberDeviceCompletionSource?.set(result: true)
+//            })
+//            let noAction = UIAlertAction(title: "No", style: .default, handler: { (action) in
+//                self.rememberDeviceCompletionSource?.set(result: false)
+//            })
+//            alertController.addAction(yesAction)
+//            alertController.addAction(noAction)
+//
+//            self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+//        }
+//    }
+//
+//    func didCompleteStepWithError(_ error: Error?) {
+//        DispatchQueue.main.async {
+//            if let error = error as NSError? {
+//                let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
+//                                                        message: error.userInfo["message"] as? String,
+//                                                        preferredStyle: .alert)
+//                let okAction = UIAlertAction(title: "ok", style: .default, handler: nil)
+//                alertController.addAction(okAction)
+//                DispatchQueue.main.async {
+//                    self.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+//                }
+//            }
+//        }
+//    }
+//
+//
+//}

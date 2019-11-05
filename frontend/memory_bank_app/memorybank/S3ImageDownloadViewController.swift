@@ -47,8 +47,8 @@ class S3ImageDownloadViewController : UIViewController, UIImagePickerControllerD
         let pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
         pool.currentUser()?.signOut()
         pool.clearLastKnownUser()
-        let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-        appDelegate?.refreshCredentials()
+//        let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
+//        appDelegate?.refreshCredentials()
     }
     
     @IBAction func downloadImage(_ sender: UIButton) {

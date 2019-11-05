@@ -23,6 +23,7 @@
 		29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */; };
 		29D28098235D48050020EAFA /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28097235D48050020EAFA /* utils.swift */; };
 		29DFA1172308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */; };
+		2A3607A22371B7B600A4C45B /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3607A12371B7B600A4C45B /* user.swift */; };
 		AFB2012B4595F84606A7E894 /* Pods_memorybank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ImageUploadViewController.swift; sourceTree = "<group>"; };
 		29D28097235D48050020EAFA /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoUserPoolIdentityProvider.swift; sourceTree = "<group>"; };
+		2A3607A12371B7B600A4C45B /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.release.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.release.xcconfig"; sourceTree = "<group>"; };
 		2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
 		3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memorybank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 				29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */,
 				2928E2762309038700F239A0 /* Celebrity.swift */,
 				29D28097235D48050020EAFA /* utils.swift */,
+				2A3607A12371B7B600A4C45B /* user.swift */,
 			);
 			path = memorybank;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				29DFA1172308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift in Sources */,
 				004087AE236FA086005A883B /* S3ImageDownloadViewController.swift in Sources */,
 				17FC2FA11E25A25900174015 /* ForgotPasswordViewController.swift in Sources */,
+				2A3607A22371B7B600A4C45B /* user.swift in Sources */,
 				17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */,
 				17FC2F9F1E259F3200174015 /* ConfirmSignUpViewController.swift in Sources */,
 				17FC2F9B1E259E0500174015 /* Constants.swift in Sources */,
