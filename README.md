@@ -15,25 +15,34 @@ Backend:
 
 > services:
 
-MemoryBank:
-> MemoryBank:
+frontend:
+> memory_bank_app:
 
-> MemoryBank.xcodeproj:
+> Skeletal_Features:
 
-> MemoryBankTests:
+>> SF_7:
 
-> MemoryBankUITests:
+>>> Simple_Camera_App:
 
-MemoryBank.xcodeproj:
+>>>> Simple_Camera_App.xcodeproj:
 
-Memory_Bank_App:
-> Backend_Code:
->> MVP_Features:
->> Skeletal_Features:
+>>>>> project.xcworkspace:
 
-> Frontend_Code:
->> MVP_Features:
->> Skeletal_Features:
+>>>>>> xcshareddata:
+
+>>>>>> xcuserdata:
+
+>>>>> xcuserdata:
+
+>>>>>> benjaminturner.xcuserdatad/xcschemes:
+
+>>>>>> stewartvhr.xcuserdatad:
+
+>>>> Simple_Camera_App:	
+
+>>>> Simple_Camera_AppTests:
+
+>>>> Simple_Camera_AppUITests:
 
 Routes:
 
@@ -133,40 +142,6 @@ Full File list is at the end of this file.
 │   ├── services
 │   │   └── passport.js
 │   └── staging.tf
-├── MemoryBank
-│   ├── MemoryBank
-│   │   ├── AppDelegate.swift
-│   │   ├── Assets.xcassets
-│   │   │   ├── AppIcon.appiconset
-│   │   │   │   └── Contents.json
-│   │   │   └── Contents.json
-│   │   ├── Base.lproj
-│   │   │   └── LaunchScreen.storyboard
-│   │   ├── ContentView.swift
-│   │   ├── Info.plist
-│   │   ├── Preview Content
-│   │   │   └── Preview Assets.xcassets
-│   │   │       └── Contents.json
-│   │   └── SceneDelegate.swift
-│   ├── MemoryBank.xcodeproj
-│   │   ├── project.pbxproj
-│   │   ├── project.xcworkspace
-│   │   │   ├── contents.xcworkspacedata
-│   │   │   ├── xcshareddata
-│   │   │   │   └── IDEWorkspaceChecks.plist
-│   │   │   └── xcuserdata
-│   │   │       └── benjaminturner.xcuserdatad
-│   │   │           └── UserInterfaceState.xcuserstate
-│   │   └── xcuserdata
-│   │       └── benjaminturner.xcuserdatad
-│   │           └── xcschemes
-│   │               └── xcschememanagement.plist
-│   ├── MemoryBankTests
-│   │   ├── Info.plist
-│   │   └── MemoryBankTests.swift
-│   └── MemoryBankUITests
-│       ├── Info.plist
-│       └── MemoryBankUITests.swift
 ├── MemoryBank.xcodeproj
 │   └── project.xcworkspace
 │       └── contents.xcworkspacedata
