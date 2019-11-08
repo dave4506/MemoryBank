@@ -1,0 +1,11 @@
+Link to iOS Amazon Rekognition API: https://aws-amplify.github.io/aws-sdk-ios/docs/reference/Classes/AWSRekognition.html
+
+
+Relevant Sections in rekognition.pdf: 
+	API Reference: Pg. 251
+
+	Searching Faces in a Collection: Pages 141 - 181
+
+	Detecting Objects and Scenes: 105-117
+
+	Detecting and Analyzing Faces: 117-137
