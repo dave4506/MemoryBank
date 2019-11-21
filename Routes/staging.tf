@@ -12,6 +12,6 @@ resource "heroku_build" "default" {
   source = {
     # A local directory, changing its contents will
     # force a new build during `terraform apply`
-    path = "../Swagger-ui"
+    path = "../Routes"
   }
 }
