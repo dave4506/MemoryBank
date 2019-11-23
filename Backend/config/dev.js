@@ -3,5 +3,5 @@ module.exports = {
   mongoSSL: true,
   jwtSecret: 'mysecret',
   bucketName: 'stewartvhr-umich-eecs441',
-  collectionId: 'memoryBank',
+  collectionId: 'memorybankcollection',
 }

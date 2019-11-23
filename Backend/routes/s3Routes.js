@@ -25,31 +25,25 @@ module.exports = (app, AWS) => {
         }
 
         // get elements in folder to determine next filename
-        let files;
-        try {
-          files = await s3.listObjects({
-            Bucket: keys.bucketName, /* required */
-            Prefix: `${user._id}/${req.body.faceName}`,
-          });
-        } catch (error) {
-          return res.status(500).json({ error: 'Could not retrieve s3 objects' });
-        }
+        s3.listObjects({
+          Bucket: keys.bucketName, /* required */
+          Prefix: `${user._id}/${req.body.faceName}/`,
+        }, (error, files) => {
+          if (error) {
+            return res.status(500).json({ error: 'Could not retrieve s3 objects' });
+          }
 
-        // get presigned url
-        const bucketParams = {
-          Bucket: keys.bucketName,
-          Key: `${user._id}/${req.body.faceName}/image${files.length}`,
-          Expires: 60 * 60
-        };
+          // get presigned url
+          const bucketParams = {
+            Bucket: keys.bucketName,
+            Key: `${user._id}/${req.body.faceName}/image${files.Contents.length}`,
+            Expires: 60 * 60,
+          };
 
-        let url;
-        try {
-          url = s3.getSignedUrl('putObject', bucketParams);
-        } catch (error) {
-          return res.status(500).json({ error: 'could not generate presigned url' });
-        }
+          const url = s3.getSignedUrl('putObject', bucketParams);
 
-        return res.status(200).json({ url });
+          return res.status(200).json({ url });
+        });
       })(req, res, next);
     },
   );
@@ -76,7 +70,7 @@ module.exports = (app, AWS) => {
           Expires: 60 * 60,
         };
 
-        const url = s3.getSignedUrl('getObject', bucketParams);
+        const url = s3.getSignedUrl('putObject', bucketParams);
 
         return res.status(200).json({ url });
       })(req, res, next);

@@ -2,7 +2,7 @@ const passport = require('passport');
 const keys = require('../config/keys');
 
 module.exports = (app, db, AWS) => {
-  const rekognition = new AWS.Rekognition({ apiVersion: '2016-06-27' });
+  const rekognition = new AWS.Rekognition({ apiVersion: '2016-06-27', region: 'us-east-1' });
   const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
 
   app.post(
@@ -28,20 +28,11 @@ module.exports = (app, db, AWS) => {
         // get filename for all images for user
         const s3Params = {
           Bucket: keys.bucketName, /* required */
-          Prefix: `${user._id}/${req.body.faceName}`,
+          Prefix: `${user._id}/${req.body.faceName}/`,
         };
-
-        let files;
-        try {
-          files = await s3.listObjects(s3Params);
-        } catch (error) {
-          return res.status(500).json({ error: 'Could not retrieve s3 objects' });
-        }
-
 
         const rekognitionParams = {
           CollectionId: keys.collectionId,
-          FaceMatchThreshold: 95,
           Image: {
             S3Object: {
               Bucket: keys.bucketName,
@@ -51,25 +42,30 @@ module.exports = (app, db, AWS) => {
           MaxFaces: 1,
         };
 
-        files.forEach(async (file) => {
-          rekognitionParams.Image.S3Object.Name = file.Key;
-
-          let response;
-          try {
-            response = await rekognition.indexFaces(rekognitionParams);
-          } catch (error) {
-            return res.status(500).json({ error: 'could not indexFace into aws Rekogtion' });
+        s3.listObjects(s3Params, (error, files) => {
+          if (error) {
+            return res.status(500).json({ error: 'Could not retrieve s3 objects' });
           }
 
-          const obj = {
-            FaceId: response.FaceRecords[0].Face.FaceId,
-            Name: req.body.faceName,
-          };
+          for (let i = 0; i < files.Contents.length; i++) {
+            rekognitionParams.Image.S3Object.Name = files.Contents[i].Key;
 
-          db.collection('faces').insertOne(obj);
+            rekognition.indexFaces(rekognitionParams, (erro, response) => {
+              if (erro) {
+                return res.status(500).json({ error: 'could not indexFace into aws Rekogtion' });
+              }
+
+              const obj = {
+                FaceId: response.FaceRecords[0].Face.FaceId,
+                Name: req.body.faceName,
+              };
+
+              db.collection('faces').insertOne(obj);
+            });
+          }
+
+          return res.status(200).json({ message: 'Succesfully added face to aws Rekognition' });
         });
-
-        return res.status(200).json({ message: 'Succesfully added face to aws Rekognition' });
       })(req, res, next);
     },
   );
@@ -103,23 +99,21 @@ module.exports = (app, db, AWS) => {
         };
 
         // Search face on Amazon Rekognition
-        let searchData;
-        try {
-          searchData = await rekognition.searchFacesByImage(params);
-        } catch (error) {
-          return res.status(500).json({ error: 'Failed to searchFacesByImage in Rekognition' });
-        }
+        rekognition.searchFacesByImage(params, async (error, searchData) => {
+          if (error) {
+            return res.status(500).json({ error: 'Failed to searchFacesByImage in Rekognition' });
+          }
 
-        // get face Name from db
-        let face;
-        try {
-          face = await db.collection('faces').findOne({ FaceId: searchData.FaceMatches[0].Face.FaceId });
-        } catch (error) {
-          return res.status(500).json({ error: 'Failed to retrieve face from DB' });
-        }
+          // get face Name from db
+          let face;
+          try {
+            face = await db.collection('faces').findOne({ FaceId: searchData.FaceMatches[0].Face.FaceId });
+          } catch (e) {
+            return res.status(500).json({ error: 'Failed to retrieve face from DB' });
+          }
 
-
-        return res.status(200).json({ result: face.Name });
+          return res.status(200).json({ result: face.Name });
+        });
       })(req, res, next);
     },
   );
