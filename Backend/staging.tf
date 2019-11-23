@@ -1,5 +1,7 @@
 variable "MONGO_USER" {}
 variable "MONGO_PASSWORD" {}
+variable "AWS_ACCESSKEYID" {}
+variable "AWS_SECRETACCESSKEY" {}
 
 provider "heroku" {}
 
@@ -14,6 +16,8 @@ resource "heroku_app" "default" {
 
   sensitive_config_vars = {
     MONGO_PASSWORD = "${var.MONGO_PASSWORD}"
+    AWS_ACCESSKEYID = "${var.AWS_ACCESSKEYID}"
+    AWS_SECRETACCESSKEY = "${var.AWS_SECRETACCESSKEY}"
   }
 }
 

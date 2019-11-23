@@ -149,22 +149,22 @@
           }
         }
       }
-  },
-  "/event/create": {
-    "post": {
-      "description": "Creates event in the database, returns status",
-      "operationId": "findPets",
-      "produces": [
-        "application/json"
-      ],
-      "parameters": [
+    },
+    "/event/create": {
+      "post": {
+        "description": "Creates event in the database, returns status",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
           {
-          "name": "authorization",
-          "in": "header",
-          "description": "JWT token",
-          "required": true,
-          "type": "string",
-      },
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
           {
             "name": "event_name",
             "in": "body",
@@ -173,47 +173,47 @@
             "type": "string",
           },
           {
-              "name": "event_description",
-              "in": "body",
-              "description": "event desriptions",
-              "required": true,
-              "type": "string",
+            "name": "event_description",
+            "in": "body",
+            "description": "event desriptions",
+            "required": true,
+            "type": "string",
           },
           {
-              "name": "event_location",
-              "in": "body",
-              "description": "event location",
-              "required": true,
-              "type": "string",
+            "name": "event_location",
+            "in": "body",
+            "description": "event location",
+            "required": true,
+            "type": "string",
           },
           {
-              "name": "event_start_time",
-              "in": "body",
-              "description": "event start time",
-              "required": true,
-              "type": "string",
+            "name": "event_start_time",
+            "in": "body",
+            "description": "event start time",
+            "required": true,
+            "type": "string",
           },
           {
-              "name": "event_end_time",
-              "in": "body",
-              "description": "event end time",
-              "required": true,
-              "type": "string",
+            "name": "event_end_time",
+            "in": "body",
+            "description": "event end time",
+            "required": true,
+            "type": "string",
           },
-      ],
-      "responses": {
-        "200": {
-          "description": "event_id",
-          "schema": {
-            "type": "message",
-            "items": {
-              "$ref": "#/definitions/User"
+        ],
+        "responses": {
+          "200": {
+            "description": "event_id",
+            "schema": {
+              "type": "message",
+              "items": {
+                "$ref": "#/definitions/User"
+              }
             }
           }
         }
-      }
+      },
     },
-  },
   },
   "definitions": {
     "User": {
