@@ -341,7 +341,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Upload URL used for rekognition call",
+            "description": "URL used for rekognition call",
             "schema": {
               "$ref": "#/definitions/Message"
             }
@@ -367,7 +367,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Search URL used for rekognition call",
+            "description": "URL used for rekognition call",
             "schema": {
               "$ref": "#/definitions/Message"
             }
@@ -436,7 +436,7 @@
     },
     "/messaging/send": {
       "post": {
-        "description": "Train rekognize with photo and face name",
+        "description": "Send message",
         "operationId": "findPets",
         "produces": [
           "application/json"
@@ -474,7 +474,7 @@
         }
       },
     },
-    "/messagin/get": {
+    "/messaging/get": {
       "get": {
         "description": "Get messages of logged in user",
         "operationId": "findPets",
