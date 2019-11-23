@@ -1,8 +1,6 @@
-const authRoutes = require("./authRoutes");
+const authRoutes = require('./authRoutes');
 const eventRoutes = require('./eventRoutes.js');
 const messagingRoutes = require('./messagingRoutes.js');
-const authRoutes = require('./authRoutes');
-const eventRoutes = require('./eventRoutes');
 const s3Routes = require('./s3Routes');
 const rekognitionRoutes = require('./rekognitionRoutes');
 
