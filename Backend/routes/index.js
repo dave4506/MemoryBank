@@ -7,7 +7,7 @@ module.exports = (app, db) => {
 
   // ======= Local ============
   eventRoutes(app, db);
-  messsagingRotes(app, db);
+  messagingRoutes(app, db);
 
   app.get(
     '/health_check',
