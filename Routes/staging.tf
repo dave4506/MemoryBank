@@ -1,7 +1,7 @@
 provider "heroku" {}
 
 resource "heroku_app" "default" {
-  name   = "memory-bank-routes"
+  name   = "memory-bank-route"
   region = "us"
   stack  = "container"
 }
