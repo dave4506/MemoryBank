@@ -203,7 +203,7 @@
       ],
       "responses": {
         "200": {
-          "description": "confirmation message",
+          "description": "event_id",
           "schema": {
             "type": "message",
             "items": {

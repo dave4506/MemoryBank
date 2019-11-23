@@ -105,7 +105,7 @@ module.exports = (app, db) => {
                   return res.status(500).json({error: 'Internal server error, unable to add status_id to user entry.' });
               }
 
-              return res.status(200).json({ message: 'Successfully posted new status.' });
+              return res.status(200).json({ event_id: event_id });
           })(req, res, next);
       }
   );
@@ -121,19 +121,19 @@ module.exports = (app, db) => {
                 });
             }
 
-            if (!req.body.user_id) {
+            if (!req.body.user_email) {
               return res.status(400).send({
-                    message: "Must have user_id field."
+                    message: "Must have user_email field."
                 });
             }
 
             const { event_id,
-                user_id } = req.body;
+                user_email } = req.body;
 
             let update_status;
             try {
                 update_status = await db.collection('users').updateOne(
-                    { _id: ObjectId(user_id) },
+                    { email: user_email },
                     { $push: { events: ObjectId(event_id) } }
                 )
             }
@@ -209,21 +209,23 @@ module.exports = (app, db) => {
     async (req, res, next) => {
         passport.authenticate('jwt', { session: false }, async (err, user) => {
 
-            console.log(user)
+            if (!req.body.user_email) {
+                return res.status(400).send({
+                    message: "Must have user_email field."
+                });
+            }
 
             let user_info;
             let event_ids = [];
 
             try {
                 user_info = await db.collection('users').findOne(
-                    { _id: ObjectId(user._id) },
+                    { email: user_email },
                     { projection: { events: 1} }
                 );
             } catch (err) {
                 return res.status(500).json({ error: 'Internal server error, unable to find user in the database.' });
             }
-
-            console.log(user_info);
 
             if (user_info) {
                 event_ids.push(...user_info.events);
