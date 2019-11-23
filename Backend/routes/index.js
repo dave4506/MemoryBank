@@ -1,3 +1,6 @@
+const authRoutes = require("./authRoutes");
+const eventRoutes = require('./eventRoutes.js');
+const messagingRoutes = require('./messagingRoutes.js');
 const authRoutes = require('./authRoutes');
 const eventRoutes = require('./eventRoutes');
 const s3Routes = require('./s3Routes');
@@ -7,6 +10,7 @@ module.exports = (app, db, AWS) => {
   // ======= Routes =========
   authRoutes(app, db);
   eventRoutes(app, db);
+  messagingRoutes(app, db);
   s3Routes(app, AWS);
   rekognitionRoutes(app, db, AWS);
 
