@@ -503,6 +503,24 @@
         }
       },
     },
+    "/health_check": {
+      "get": {
+        "description": "Is the app alive",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Is application running response",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+    },
   },
   "definitions": {
     "User": {
