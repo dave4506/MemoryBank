@@ -255,7 +255,7 @@
       },
     },
     "/event/delete/:event_id": {
-      "post": {
+      "delete": {
         "description": "Deletes event in the database, returns status",
         "operationId": "findPets",
         "produces": [
@@ -288,7 +288,7 @@
       },
     },
     "/event": {
-      "post": {
+      "get": {
         "description": "Returns information about events for logged in user",
         "operationId": "findPets",
         "produces": [
@@ -310,6 +310,193 @@
               "type": "array",
               "items": {
                 "$ref": "#/definitions/Event"
+              }
+            }
+          }
+        }
+      },
+    },
+    "/upload/face": {
+      "post": {
+        "description": "Upload a photo with a name for rekognize training",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "faceName",
+            "in": "body",
+            "description": "name of the person",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Upload URL used for rekognition call",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+    },
+    "/upload/search": {
+      "get": {
+        "description": "Upload a photo for rekognize search",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Search URL used for rekognition call",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+    },
+    "/rekognize": {
+      "post": {
+        "description": "Train rekognize with photo and face name",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "faceName",
+            "in": "body",
+            "description": "name of the person",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Response from rekognition",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+    },
+    "/search": {
+      "get": {
+        "description": "Call recognition search on photo",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Name of person if recognized",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+    },
+    "/messaging/send": {
+      "post": {
+        "description": "Train rekognize with photo and face name",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "receiver_email",
+            "in": "body",
+            "description": "name of the person to receive message",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "message",
+            "in": "body",
+            "description": "message being sent",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Message sent response",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+    },
+    "/messagin/get": {
+      "get": {
+        "description": "Get messages of logged in user",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Messages for logged in user",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Message"
               }
             }
           }
