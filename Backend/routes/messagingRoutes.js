@@ -48,4 +48,25 @@ module.exports = (app, db) => {
           })(req, res, next);
       }
   );
+
+  app.get(
+    '/messaging/get',
+    async (req, res, next) => {
+          passport.authenticate('jwt', { session: false }, async (err, user) => {
+
+              user_messages = {};
+
+              try {
+                  user_messages = await db.collection('users').findOne(
+                      { email: user.email },
+                      { projection: { messages: 1} }
+                  );
+              } catch (err) {
+                  return res.status(500).json({ error: 'Internal server error, unable to find user in the database.' });
+              }
+
+              return res.status(200).json({ messages: user_messages });
+
+          })(req, res, next);
+      });
 }
