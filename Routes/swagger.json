@@ -214,6 +214,108 @@
         }
       },
     },
+    "/event/share": {
+      "post": {
+        "description": "Shares an event with another user, returns status",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "event_id",
+            "in": "body",
+            "description": "event id",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "description": "to-be-shared user email",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Share response",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+    },
+    "/event/delete:event_id": {
+      "post": {
+        "description": "Deletes event in the database, returns status",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+          {
+            "name": "event_id",
+            "in": "body",
+            "description": "event id",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete response",
+            "schema": {
+              "$ref": "#/definitions/Message"
+            }
+          }
+        }
+      },
+    },
+    "/event": {
+      "post": {
+        "description": "Returns information about events for logged in user",
+        "operationId": "findPets",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "description": "JWT token",
+            "required": true,
+            "type": "string",
+          },
+        ],
+        "responses": {
+          "200": {
+            "description": "Events information",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Event"
+              }
+            }
+          }
+        }
+      },
+    },
   },
   "definitions": {
     "User": {
@@ -260,5 +362,36 @@
         }
       }
     },
+    "Event": {
+      "type": "object",
+      "required": [
+        "event_name"
+      ],
+      "properties": {
+        "event": {
+          "type": "object",
+          "required": [
+            "event_name"
+          ],
+          "properties": {
+            "event_description": {
+              "type": "string"
+            },
+            "event_location": {
+              "type": "string"
+            },
+            "event_start_time": {
+              "type": "string"
+            },
+            "event_end_time": {
+              "type": "string"
+            },
+            "event_id": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
   }
 }
