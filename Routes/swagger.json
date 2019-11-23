@@ -254,7 +254,7 @@
         }
       },
     },
-    "/event/delete:event_id": {
+    "/event/delete/:event_id": {
       "post": {
         "description": "Deletes event in the database, returns status",
         "operationId": "findPets",
