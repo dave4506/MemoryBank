@@ -2,17 +2,16 @@ const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const keys = require('./config/keys');
 const { MongoClient } = require('mongodb');
 const AWS = require('aws-sdk');
 const passport = require('passport');
 
-
+const keys = require('./config/keys');
 const routes = require('./routes');
 const Strategies = require('./services/passport');
 
 const app = express();
-AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: 'memoryBank-account' });
+AWS.config.credentials = new AWS.Credentials(keys.AWS_accessKeyId, keys.AWS_secretAccessKey);
 
 let db;
 
