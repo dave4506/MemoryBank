@@ -10,7 +10,7 @@ module.exports = (app, AWS) => {
       passport.authenticate('jwt', { session: false }, async (err, user) => {
         // check for token
         if (!Object.prototype.hasOwnProperty.call(req.headers, 'authorization')) {
-          return res.status(200).json({ error: 'missing authorization token on header' });
+          return res.status(401).json({ error: 'missing authorization token on header' });
         }
 
         if (!Object.prototype.hasOwnProperty.call(req.body, 'faceName')) {
@@ -19,18 +19,35 @@ module.exports = (app, AWS) => {
 
         if (err || !user) {
           if (!err) {
-            return res.status(200).json({ error: 'invalid token' });
+            return res.status(401).json({ error: 'invalid token' });
           }
-          return res.status(200).json({ error: err.message });
+          return res.status(401).json({ error: err.message });
         }
 
+        // get elements in folder to determine next filename
+        let files;
+        try {
+          files = await s3.listObjects({
+            Bucket: keys.bucketName, /* required */
+            Prefix: `${user._id}/${req.body.faceName}`,
+          });
+        } catch (error) {
+          return res.status(500).json({ error: 'Could not retrieve s3 objects' });
+        }
+
+        // get presigned url
         const bucketParams = {
           Bucket: keys.bucketName,
-          Key: `${user._id}/${req.body.faceName}`,
+          Key: `${user._id}/${req.body.faceName}/image${files.length}`,
           Expires: 60 * 60
         };
 
-        const url = s3.getSignedUrl('putObject', bucketParams);
+        let url;
+        try {
+          url = s3.getSignedUrl('putObject', bucketParams);
+        } catch (error) {
+          return res.status(500).json({ error: 'could not generate presigned url' });
+        }
 
         return res.status(200).json({ url });
       })(req, res, next);
