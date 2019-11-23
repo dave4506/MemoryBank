@@ -209,18 +209,12 @@ module.exports = (app, db) => {
     async (req, res, next) => {
         passport.authenticate('jwt', { session: false }, async (err, user) => {
 
-            if (!req.body.user_email) {
-                return res.status(400).send({
-                    message: "Must have user_email field."
-                });
-            }
-
             let user_info;
             let event_ids = [];
 
             try {
                 user_info = await db.collection('users').findOne(
-                    { email: user_email },
+                    { email: user.email },
                     { projection: { events: 1} }
                 );
             } catch (err) {
