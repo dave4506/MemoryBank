@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const keys = require('./config/keys');
 const { MongoClient } = require('mongodb');
+const AWS = require('aws-sdk');
 const passport = require('passport');
 
 
@@ -11,6 +12,8 @@ const routes = require('./routes');
 const Strategies = require('./services/passport');
 
 const app = express();
+AWS.config.credentials = new AWS.SharedIniFileCredentials({ profile: 'memoryBank-account' });
+
 let db;
 
 app.use(bodyParser.json({ type: '*/*' }));
@@ -39,7 +42,7 @@ MongoClient.connect(keys.mongoURL, {
   passport.use(strategies.jwtLogin);
   passport.use(strategies.localLogin);
 
-  routes(app, db);
+  routes(app, db, AWS);
 
   // Start the application after the database connection is ready
   const PORT = process.env.PORT || 80;
