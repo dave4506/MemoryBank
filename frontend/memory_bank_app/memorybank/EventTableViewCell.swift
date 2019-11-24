@@ -20,5 +20,14 @@ class EventTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    //MARK: Properties:
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var infoTextField: UITextField!
+    @IBOutlet weak var locationTextField: UITextField!
+    @IBOutlet weak var startTextField: UITextField!
+    @IBOutlet weak var endTextField: UITextField!
+    @IBOutlet weak var idTextField: UITextField!
 }

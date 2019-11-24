@@ -28,6 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var storyboard: UIStoryboard?
     var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
     
+    var jwtToken: String? = "NULL"
+    
     var userSession: UserSession?;
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -56,6 +58,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:
+    }
+    
+    func setJWTToken(jwtTokenIn: String) {
+        jwtToken = jwtTokenIn
+    }
+    
+    func getJWTToken() -> String?{
+        return jwtToken
     }
     
 //    func refreshCredentials() {

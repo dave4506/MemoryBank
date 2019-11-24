@@ -18,37 +18,105 @@
 import Foundation
 import AWSCognitoIdentityProvider
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
+    //MARK: Attributes:
     
-    var pool: AWSCognitoIdentityUserPool?
+    //var pool: AWSCognitoIdentityUserPool?
     var sentTo: String?
     
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
+    var jwtToken: String!
     
-    @IBOutlet weak var phone: UITextField!
-    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
     
+    
+    @IBOutlet weak var displayTextField: UITextField!
+    
+    
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    //MARK: view Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pool = AWSCognitoIdentityUserPool.init(forKey: CognitoUserPoolsSignInProviderKey)
+        //self.pool = AWSCognitoIdentityUserPool.init(forKey: CognitoUserPoolsSignInProviderKey)
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //MARK: Actions
+    
+    @IBAction func signUp(_ sender: UIButton) {
+        guard let emailValue = self.emailTextField.text, !emailValue.isEmpty,
+            let passwordValue = self.passwordTextField.text, !passwordValue.isEmpty,
+            let displayNameValue = self.displayTextField.text, !displayNameValue.isEmpty else {
+                let alertController = UIAlertController(title: "Missing Required Fields",
+                                                        message: "Email, Display Name, and Password are required for registration.",
+                                                        preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion:  nil)
+                return
+        }
+        
+            let json: [String: Any] = ["email": self.emailTextField.text ?? "NULL", "displayName": self.displayTextField.text ?? "NULL", "password": self.passwordTextField.text ?? "NULL"]
+        
+            print("signup json is: ", json)
+            
+            let jsonData = try? JSONSerialization.data(withJSONObject: json)
+            
+            var request = URLRequest(url:URL(string: "Https://memorybank-staging.herokuapp.com/auth/signup")!)
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request)
+            { data, response, error in
+                guard let _ = data, error == nil else {
+                    print("NETWORKING ERROR")
+                    print("Networking error is: ", error)
+                    return
+                }
+                if let httpStatus = response as? HTTPURLResponse,
+            httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return
+            }
+                
+            do {
+               let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                self.jwtToken = json["message"] as! String?
+                
+                print("Signin JWT token is: ", self.jwtToken ?? "NULL")
+            }
+            catch let error as NSError {
+                print("NSError is: ", error)
+            }
+        }
+        task.resume()
+        
+        let alertController = UIAlertController(title: "Sign Up Successful",
+                                                message: "User with email: \(String(describing: emailTextField.text)) successfully signed up. You can now go back to the sign in screen and sign in using your email as your username and password",
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true, completion:  nil)
+    }
+    
+    /**override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let signUpConfirmationViewController = segue.destination as? ConfirmSignUpViewController {
             signUpConfirmationViewController.sentTo = self.sentTo
             signUpConfirmationViewController.user = self.pool?.getUser(self.username.text!)
         }
-    }
+    }*/
     
-    @IBAction func signUp(_ sender: AnyObject) {
+    /**@IBAction func signUp(_ sender: AnyObject) {
         
-        guard let userNameValue = self.username.text, !userNameValue.isEmpty,
-            let passwordValue = self.password.text, !passwordValue.isEmpty else {
+        guard let emailValue = self.emailTextField.text, !emailValue.isEmpty,
+            let passwordValue = self.passwordTextField.text, !passwordValue.isEmpty,
+            let displayNameValue = self.displayNameTextField.text, !displayNameValue.isEmpty else {
                 let alertController = UIAlertController(title: "Missing Required Fields",
                                                         message: "Username / Password are required for registration.",
                                                         preferredStyle: .alert)
@@ -59,7 +127,42 @@ class SignUpViewController: UIViewController {
                 return
         }
         
-        var attributes = [AWSCognitoIdentityUserAttributeType]()
+            let json: [String: Any] = ["email": self.emailTextField.text ?? "NULL", "displayName": self.displayNameTextField.text ?? "NULL", "password": self.passwordTextField.text ?? "NULL"]
+        
+            print("signup json is: ", json)
+            
+            let jsonData = try? JSONSerialization.data(withJSONObject: json)
+            
+            var request = URLRequest(url:URL(string: "Https://memorybank-staging.herokuapp.com/auth/signup")!)
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+            
+            let task = URLSession.shared.dataTask(with: request)
+            { data, response, error in
+                guard let _ = data, error == nil else {
+                    print("NETWORKING ERROR")
+                    print("Networking error is: ", error)
+                    return
+                }
+                if let httpStatus = response as? HTTPURLResponse,
+            httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return
+            }
+                
+            do {
+               let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                self.jwtToken = json["message"] as! String?
+                
+                print("Signin JWT token is: ", self.jwtToken ?? "NULL")
+            }
+            catch let error as NSError {
+                print("NSError is: ", error)
+            }
+        }
+        task.resume()
+        
+        /**var attributes = [AWSCognitoIdentityUserAttributeType]()
         
         if let phoneValue = self.phone.text, !phoneValue.isEmpty {
             let phone = AWSCognitoIdentityUserAttributeType()
@@ -101,6 +204,6 @@ class SignUpViewController: UIViewController {
                 
             })
             return nil
-        }
-    }
+        }*/
+    }*/
 }

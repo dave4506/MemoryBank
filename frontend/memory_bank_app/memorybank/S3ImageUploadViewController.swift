@@ -54,13 +54,15 @@ class S3ImageUploadViewController : UIViewController, UIImagePickerControllerDel
         
         // key = ""
         
-        // key = self.uploadImageToS3(imageData: jpegData)
+        self.uploadImageToS3(imageData: jpegData)
     }
     
     //MARK: - AWS Methods
-    func uploadImageToS3(imageData: Data) -> String{
+    func uploadImageToS3(imageData: Data) {
        
+        print("Sign-in provider key is: ", CognitoUserPoolsSignInProviderKey)
         let pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
+        print("User pool is: ", pool)
         var username: String = (pool.currentUser()?.username)!
         username = username.replacingOccurrences(of: ".", with: "-")
         
@@ -91,7 +93,7 @@ class S3ImageUploadViewController : UIViewController, UIImagePickerControllerDel
             }
         }
         
-        return key
+        //return key
     }
     
     
