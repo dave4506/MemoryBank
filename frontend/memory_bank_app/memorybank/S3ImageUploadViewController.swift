@@ -58,41 +58,41 @@ class S3ImageUploadViewController : UIViewController, UIImagePickerControllerDel
     }
     
     //MARK: - AWS Methods
-    func uploadImageToS3(imageData: Data) -> String{
-       
-        let pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
-        var username: String = (pool.currentUser()?.username)!
-        username = username.replacingOccurrences(of: ".", with: "-")
-        
-        let s3Client = AWSS3.default()
-        let putObjectRequest = AWSS3PutObjectRequest()
-        putObjectRequest?.bucket = s3Bucket
-        let key = username + "/images/" + randomString(length: 8) + ".jpeg"
-        putObjectRequest?.key = key
-        putObjectRequest?.body = imageData
-        putObjectRequest?.contentType = "image/jpeg"
-        putObjectRequest?.contentLength = imageData.count as NSNumber
-        
-        s3Client.putObject(putObjectRequest!){
-            (result, error) in
-            
-            var msg: String?
-        
-            if error != nil{
-                msg = "Upload image to S3 failed: " + (error as? String ?? "unknown error")
-            } else {
-                msg = "Upload image to S3 successful:" + key
-            }
-            
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Upload image to S3", message: msg, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                self.present(alert, animated: true)
-            }
-        }
-        
-        return key
-    }
+//    func uploadImageToS3(imageData: Data) -> String{
+//
+//        let pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
+//        var username: String = (pool.currentUser()?.username)!
+//        username = username.replacingOccurrences(of: ".", with: "-")
+//
+//        let s3Client = AWSS3.default()
+//        let putObjectRequest = AWSS3PutObjectRequest()
+//        putObjectRequest?.bucket = s3Bucket
+//        let key = username + "/images/" + randomString(length: 8) + ".jpeg"
+//        putObjectRequest?.key = key
+//        putObjectRequest?.body = imageData
+//        putObjectRequest?.contentType = "image/jpeg"
+//        putObjectRequest?.contentLength = imageData.count as NSNumber
+//
+//        s3Client.putObject(putObjectRequest!){
+//            (result, error) in
+//
+//            var msg: String?
+//
+//            if error != nil{
+//                msg = "Upload image to S3 failed: " + (error as? String ?? "unknown error")
+//            } else {
+//                msg = "Upload image to S3 successful:" + key
+//            }
+//
+//            DispatchQueue.main.async {
+//                let alert = UIAlertController(title: "Upload image to S3", message: msg, preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+//                self.present(alert, animated: true)
+//            }
+//        }
+//
+//        return key
+//    }
     
     
 }

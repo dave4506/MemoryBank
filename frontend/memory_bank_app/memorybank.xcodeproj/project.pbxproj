@@ -12,17 +12,11 @@
 		17FC2F851E258FC500174015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F831E258FC500174015 /* Main.storyboard */; };
 		17FC2F871E258FC500174015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F861E258FC500174015 /* Assets.xcassets */; };
 		17FC2F951E2590D800174015 /* MFAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F941E2590D800174015 /* MFAViewController.xib */; };
-		17FC2F971E25928900174015 /* MFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F961E25928900174015 /* MFAViewController.swift */; };
 		17FC2F991E25940900174015 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F981E25940900174015 /* SignInViewController.swift */; };
 		17FC2F9B1E259E0500174015 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F9A1E259E0500174015 /* Constants.swift */; };
 		17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */; };
-		17FC2F9F1E259F3200174015 /* ConfirmSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F9E1E259F3200174015 /* ConfirmSignUpViewController.swift */; };
-		17FC2FA11E25A25900174015 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA01E25A25900174015 /* ForgotPasswordViewController.swift */; };
-		17FC2FA31E25A5D000174015 /* ConfirmForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2FA21E25A5D000174015 /* ConfirmForgotPasswordViewController.swift */; };
-		2928E2772309038700F239A0 /* Celebrity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2928E2762309038700F239A0 /* Celebrity.swift */; };
 		29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */; };
 		29D28098235D48050020EAFA /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28097235D48050020EAFA /* utils.swift */; };
-		29DFA1172308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */; };
 		2A3607A22371B7B600A4C45B /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3607A12371B7B600A4C45B /* user.swift */; };
 		AFB2012B4595F84606A7E894 /* Pods_memorybank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */; };
 /* End PBXBuildFile section */
@@ -36,17 +30,11 @@
 		17FC2F861E258FC500174015 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17FC2F8B1E258FC500174015 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17FC2F941E2590D800174015 /* MFAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFAViewController.xib; sourceTree = "<group>"; };
-		17FC2F961E25928900174015 /* MFAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MFAViewController.swift; sourceTree = "<group>"; };
 		17FC2F981E25940900174015 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		17FC2F9A1E259E0500174015 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		17FC2F9E1E259F3200174015 /* ConfirmSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmSignUpViewController.swift; sourceTree = "<group>"; };
-		17FC2FA01E25A25900174015 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		17FC2FA21E25A5D000174015 /* ConfirmForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		2928E2762309038700F239A0 /* Celebrity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Celebrity.swift; sourceTree = "<group>"; };
 		29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ImageUploadViewController.swift; sourceTree = "<group>"; };
 		29D28097235D48050020EAFA /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
-		29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CognitoUserPoolIdentityProvider.swift; sourceTree = "<group>"; };
 		2A3607A12371B7B600A4C45B /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.release.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.release.xcconfig"; sourceTree = "<group>"; };
 		2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
@@ -89,25 +77,18 @@
 		17FC2F7E1E258FC500174015 /* memorybank */ = {
 			isa = PBXGroup;
 			children = (
+				2AFC8792238AD87F004EF022 /* views */,
+				2AFC8791238AD400004EF022 /* models */,
+				2AFC8790238AD3F0004EF022 /* xibs */,
+				2AFC878F238AD3EA004EF022 /* view controllers */,
+				2AFC878D238AD3D2004EF022 /* utils */,
 				17FC2F941E2590D800174015 /* MFAViewController.xib */,
 				17FC2F7F1E258FC500174015 /* AppDelegate.swift */,
 				17FC2F831E258FC500174015 /* Main.storyboard */,
 				17FC2F861E258FC500174015 /* Assets.xcassets */,
 				17FC2F8B1E258FC500174015 /* Info.plist */,
 				17FC2F931E25909300174015 /* Supporting Files */,
-				17FC2F961E25928900174015 /* MFAViewController.swift */,
-				17FC2F981E25940900174015 /* SignInViewController.swift */,
 				17FC2F9A1E259E0500174015 /* Constants.swift */,
-				17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */,
-				17FC2F9E1E259F3200174015 /* ConfirmSignUpViewController.swift */,
-				17FC2FA01E25A25900174015 /* ForgotPasswordViewController.swift */,
-				17FC2FA21E25A5D000174015 /* ConfirmForgotPasswordViewController.swift */,
-				29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */,
-				004087AD236FA086005A883B /* S3ImageDownloadViewController.swift */,
-				29DFA1162308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift */,
-				2928E2762309038700F239A0 /* Celebrity.swift */,
-				29D28097235D48050020EAFA /* utils.swift */,
-				2A3607A12371B7B600A4C45B /* user.swift */,
 			);
 			path = memorybank;
 			sourceTree = "<group>";
@@ -117,6 +98,47 @@
 			children = (
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2AFC878D238AD3D2004EF022 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				29D28097235D48050020EAFA /* utils.swift */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		2AFC878F238AD3EA004EF022 /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17FC2F981E25940900174015 /* SignInViewController.swift */,
+				17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */,
+				29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */,
+				004087AD236FA086005A883B /* S3ImageDownloadViewController.swift */,
+			);
+			name = "view controllers";
+			sourceTree = "<group>";
+		};
+		2AFC8790238AD3F0004EF022 /* xibs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = xibs;
+			sourceTree = "<group>";
+		};
+		2AFC8791238AD400004EF022 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				2A3607A12371B7B600A4C45B /* user.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		2AFC8792238AD87F004EF022 /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 		2B50A37AC16AACF9427C4F0F /* Frameworks */ = {
@@ -270,19 +292,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17FC2FA31E25A5D000174015 /* ConfirmForgotPasswordViewController.swift in Sources */,
-				29DFA1172308D4AB000379D0 /* CognitoUserPoolIdentityProvider.swift in Sources */,
 				004087AE236FA086005A883B /* S3ImageDownloadViewController.swift in Sources */,
-				17FC2FA11E25A25900174015 /* ForgotPasswordViewController.swift in Sources */,
 				2A3607A22371B7B600A4C45B /* user.swift in Sources */,
 				17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */,
-				17FC2F9F1E259F3200174015 /* ConfirmSignUpViewController.swift in Sources */,
 				17FC2F9B1E259E0500174015 /* Constants.swift in Sources */,
 				29D28098235D48050020EAFA /* utils.swift in Sources */,
-				2928E2772309038700F239A0 /* Celebrity.swift in Sources */,
 				29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */,
 				17FC2F991E25940900174015 /* SignInViewController.swift in Sources */,
-				17FC2F971E25928900174015 /* MFAViewController.swift in Sources */,
 				17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

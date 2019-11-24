@@ -44,48 +44,9 @@ class S3ImageDownloadViewController : UIViewController, UIImagePickerControllerD
     
     // MARK: - IBActions
     @IBAction func signOut(_ sender: UIButton) {
-        let pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
-        pool.currentUser()?.signOut()
-        pool.clearLastKnownUser()
-//        let appDelegate: AppDelegate? = UIApplication.shared.delegate as? AppDelegate
-//        appDelegate?.refreshCredentials()
     }
     
     @IBAction func downloadImage(_ sender: UIButton) {
-        let pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
-        var username: String = (pool.currentUser()?.username)!
-        username = username.replacingOccurrences(of: ".", with: "-")
-        
-        let getObjectRequest = AWSS3GetObjectRequest()
-        getObjectRequest?.bucket = s3Bucket
-        let key = username + "/images/" + keyTextField.text! + ".jpeg"
-        getObjectRequest?.key = key
-        
-        let s3Client = AWSS3.default()
-        s3Client.getObject(getObjectRequest!) {
-            (result, error) in
-            var msg: String?
-            
-            let imageData: Data = result?.body as! Data
-            
-                if error != nil{
-                    msg = "Download image from S3 failed: " + (error as? String ?? "unknown error")
-                } else {
-                    msg = "Download image from S3 successful:" + key
-                }
-            
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Download image from S3", message: msg, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-                self.present(alert, animated: true)
-                
-                let downloadedImage: UIImage = UIImage(data: imageData, scale: 1.0)!
-                
-                self.imageView.image = downloadedImage
-            }
-            
-            
-        }
     }
     
     //Mark: UITextFieldDelegate
