@@ -25,6 +25,7 @@ class SignInViewController: FormViewController {
     var password: String?
     var isPatient: Bool = false
     
+<<<<<<< HEAD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureForm()
@@ -88,6 +89,72 @@ class SignInViewController: FormViewController {
                         self.navigationController?.pushViewController(rootVC, animated: true)
                     }
                 }
+=======
+    var jwtToken: String!
+        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.password.text = nil
+        self.username.text = usernameText
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    @IBAction func signInPressed(_ sender: AnyObject) {
+        guard let emailValue = self.username.text, !emailValue.isEmpty,
+            let passwordValue = self.password.text, !passwordValue.isEmpty else {
+                let alertController = UIAlertController(title: "Missing information",
+                                                        message: "Please enter a valid user name and password",
+                                                        preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                
+                self.present(alertController, animated: true, completion:  nil)
+                return
+            }
+        
+            let json: [String: Any] = ["email": self.username.text ?? "NULL", "password": self.password.text ?? "NULL"]
+                
+            print("signin json is: ", json)
+                
+            let jsonData = try? JSONSerialization.data(withJSONObject: json)
+                
+            var request = URLRequest(url:URL(string: "Https://memorybank-staging.herokuapp.com/auth/signin")!)
+            request.httpMethod = "POST"
+            request.httpBody = jsonData
+                
+            let task = URLSession.shared.dataTask(with: request)
+            { data, response, error in
+                guard let _ = data, error == nil else {
+                    print("NETWORKING ERROR")
+                    print("Networking error is: ", error)
+                    return
+                }
+                if let httpStatus = response as? HTTPURLResponse,
+            httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return
+            }
+                    
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                self.jwtToken = json["token"] as! String?
+                    
+                print("Signin JWT token is: ", self.jwtToken ?? "NULL")
+                    
+                DispatchQueue.main.async(execute:{
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.setJWTToken(jwtTokenIn: self.jwtToken)
+                         
+                    let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                    let nextViewController = storyBoard.instantiateViewController(withIdentifier: "entrypoint")
+                    self.present(nextViewController, animated:true, completion:nil)
+                })
+            }
+            catch let error as NSError {
+                    print("NSError is: ", error)
+            }
+>>>>>>> c64ea9c... Refactored SignIn.ViewController
         }
+        task.resume()
     }
 }
