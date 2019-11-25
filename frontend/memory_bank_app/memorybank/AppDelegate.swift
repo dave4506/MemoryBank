@@ -23,16 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var signInViewController: SignInViewController?
-    var mfaViewController: MFAViewController?
-    var navigationController: UINavigationController?
-    var storyboard: UIStoryboard?
-    var rememberDeviceCompletionSource: AWSTaskCompletionSource<NSNumber>?
     
     var userSession: UserSession?;
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // userSession = getUserSessionFromLocalStorage()
-        checkForUserSessionAndRoute()
+        // checkForUserSessionAndRoute()
         return true
     }
     
