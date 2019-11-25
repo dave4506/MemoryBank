@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 
 class Event {
+    var name: String
     var description: String
     var location: String
     var startTime: String
     var endTime: String
     var eventID: String
     
-    init(description: String, location: String, startTime: String, endTime: String, eventID: String){
+    init(name: String, description: String, location: String, startTime: String, endTime: String, eventID: String){
+        self.name = name
         self.description = description
         self.location = location
         self.startTime = startTime

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class EventTableViewCell: UITableViewCell {
 
@@ -22,10 +23,4 @@ class EventTableViewCell: UITableViewCell {
     }
     
     //MARK: Properties:
-    
-    @IBOutlet weak var infoTextField: UITextField!
-    @IBOutlet weak var locationTextField: UITextField!
-    @IBOutlet weak var startTextField: UITextField!
-    @IBOutlet weak var endTextField: UITextField!
-    @IBOutlet weak var idTextField: UITextField!
 }

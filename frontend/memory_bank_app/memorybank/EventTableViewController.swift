@@ -54,11 +54,7 @@ class EventTableViewController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let event = events[indexPath.row]
 
-        cell.infoTextField.text = event.description
-        cell.locationTextField.text = event.location
-        cell.startTextField.text = event.startTime
-        cell.endTextField.text = event.endTime
-        cell.idTextField.text = event.eventID
+        cell.nameField.text = event.name
 
         return cell
     }
@@ -104,16 +100,16 @@ class EventTableViewController: UITableViewController {
                 for (index, _) in json {
                     let curr_elt = json[index] as? [String:[String:String]]
                     let curr_dict = curr_elt?["event"]
-                    let event = Event(description: curr_dict?["event_description"] ?? "NULL", location: curr_dict?["event_location"] ?? "NULL", startTime: curr_dict?["event_start_time"] ?? "NULL", endTime: curr_dict?["event_end_time"] ?? "NULL", eventID: curr_dict?["event_id"] ?? "NULL")
+                    let event = Event(name: curr_dict?["name"] ?? "NULL", description: curr_dict?["event_description"] ?? "NULL", location: curr_dict?["event_location"] ?? "NULL", startTime: curr_dict?["event_start_time"] ?? "NULL", endTime: curr_dict?["event_end_time"] ?? "NULL", eventID: curr_dict?["event_id"] ?? "NULL")
                     
                     newEvents += [event]
                 }
-                    
+                
                 self.events = newEvents
-                self.tableView.estimatedRowHeight = 140
-                self.tableView.rowHeight = UITableView.automaticDimension
-                self.tableView.reloadData()
                 DispatchQueue.main.async(execute: {
+                    self.tableView.estimatedRowHeight = 140
+                    self.tableView.rowHeight = UITableView.automaticDimension
+                    self.tableView.reloadData()
                     self.refreshControl?.endRefreshing()
                 })
             }

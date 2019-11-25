@@ -48,7 +48,7 @@ class ShareEventViewController: UIViewController, UITextFieldDelegate {
         self.jwtToken = appDelegate.getJWTToken()
         
         let json: [String: Any] = ["event_id": self.eventIDField.text ?? "NULL",
-                                   "email":self.userEmailField.text ?? "NULL"]
+                                   "user_email":self.userEmailField.text ?? "NULL"]
         
         let jsonData = try? JSONSerialization.data(withJSONObject: json)
         
