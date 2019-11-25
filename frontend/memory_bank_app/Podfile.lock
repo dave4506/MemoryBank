@@ -14,6 +14,7 @@ PODS:
   - InputBarAccessoryView (4.3.1):
     - InputBarAccessoryView/Core (= 4.3.1)
   - InputBarAccessoryView/Core (4.3.1)
+  - JTAppleCalendar (7.1.7)
   - MessageKit (3.1.0):
     - InputBarAccessoryView (~> 4.3.0)
 
@@ -24,6 +25,7 @@ DEPENDENCIES:
   - AWSDynamoDB (~> 2.10.0)
   - AWSRekognition (~> 2.10.0)
   - AWSS3 (~> 2.10.0)
+  - JTAppleCalendar
   - MessageKit (from `https://github.com/MessageKit/MessageKit.git`, branch `3.0.0-swift5`)
 
 SPEC REPOS:
@@ -36,6 +38,7 @@ SPEC REPOS:
     - AWSRekognition
     - AWSS3
     - InputBarAccessoryView
+    - JTAppleCalendar
 
 EXTERNAL SOURCES:
   MessageKit:
@@ -56,8 +59,9 @@ SPEC CHECKSUMS:
   AWSRekognition: c28cbc52389702c405f449e8721a1723735c61b9
   AWSS3: c6f0f7a49a74384b9d0fe055c822d1fa5c633905
   InputBarAccessoryView: 58a348be7ea2736c7eec60e5c315511c2dbb39fd
+  JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
 
-PODFILE CHECKSUM: d18dee5c826f4f39fc8a5a9f60f2eaed722c5999
+PODFILE CHECKSUM: 417bee72b4c9fda71ac2a8a3f79b87b566468d15
 
 COCOAPODS: 1.8.4
