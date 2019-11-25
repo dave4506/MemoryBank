@@ -23,4 +23,16 @@ class EventTableViewCell: UITableViewCell {
     }
     
     //MARK: Properties:
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var idLabel: UILabel!
+    
+    @IBOutlet weak var locLabel: UILabel!
+    
+    @IBOutlet weak var infoLabel: UILabel!
+    
+    @IBOutlet weak var startLabel: UILabel!
+    
+    @IBOutlet weak var endLabel: UILabel!
 }
