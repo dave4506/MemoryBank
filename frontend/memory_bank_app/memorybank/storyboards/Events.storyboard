@@ -83,16 +83,61 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Events" image="baseline_calendar_today_black_24pt" id="ndF-nO-ppr"/>
                     <navigationItem key="navigationItem" title="Events" largeTitleDisplayMode="always" id="Np3-4m-nng">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="baseline_add_black_24pt" id="Fbg-4u-r0x"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="baseline_add_black_24pt" id="Fbg-4u-r0x">
+                            <connections>
+                                <segue destination="fCQ-EC-TNo" kind="popoverPresentation" popoverAnchorBarButtonItem="Fbg-4u-r0x" id="IXl-d2-tfh">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JO-aI-us5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2020" y="1983.9901477832514"/>
         </scene>
+        <!--Create an Event-->
+        <scene sceneID="03N-5Q-ZjN">
+            <objects>
+                <viewController id="Anu-rF-duo" customClass="CreateEventViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ltr-LM-NdP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6DJ-u8-zRi"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create an Event" id="xaO-1y-LoV">
+                        <barButtonItem key="rightBarButtonItem" image="baseline_close_black_24pt" id="Noz-od-SMq">
+                            <connections>
+                                <action selector="dismissViewController:" destination="Anu-rF-duo" id="vOU-F9-OV3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UXS-V3-Gr7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-301" y="1983"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lHw-Pc-xSa">
+            <objects>
+                <navigationController id="fCQ-EC-TNo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gKw-mZ-Idz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Anu-rF-duo" kind="relationship" relationship="rootViewController" id="PEN-2d-UTu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWf-Tm-YZN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1168" y="1983"/>
+        </scene>
     </scenes>
     <resources>
         <image name="baseline_add_black_24pt" width="24" height="24"/>
         <image name="baseline_calendar_today_black_24pt" width="24" height="24"/>
+        <image name="baseline_close_black_24pt" width="24" height="24"/>
     </resources>
 </document>

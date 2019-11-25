@@ -11,6 +11,7 @@ PODS:
     - AWSCore (= 2.10.3)
   - AWSS3 (2.10.3):
     - AWSCore (= 2.10.3)
+  - Eureka (5.1.0)
   - InputBarAccessoryView (4.3.1):
     - InputBarAccessoryView/Core (= 4.3.1)
   - InputBarAccessoryView/Core (4.3.1)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - AWSDynamoDB (~> 2.10.0)
   - AWSRekognition (~> 2.10.0)
   - AWSS3 (~> 2.10.0)
+  - Eureka
   - JTAppleCalendar
   - MessageKit (from `https://github.com/MessageKit/MessageKit.git`, branch `3.0.0-swift5`)
 
@@ -37,6 +39,7 @@ SPEC REPOS:
     - AWSDynamoDB
     - AWSRekognition
     - AWSS3
+    - Eureka
     - InputBarAccessoryView
     - JTAppleCalendar
 
@@ -58,10 +61,11 @@ SPEC CHECKSUMS:
   AWSDynamoDB: fdd2be78e412092fc4a35a326d19370eb3a4d097
   AWSRekognition: c28cbc52389702c405f449e8721a1723735c61b9
   AWSS3: c6f0f7a49a74384b9d0fe055c822d1fa5c633905
+  Eureka: 18a5076dcf0c41f9cd9748aa1c42f4d11434bdae
   InputBarAccessoryView: 58a348be7ea2736c7eec60e5c315511c2dbb39fd
   JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
 
-PODFILE CHECKSUM: 417bee72b4c9fda71ac2a8a3f79b87b566468d15
+PODFILE CHECKSUM: dd6e014630620a4e1c68c0dfc98fcd927ed01352
 
 COCOAPODS: 1.8.4
