@@ -54,7 +54,12 @@ class EventTableViewController: UITableViewController {
         // Fetches the appropriate meal for the data source layout.
         let event = events[indexPath.row]
 
-        cell.nameField.text = event.name
+        cell.nameLabel.text = event.name
+        cell.infoLabel.text = event.description
+        cell.locLabel.text = event.location
+        cell.startLabel.text = event.startTime
+        cell.endLabel.text = event.endTime
+        cell.idLabel.text = event.eventID
 
         return cell
     }
@@ -64,6 +69,7 @@ class EventTableViewController: UITableViewController {
     @IBAction func eventsRefreshed(_ sender: UITapGestureRecognizer) {
         self.refreshEvents()
     }
+    
     //MARK: Methods
     func refreshEvents() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -95,15 +101,19 @@ class EventTableViewController: UITableViewController {
             }
             do {
                 var newEvents = [Event]()
-                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                let json = try JSONSerialization.jsonObject(with: data!) 
+                print("Type of json is: ", type(of: json))
+                /**let currEvents = json["events"]
+                print("Type of currEvents is: ", type(of: currEvents))
                 print("json returned by get events is: ", json)
-                for (index, _) in json {
-                    let curr_elt = json[index] as? [String:[String:String]]
-                    let curr_dict = curr_elt?["event"]
-                    let event = Event(name: curr_dict?["name"] ?? "NULL", description: curr_dict?["event_description"] ?? "NULL", location: curr_dict?["event_location"] ?? "NULL", startTime: curr_dict?["event_start_time"] ?? "NULL", endTime: curr_dict?["event_end_time"] ?? "NULL", eventID: curr_dict?["event_id"] ?? "NULL")
+                if let currEvents = json.first?["events"] {
+                    for curr_dict in currEvents {
+                        print("Current dict is: ", curr_dict)
+                        let event = Event(name: curr_dict["name"] ?? "NULL", description: curr_dict["event_description"] ?? "NULL", location: curr_dict["event_location"] ?? "NULL", startTime: curr_dict["event_start_time"] ?? "NULL", endTime: curr_dict["event_end_time"] ?? "NULL", eventID: curr_dict["event_id"] ?? "NULL")
                     
-                    newEvents += [event]
-                }
+                        newEvents += [event]
+                    }
+                }*/
                 
                 self.events = newEvents
                 DispatchQueue.main.async(execute: {
