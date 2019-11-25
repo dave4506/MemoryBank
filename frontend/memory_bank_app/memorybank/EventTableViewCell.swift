@@ -23,8 +23,6 @@ class EventTableViewCell: UITableViewCell {
     
     //MARK: Properties:
     
-    @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var infoTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var startTextField: UITextField!

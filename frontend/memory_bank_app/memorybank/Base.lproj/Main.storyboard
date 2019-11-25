@@ -784,7 +784,7 @@
         <!--View Events-->
         <scene sceneID="NFz-5T-0jQ">
             <objects>
-                <tableViewController id="2M6-V6-z64" sceneMemberID="viewController">
+                <tableViewController id="2M6-V6-z64" customClass="EventTableViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vKm-HR-pis">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -797,19 +797,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O25-iL-DZi">
-                                            <rect key="frame" x="16" y="11" width="57" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c9u-xI-wC0">
-                                            <rect key="frame" x="16" y="40" width="97" height="34"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3mK-QM-rxS">
                                             <rect key="frame" x="121" y="11" width="109" height="27"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -877,13 +864,14 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <gestureRecognizers/>
                                 <connections>
                                     <outlet property="endTextField" destination="T5V-Oq-68b" id="wa3-a4-OGD"/>
                                     <outlet property="idTextField" destination="fP5-7L-2zi" id="tQ5-jX-qca"/>
                                     <outlet property="infoTextField" destination="v11-eK-Ve0" id="ocd-N4-HdR"/>
                                     <outlet property="locationTextField" destination="kze-9a-H4e" id="55C-jx-RMa"/>
-                                    <outlet property="nameTextField" destination="c9u-xI-wC0" id="QWk-EH-MJt"/>
                                     <outlet property="startTextField" destination="wdZ-HQ-gHU" id="fpr-PQ-jph"/>
+                                    <outletCollection property="gestureRecognizers" destination="9De-cH-a6p" appends="YES" id="dji-YK-yd5"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -895,6 +883,11 @@
                     <navigationItem key="navigationItem" title="View Events" id="VeC-99-W98"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rw5-9s-Lhm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9De-cH-a6p">
+                    <connections>
+                        <action selector="eventsRefreshed:" destination="2M6-V6-z64" id="fah-20-naf"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2168" y="2757"/>
         </scene>
