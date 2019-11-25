@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Identify-->
+        <scene sceneID="zKJ-2U-ERf">
+            <objects>
+                <viewController storyboardIdentifier="identify-entryPoint" id="P6q-oe-TUe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f1n-Fb-UtY"/>
+                        <viewControllerLayoutGuide type="bottom" id="GHA-Gx-Qsu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YcU-yj-OMZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="SJ1-bk-uaA"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Identify" image="baseline_search_black_24pt" id="kIk-t2-JJZ"/>
+                    <navigationItem key="navigationItem" title="Identify" id="7Ct-BQ-nNa">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" image="baseline_settings_applications_black_24pt" id="T9R-DJ-lxw"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RTI-p5-yNl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2020" y="630"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="baseline_search_black_24pt" width="24" height="24"/>
+        <image name="baseline_settings_applications_black_24pt" width="24" height="24"/>
+    </resources>
+</document>

@@ -20,6 +20,11 @@ func getUserSession() -> UserSession? {
     return appDelegate.userSession
 }
 
+func setUserSessionToken(jwtToken: String) {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.userSession?.token = jwtToken
+}
+
 //func checkForUserSessionAndRoute() {
 //    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //    var rootVC : UIViewController?

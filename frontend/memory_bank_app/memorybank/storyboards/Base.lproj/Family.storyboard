@@ -4,36 +4,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Identify-->
-        <scene sceneID="AxA-KE-SaG">
-            <objects>
-                <viewController id="IP2-KK-RSW" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="I2z-zc-R6Q"/>
-                        <viewControllerLayoutGuide type="bottom" id="G85-t0-Bzo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="p6k-6i-sqx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Identify" image="baseline_search_black_24pt" id="UY6-1r-yWu"/>
-                    <navigationItem key="navigationItem" title="Identify" id="h2P-CA-JCm">
-                        <barButtonItem key="rightBarButtonItem" title="Settings" image="baseline_settings_applications_black_24pt" id="CQp-oh-CFa"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HwM-0m-KBK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2020" y="630"/>
-        </scene>
-        <!--Identify-->
         <scene sceneID="PPV-YQ-3dZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0sR-47-FWL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController id="IQ8-24-sye" customClass="NavigationViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Identify" image="baseline_search_black_24pt" id="Teb-o9-jJJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="twx-Nv-9Z9">
@@ -41,11 +17,22 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="IP2-KK-RSW" kind="relationship" relationship="rootViewController" id="oOL-Gq-Pvp"/>
+                        <segue destination="MMB-lF-a5E" kind="relationship" relationship="rootViewController" id="bFt-cy-MA4"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sR-47-FWL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2780" y="630"/>
+        </scene>
+        <!--identify-entryPoint-->
+        <scene sceneID="YGs-3L-E7b">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Identify" referencedIdentifier="identify-entryPoint" id="MMB-lF-a5E" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lkI-l1-T9m"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8yf-NQ-lOu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2066" y="627"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="LIt-60-fJX">
@@ -258,85 +245,15 @@
             </objects>
             <point key="canvasLocation" x="-6103" y="-394"/>
         </scene>
-        <!--Ib Calendar Data Source-->
-        <scene sceneID="72Y-Ux-cxZ">
+        <!--events-entryPoint-->
+        <scene sceneID="0Lx-k6-6Vv">
             <objects>
-                <viewController id="5oJ-kp-Oxc" customClass="EventViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OPp-YX-tnc"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ohd-Hm-sfr"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qLy-6q-M9O">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QhR-0A-iIx" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="88" width="375" height="300"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="yPf-Ib-TrJ"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NYP-T1-RgE">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="o8K-pM-aTw" customClass="DateMonthlyCell" customModule="memorybank" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="cY6-ux-eaz">
-                                            <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateHere" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g80-3t-Jfi">
-                                                    <rect key="frame" x="0.0" y="14.666666666666664" width="71" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="g80-3t-Jfi" firstAttribute="centerY" secondItem="cY6-ux-eaz" secondAttribute="centerY" id="LMs-ts-rwZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="g80-3t-Jfi" secondAttribute="trailing" id="Lyr-em-lsN"/>
-                                                <constraint firstItem="g80-3t-Jfi" firstAttribute="leading" secondItem="cY6-ux-eaz" secondAttribute="leading" id="X6D-VI-o84"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <connections>
-                                            <outlet property="dateLabel" destination="g80-3t-Jfi" id="cgz-Dv-k7J"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="ibCalendarDataSource" destination="5oJ-kp-Oxc" id="V49-sI-dIh"/>
-                                    <outlet property="ibCalendarDelegate" destination="5oJ-kp-Oxc" id="uvH-tp-d8j"/>
-                                </connections>
-                            </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-Fs-NQe">
-                                <rect key="frame" x="0.0" y="388" width="375" height="341"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="Ohd-Hm-sfr" firstAttribute="top" secondItem="0XM-Fs-NQe" secondAttribute="bottom" id="1mY-74-u9R"/>
-                            <constraint firstAttribute="trailing" secondItem="0XM-Fs-NQe" secondAttribute="trailing" id="4Me-d0-f76"/>
-                            <constraint firstItem="0XM-Fs-NQe" firstAttribute="top" secondItem="QhR-0A-iIx" secondAttribute="bottom" id="MwP-pD-37c"/>
-                            <constraint firstItem="0XM-Fs-NQe" firstAttribute="leading" secondItem="qLy-6q-M9O" secondAttribute="leading" id="Vcf-Ct-Wh2"/>
-                            <constraint firstAttribute="trailing" secondItem="QhR-0A-iIx" secondAttribute="trailing" id="WFC-NU-N8L"/>
-                            <constraint firstItem="QhR-0A-iIx" firstAttribute="leading" secondItem="qLy-6q-M9O" secondAttribute="leading" id="ecB-8A-tFt"/>
-                            <constraint firstItem="QhR-0A-iIx" firstAttribute="top" secondItem="OPp-YX-tnc" secondAttribute="bottom" id="yv0-E0-sCo"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Events" image="baseline_calendar_today_black_24pt" id="tcv-BA-gdn"/>
-                    <navigationItem key="navigationItem" title="Events" largeTitleDisplayMode="always" id="TSv-Bz-je9">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="baseline_add_black_24pt" id="GFR-L7-ZeG"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uhz-UO-TVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardIdentifier="events-entryPoint" storyboardName="Events" referencedIdentifier="events-entryPoint" id="oME-G7-GJY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lew-hD-yfp"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XOw-jz-tIX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2020" y="1983.9901477832514"/>
+            <point key="canvasLocation" x="-2054" y="1984"/>
         </scene>
         <!--Events-->
         <scene sceneID="a0R-pw-Xtx">
@@ -348,7 +265,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="5oJ-kp-Oxc" kind="relationship" relationship="rootViewController" id="GwG-EQ-bb1"/>
+                        <segue destination="oME-G7-GJY" kind="relationship" relationship="rootViewController" id="pQE-64-SaE"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFW-Tw-ecQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -365,40 +282,28 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="XBd-s4-h8S" kind="relationship" relationship="rootViewController" id="GNZ-I6-KQp"/>
+                        <segue destination="PSb-8p-pHt" kind="relationship" relationship="rootViewController" id="KLt-rY-hCQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wjE-d7-chO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2780" y="1300"/>
         </scene>
-        <!--Messages-->
-        <scene sceneID="6Gz-bO-G9m">
+        <!--messages-entryPoint-->
+        <scene sceneID="unp-1a-s2v">
             <objects>
-                <viewController id="XBd-s4-h8S" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="EN0-9c-h5v"/>
-                        <viewControllerLayoutGuide type="bottom" id="lxL-gA-Fnm"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XSK-gl-xeV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Messages" image="baseline_question_answer_black_24pt" id="1QG-t2-Kzn"/>
-                    <navigationItem key="navigationItem" title="Messages" largeTitleDisplayMode="always" id="0VK-h0-Lgr"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="poc-0J-4aN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Messages" referencedIdentifier="messages-entryPoint" id="PSb-8p-pHt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="87t-rv-Tgy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FsR-xI-byp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2020" y="1300"/>
+            <point key="canvasLocation" x="-2054" y="1300"/>
         </scene>
     </scenes>
     <resources>
-        <image name="baseline_add_black_24pt" width="24" height="24"/>
         <image name="baseline_calendar_today_black_24pt" width="24" height="24"/>
         <image name="baseline_question_answer_black_24pt" width="24" height="24"/>
         <image name="baseline_search_black_24pt" width="24" height="24"/>
-        <image name="baseline_settings_applications_black_24pt" width="24" height="24"/>
     </resources>
     <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

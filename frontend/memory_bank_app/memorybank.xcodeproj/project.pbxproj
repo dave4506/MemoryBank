@@ -24,6 +24,9 @@
 		2A6FE879238B3B7D00BE4BDE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE878238B3B7D00BE4BDE /* NavigationViewController.swift */; };
 		2A6FE87B238B455800BE4BDE /* dateMonthlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE87A238B455800BE4BDE /* dateMonthlyCell.swift */; };
 		2A6FE87D238B45D200BE4BDE /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE87C238B45D200BE4BDE /* EventViewController.swift */; };
+		2A6FE87F238C167100BE4BDE /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6FE87E238C167100BE4BDE /* Events.storyboard */; };
+		2A6FE881238C176300BE4BDE /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6FE880238C176300BE4BDE /* Messages.storyboard */; };
+		2A6FE883238C17BC00BE4BDE /* Identify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6FE882238C17BC00BE4BDE /* Identify.storyboard */; };
 		AFB2012B4595F84606A7E894 /* Pods_memorybank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,9 @@
 		2A6FE878238B3B7D00BE4BDE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		2A6FE87A238B455800BE4BDE /* dateMonthlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateMonthlyCell.swift; sourceTree = "<group>"; };
 		2A6FE87C238B45D200BE4BDE /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		2A6FE87E238C167100BE4BDE /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
+		2A6FE880238C176300BE4BDE /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		2A6FE882238C17BC00BE4BDE /* Identify.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Identify.storyboard; sourceTree = "<group>"; };
 		2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.release.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.release.xcconfig"; sourceTree = "<group>"; };
 		2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
 		3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memorybank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +123,9 @@
 				17FC2F831E258FC500174015 /* Family.storyboard */,
 				2A685B2C238B2A1E0002DD64 /* User.storyboard */,
 				2A6FE872238B364D00BE4BDE /* Settings.storyboard */,
+				2A6FE87E238C167100BE4BDE /* Events.storyboard */,
+				2A6FE880238C176300BE4BDE /* Messages.storyboard */,
+				2A6FE882238C17BC00BE4BDE /* Identify.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -250,10 +259,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A6FE881238C176300BE4BDE /* Messages.storyboard in Resources */,
 				17FC2F871E258FC500174015 /* Assets.xcassets in Resources */,
+				2A6FE883238C17BC00BE4BDE /* Identify.storyboard in Resources */,
 				17FC2F851E258FC500174015 /* Family.storyboard in Resources */,
 				2A685B2D238B2A1E0002DD64 /* User.storyboard in Resources */,
 				2A6FE873238B364D00BE4BDE /* Settings.storyboard in Resources */,
+				2A6FE87F238C167100BE4BDE /* Events.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

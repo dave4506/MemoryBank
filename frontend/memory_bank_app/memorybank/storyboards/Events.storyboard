@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FvU-Up-fLT">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Ib Calendar Data Source-->
+        <scene sceneID="me3-Xw-GwE">
+            <objects>
+                <viewController storyboardIdentifier="events-entryPoint" id="FvU-Up-fLT" customClass="EventViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AAX-Bl-uPI"/>
+                        <viewControllerLayoutGuide type="bottom" id="zbB-I3-rck"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rAG-jj-IXF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D5c-Zi-cZc" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="wUT-3c-Hcz"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tlB-Hx-XiF">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="dateCell" id="Dbl-94-Agk" customClass="DateMonthlyCell" customModule="memorybank" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tBw-D6-8jr">
+                                            <rect key="frame" x="0.0" y="0.0" width="71" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dateHere" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwf-nI-eqa">
+                                                    <rect key="frame" x="0.0" y="14.5" width="71" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Vwf-nI-eqa" secondAttribute="trailing" id="3xK-d8-VUt"/>
+                                                <constraint firstItem="Vwf-nI-eqa" firstAttribute="centerY" secondItem="tBw-D6-8jr" secondAttribute="centerY" id="eFG-Ly-Tb8"/>
+                                                <constraint firstItem="Vwf-nI-eqa" firstAttribute="leading" secondItem="tBw-D6-8jr" secondAttribute="leading" id="fbE-Pg-RrQ"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="Vwf-nI-eqa" id="W4C-a1-W6G"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="ibCalendarDataSource" destination="FvU-Up-fLT" id="4Mq-II-4VD"/>
+                                    <outlet property="ibCalendarDelegate" destination="FvU-Up-fLT" id="lgE-6S-ZcN"/>
+                                </connections>
+                            </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tLY-nu-Fw4">
+                                <rect key="frame" x="0.0" y="344" width="414" height="518"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="D5c-Zi-cZc" firstAttribute="leading" secondItem="rAG-jj-IXF" secondAttribute="leading" id="1um-O3-zjh"/>
+                            <constraint firstAttribute="trailing" secondItem="tLY-nu-Fw4" secondAttribute="trailing" id="D4i-T9-rBu"/>
+                            <constraint firstItem="zbB-I3-rck" firstAttribute="top" secondItem="tLY-nu-Fw4" secondAttribute="bottom" id="TfE-XI-HvO"/>
+                            <constraint firstItem="tLY-nu-Fw4" firstAttribute="leading" secondItem="rAG-jj-IXF" secondAttribute="leading" id="fyD-dc-4zq"/>
+                            <constraint firstItem="tLY-nu-Fw4" firstAttribute="top" secondItem="D5c-Zi-cZc" secondAttribute="bottom" id="iLs-UC-VEY"/>
+                            <constraint firstAttribute="trailing" secondItem="D5c-Zi-cZc" secondAttribute="trailing" id="oWP-W6-4b4"/>
+                            <constraint firstItem="D5c-Zi-cZc" firstAttribute="top" secondItem="AAX-Bl-uPI" secondAttribute="bottom" id="v2W-8g-SIS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DG8-2Y-3Iz"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Events" image="baseline_calendar_today_black_24pt" id="ndF-nO-ppr"/>
+                    <navigationItem key="navigationItem" title="Events" largeTitleDisplayMode="always" id="Np3-4m-nng">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="baseline_add_black_24pt" id="Fbg-4u-r0x"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1JO-aI-us5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2020" y="1983.9901477832514"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="baseline_add_black_24pt" width="24" height="24"/>
+        <image name="baseline_calendar_today_black_24pt" width="24" height="24"/>
+    </resources>
+</document>
