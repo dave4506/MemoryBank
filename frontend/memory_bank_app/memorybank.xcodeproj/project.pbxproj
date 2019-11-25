@@ -28,6 +28,8 @@
 		2A6FE881238C176300BE4BDE /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6FE880238C176300BE4BDE /* Messages.storyboard */; };
 		2A6FE883238C17BC00BE4BDE /* Identify.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6FE882238C17BC00BE4BDE /* Identify.storyboard */; };
 		2A6FE885238C19C700BE4BDE /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE884238C19C700BE4BDE /* CreateEventViewController.swift */; };
+		723BB840238C4D3000F3F649 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723BB83F238C4D3000F3F649 /* TakePhotoViewController.swift */; };
+		723BB842238C4D4400F3F649 /* SelectPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723BB841238C4D4400F3F649 /* SelectPhotoViewController.swift */; };
 		AFB2012B4595F84606A7E894 /* Pods_memorybank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +61,8 @@
 		2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.release.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.release.xcconfig"; sourceTree = "<group>"; };
 		2D8C9B52DE415302BA7B152A /* Pods-CognitoYourUserPoolsSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.release.xcconfig"; sourceTree = "<group>"; };
 		3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_memorybank.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		723BB83F238C4D3000F3F649 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
+		723BB841238C4D4400F3F649 /* SelectPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPhotoViewController.swift; sourceTree = "<group>"; };
 		986B61E6285A06198EBBE2B8 /* Pods-memorybank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-memorybank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-memorybank/Pods-memorybank.debug.xcconfig"; sourceTree = "<group>"; };
 		B3896318C8CD13ABD7D4EE1D /* Pods-creko.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-creko.release.xcconfig"; path = "Pods/Target Support Files/Pods-creko/Pods-creko.release.xcconfig"; sourceTree = "<group>"; };
 		DBEB9BB4F88788184F7DD583 /* Pods-CognitoYourUserPoolsSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CognitoYourUserPoolsSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CognitoYourUserPoolsSample/Pods-CognitoYourUserPoolsSample.debug.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +163,8 @@
 				2A6FE878238B3B7D00BE4BDE /* NavigationViewController.swift */,
 				2A6FE87C238B45D200BE4BDE /* EventViewController.swift */,
 				2A6FE884238C19C700BE4BDE /* CreateEventViewController.swift */,
+				723BB83F238C4D3000F3F649 /* TakePhotoViewController.swift */,
+				723BB841238C4D4400F3F649 /* SelectPhotoViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -339,10 +345,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				004087AE236FA086005A883B /* S3ImageDownloadViewController.swift in Sources */,
+				723BB840238C4D3000F3F649 /* TakePhotoViewController.swift in Sources */,
 				2A6FE879238B3B7D00BE4BDE /* NavigationViewController.swift in Sources */,
 				2A6FE87D238B45D200BE4BDE /* EventViewController.swift in Sources */,
 				2A6FE885238C19C700BE4BDE /* CreateEventViewController.swift in Sources */,
 				2A3607A22371B7B600A4C45B /* user.swift in Sources */,
+				723BB842238C4D4400F3F649 /* SelectPhotoViewController.swift in Sources */,
 				17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */,
 				17FC2F9B1E259E0500174015 /* Constants.swift in Sources */,
 				2A6FE87B238B455800BE4BDE /* dateMonthlyCell.swift in Sources */,
