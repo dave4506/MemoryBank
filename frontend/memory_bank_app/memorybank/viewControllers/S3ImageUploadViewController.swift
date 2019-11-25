@@ -7,20 +7,18 @@ class S3ImageUploadViewController : UIViewController, UIImagePickerControllerDel
     // Mark: Properties
     @IBOutlet weak var imageView: UIImageView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.navigationController?.setToolbarHidden(true, animated: true)
+        self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setToolbarHidden(true, animated: true)
+        self.navigationController?.setToolbarHidden(false, animated: true)
     }
     
     @IBAction func useCamera(_ sender: Any) {
@@ -54,45 +52,60 @@ class S3ImageUploadViewController : UIViewController, UIImagePickerControllerDel
         
         // key = ""
         
-        // key = self.uploadImageToS3(imageData: jpegData)
+        self.uploadImageToS3(imageData: jpegData)
     }
     
     //MARK: - AWS Methods
-//    func uploadImageToS3(imageData: Data) -> String{
-//
-//        let pool = AWSCognitoIdentityUserPool(forKey: CognitoUserPoolsSignInProviderKey)
-//        var username: String = (pool.currentUser()?.username)!
-//        username = username.replacingOccurrences(of: ".", with: "-")
-//
-//        let s3Client = AWSS3.default()
-//        let putObjectRequest = AWSS3PutObjectRequest()
-//        putObjectRequest?.bucket = s3Bucket
-//        let key = username + "/images/" + randomString(length: 8) + ".jpeg"
-//        putObjectRequest?.key = key
-//        putObjectRequest?.body = imageData
-//        putObjectRequest?.contentType = "image/jpeg"
-//        putObjectRequest?.contentLength = imageData.count as NSNumber
-//
-//        s3Client.putObject(putObjectRequest!){
-//            (result, error) in
-//
-//            var msg: String?
-//
-//            if error != nil{
-//                msg = "Upload image to S3 failed: " + (error as? String ?? "unknown error")
-//            } else {
-//                msg = "Upload image to S3 successful:" + key
-//            }
-//
-//            DispatchQueue.main.async {
-//                let alert = UIAlertController(title: "Upload image to S3", message: msg, preferredStyle: .alert)
-//                alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-//                self.present(alert, animated: true)
-//            }
-//        }
-//
-//        return key
-//    }
+    func uploadImageToS3(imageData: Data) {
+       
+        var request = URLRequest(url:URL(string: "Https://memorybank-staging.herokuapp.com/upload/search")!)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue(getUserSession()?.token ?? "NULL", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request){ data, response, error in
+            guard let _ = data, error == nil else {
+                print("NETWORKING ERROR")
+                print("Networking error is: ", error)
+                return
+            }
+            if let httpStatus = response as? HTTPURLResponse,
+            httpStatus.statusCode != 200 {
+                print("HTTP STATUS: \(httpStatus.statusCode)")
+                return
+            }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+                DispatchQueue.main.async(execute: {
+                    
+                    self.upload(imageData: imageData, urlString: ((json["url"] as! String?)!), mimeType: "image"){ _,_ in print("Done") }
+                })
+            }
+            catch let error as NSError {
+                    print("NSError is: ", error)
+            }
+
+            
+        }
+        task.resume()
+    }
     
+    func upload(imageData: Data, urlString: String, mimeType: String, completion: @escaping (Bool, Error?) -> Void) {
+        let requestURL = URL(string: urlString)!
+        var request = URLRequest(url: requestURL)
+        request.httpMethod = "PUT"
+        request.httpBody = imageData
+        request.setValue(mimeType, forHTTPHeaderField: "Content-Type")
+        request.setValue("\(imageData.count)", forHTTPHeaderField: "Content-Length")
+        request.setValue("public-read", forHTTPHeaderField: "x-amz-acl")
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { (response, responseObject, error) in
+            print(response ?? "response nil")
+            print(error ?? "response nil")
+            completion(error == nil, error)
+        })
+        task.resume()
+    }
     
 }
