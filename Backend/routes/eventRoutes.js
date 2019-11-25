@@ -140,9 +140,6 @@ module.exports = (app, db) => {
             catch (err) {
                 return res.status(500).json({error: 'Internal server error, unable to add status_id to user entry.'});
             }
-            if (update_status.result.nModified != 1) {
-                return res.status(500).json({error: 'Internal server error, unable to add status_id to user entry.' });
-            }
 
             try {
                 update_status = await db.collection('events').updateOne(
@@ -173,6 +170,8 @@ module.exports = (app, db) => {
             }
 
             let event_info;
+
+            const { event_id } = req.params;
 
             try {
                 event_info = await db.collection('events').findOne(
