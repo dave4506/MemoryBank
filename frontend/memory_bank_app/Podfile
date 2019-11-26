@@ -15,4 +15,5 @@ target 'memorybank' do
   pod 'JTAppleCalendar'
   pod 'Eureka'
   pod 'SwiftyJSON'
+  pod 'PromiseKit'
 end

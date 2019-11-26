@@ -40,7 +40,17 @@ class TakePhotoViewController : UIViewController, UIImagePickerControllerDelegat
         dismiss(animated: true, completion: nil)
         let jpegData:Data = selectedImage.jpegData(compressionQuality: 0.95)!
         
-        uploadSearch(imageData: jpegData)
+        uploadFile(imageData: jpegData)
+        let recognize = sendImageToRekognition(selectedImage: selectedImage)
+        displayAlert(message : recognize)
+    }
+    
+    func displayAlert(message : String){
+        let alert = UIAlertController(title: "Recognized Image", message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+
+        self.present(alert, animated: true)
     }
 }
 

@@ -7,6 +7,23 @@
 //
 
 import Foundation
+import UIKit
+import AWSS3
+import AWSCore
+import AWSRekognition
+
+struct Labels: Codable {
+  var labelModelVersion: String
+  var labels: [label]
+  var orientationCorrection : Int
+}
+
+struct label: Codable {
+    var confidence : String
+    var instances : String
+    var name : String
+    var parents : String
+}
 
 func randomString(length: Int) -> String {
   let letters = "abcdefghijklmnopqrstuvwxyz0123456789"
@@ -184,4 +201,101 @@ func uploadRekognize(name : String) {
     }
     
     task.resume()
+}
+
+func uploadFile(imageData: Data) {
+
+    let access = "AKIAI662ZZJULL7WKBDQ"
+    let secret = "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"
+    let credentials = AWSStaticCredentialsProvider(accessKey: access, secretKey: secret)
+    let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast2, credentialsProvider: credentials)
+
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    let s3BucketName = "memory-bank"
+    let remoteName = randomString(length: 12)+".jpeg"
+    print("REMOTE NAME : ",remoteName)
+
+    let expression = AWSS3TransferUtilityUploadExpression()
+    expression.progressBlock = { (task, progress) in
+        DispatchQueue.main.async(execute: {
+            // Update a progress bar
+        })
+    }
+
+   var completionHandler: AWSS3TransferUtilityUploadCompletionHandlerBlock?
+    completionHandler = { (task, error) -> Void in
+        DispatchQueue.main.async(execute: {
+            // Do something e.g. Alert a user for transfer completion.
+            // On failed uploads, `error` contains the error object.
+        })
+    }
+
+    let transferUtility = AWSS3TransferUtility.default()
+    transferUtility.uploadData(imageData, bucket: s3BucketName, key: remoteName, contentType: "image/jpeg", expression: expression, completionHandler: completionHandler).continueWith { (task) -> Any? in
+        if let error = task.error {
+            print("Error : \(error.localizedDescription)")
+        }
+
+        if task.result != nil {
+            let url = URL(string:"s3.console.aws.amazon.com/s3/buckets")
+            let publicURL = url?.appendingPathComponent(s3BucketName).appendingPathComponent(remoteName)
+            if let absoluteString = publicURL?.absoluteString {
+                // Set image with URL
+                print("Image URL : ",absoluteString)
+            }
+        }
+        
+        //sendImageToRekognition(remoteName: remoteName)
+
+        return nil
+    }
+
+}
+
+func sendImageToRekognition(selectedImage : UIImage) -> String{
+    
+    let access = "AKIAI662ZZJULL7WKBDQ"
+    let secret = "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"
+    let credentials = AWSStaticCredentialsProvider(accessKey: access, secretKey: secret)
+    let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast2, credentialsProvider: credentials)
+    var string = ""
+
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+    
+    let rekognitionClient = AWSRekognition.default()
+        
+    let image = AWSRekognitionImage()
+    image!.bytes = selectedImage.jpegData(compressionQuality: 0.7)
+    
+    guard let request = AWSRekognitionDetectLabelsRequest() else {
+        puts("Unable to initialize AWSRekognitionDetectLabelsRequest.")
+        return "Unable to initialize AWSRekognitionDetectLabelsRequest."
+    }
+
+    request.image = image
+    request.maxLabels = 1
+    request.minConfidence = 90
+    
+    rekognitionClient.detectLabels(request) { (response:AWSRekognitionDetectLabelsResponse!, error: Error?) in
+        if error == nil {
+            print(response?.labels![0].name as Any)
+            string = (response?.labels![0].name)!
+        }
+        
+    }
+    
+    return string
+    
+//    rekognitionObject?.detectLabels(searchRequest!){
+//        (result, error) in
+//        if error != nil{
+//            print(error!)
+//            return
+//        }
+//
+//        let task = rekognitionObject?.detectLabels(searchRequest!);
+//        print(task?.result)
+//
+//    }
 }
