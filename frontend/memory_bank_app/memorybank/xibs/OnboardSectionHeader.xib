@@ -26,7 +26,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="MemoryBankIcon" translatesAutoresizingMaskIntoConstraints="NO" id="EVH-hC-pqT">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="MemoryBank Icon" translatesAutoresizingMaskIntoConstraints="NO" id="EVH-hC-pqT">
                     <rect key="frame" x="20" y="52" width="156" height="138.5"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="156" id="Yxi-x6-3H6"/>
@@ -52,6 +52,6 @@
         </view>
     </objects>
     <resources>
-        <image name="MemoryBankIcon" width="340" height="283"/>
+        <image name="MemoryBank Icon" width="340" height="283"/>
     </resources>
 </document>

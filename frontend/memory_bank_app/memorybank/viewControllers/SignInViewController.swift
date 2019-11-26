@@ -77,6 +77,7 @@ class SignInViewController: FormViewController {
         
         Alamofire.request("https://memorybank-staging.herokuapp.com/auth/signin", method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .responseJSON { response in
+                print(response)
                 if let _ = response.error {
                     
                 } else {
