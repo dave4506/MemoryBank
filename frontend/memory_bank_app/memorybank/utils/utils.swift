@@ -205,13 +205,6 @@ func uploadRekognize(name : String) {
 
 func uploadFile(imageData: Data) {
 
-    let access = "AKIAI662ZZJULL7WKBDQ"
-    let secret = "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"
-    let credentials = AWSStaticCredentialsProvider(accessKey: access, secretKey: secret)
-    let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast2, credentialsProvider: credentials)
-
-    AWSServiceManager.default().defaultServiceConfiguration = configuration
-
     let s3BucketName = "memory-bank"
     let remoteName = randomString(length: 12)+".jpeg"
     print("REMOTE NAME : ",remoteName)
@@ -255,14 +248,7 @@ func uploadFile(imageData: Data) {
 
 func sendImageToRekognition(selectedImage : UIImage) -> String{
     
-    let access = "AKIAI662ZZJULL7WKBDQ"
-    let secret = "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"
-    let credentials = AWSStaticCredentialsProvider(accessKey: access, secretKey: secret)
-    let configuration = AWSServiceConfiguration(region: AWSRegionType.USEast2, credentialsProvider: credentials)
     var string = ""
-
-    AWSServiceManager.default().defaultServiceConfiguration = configuration
-    
     let rekognitionClient = AWSRekognition.default()
         
     let image = AWSRekognitionImage()
