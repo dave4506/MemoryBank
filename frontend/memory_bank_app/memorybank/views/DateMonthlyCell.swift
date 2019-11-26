@@ -11,5 +11,6 @@ import JTAppleCalendar
 import UIKit
 
 class DateMonthlyCell: JTAppleCell {
+    @IBOutlet weak var selectedView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
 }
