@@ -34,10 +34,10 @@
             </objects>
             <point key="canvasLocation" x="-2066" y="627"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="LIt-60-fJX">
             <objects>
-                <tabBarController id="qNq-ch-s8C" sceneMemberID="viewController">
+                <tabBarController id="qNq-ch-s8C" customClass="TabViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="3UN-Kr-EK7"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QWp-eQ-1fZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
