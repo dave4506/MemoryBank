@@ -10,9 +10,9 @@ import Foundation
 import Alamofire
 
 struct UserSession {
-    var userName: String!
+    var userName: String?
     var token: String?
-    var expiration: Date?
+    var isPatient: Bool?
 }
 
 func getUserSession() -> UserSession? {
@@ -23,6 +23,11 @@ func getUserSession() -> UserSession? {
 func setUserSessionToken(jwtToken: String) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.userSession?.token = jwtToken
+}
+
+func setUserSessionStatus(isPatient: Bool) {
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    appDelegate.userSession?.isPatient = isPatient
 }
 
 //func checkForUserSessionAndRoute() {
