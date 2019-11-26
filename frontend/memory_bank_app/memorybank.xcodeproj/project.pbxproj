@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000DE25D238C74CE00657E26 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000DE258238C74CD00657E26 /* EventTableViewController.swift */; };
-		000DE25E238C74CE00657E26 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000DE259238C74CD00657E26 /* Event.swift */; };
 		000DE25F238C74CE00657E26 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000DE25A238C74CD00657E26 /* EventTableViewCell.swift */; };
-		000DE260238C74CE00657E26 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000DE25B238C74CD00657E26 /* user.swift */; };
 		004087AE236FA086005A883B /* S3ImageDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004087AD236FA086005A883B /* S3ImageDownloadViewController.swift */; };
 		0046CB0D238CA4580076228D /* ShareEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046CB0C238CA4580076228D /* ShareEventsViewController.swift */; };
 		17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F7F1E258FC500174015 /* AppDelegate.swift */; };
@@ -20,14 +17,14 @@
 		17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */; };
 		29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */; };
 		29D28098235D48050020EAFA /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D28097235D48050020EAFA /* utils.swift */; };
-		2A3607A22371B7B600A4C45B /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3607A12371B7B600A4C45B /* user.swift */; };
+		2A3607A22371B7B600A4C45B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A3607A12371B7B600A4C45B /* User.swift */; };
 		2A4199D5238CAA46007EBEB7 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4199D4238CAA46007EBEB7 /* TabViewController.swift */; };
 		2A685B2D238B2A1E0002DD64 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A685B2C238B2A1E0002DD64 /* User.storyboard */; };
 		2A6FE873238B364D00BE4BDE /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6FE872238B364D00BE4BDE /* Settings.storyboard */; };
 		2A6FE875238B373200BE4BDE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE874238B373200BE4BDE /* SettingsViewController.swift */; };
 		2A6FE877238B375600BE4BDE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE876238B375600BE4BDE /* HomeViewController.swift */; };
 		2A6FE879238B3B7D00BE4BDE /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE878238B3B7D00BE4BDE /* NavigationViewController.swift */; };
-		2A6FE87B238B455800BE4BDE /* dateMonthlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE87A238B455800BE4BDE /* dateMonthlyCell.swift */; };
+		2A6FE87B238B455800BE4BDE /* DateMonthlyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE87A238B455800BE4BDE /* DateMonthlyCell.swift */; };
 		2A6FE87D238B45D200BE4BDE /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A6FE87C238B45D200BE4BDE /* EventViewController.swift */; };
 		2A6FE87F238C167100BE4BDE /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6FE87E238C167100BE4BDE /* Events.storyboard */; };
 		2A6FE881238C176300BE4BDE /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A6FE880238C176300BE4BDE /* Messages.storyboard */; };
@@ -36,14 +33,13 @@
 		2ABE72EE238C34980065A599 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE72ED238C34980065A599 /* SignInViewController.swift */; };
 		2ABE72F2238C3A420065A599 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE72F1238C3A420065A599 /* WelcomeViewController.swift */; };
 		2ABE72F3238C3C520065A599 /* OnboardSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE72EF238C39160065A599 /* OnboardSectionHeader.xib */; };
+		2AE7FB21238CB5CE00A9B61F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000DE259238C74CD00657E26 /* Event.swift */; };
 		AFB2012B4595F84606A7E894 /* Pods_memorybank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3419397352772BFF2FCA6C50 /* Pods_memorybank.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		000DE258238C74CD00657E26 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
 		000DE259238C74CD00657E26 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		000DE25A238C74CD00657E26 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		000DE25B238C74CD00657E26 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		004087AD236FA086005A883B /* S3ImageDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3ImageDownloadViewController.swift; sourceTree = "<group>"; };
 		0046CB0C238CA4580076228D /* ShareEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareEventsViewController.swift; sourceTree = "<group>"; };
 		0C29FBE9C482CC400E7EB58E /* Pods-creko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-creko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-creko/Pods-creko.debug.xcconfig"; sourceTree = "<group>"; };
@@ -56,14 +52,14 @@
 		17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = S3ImageUploadViewController.swift; sourceTree = "<group>"; };
 		29D28097235D48050020EAFA /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
-		2A3607A12371B7B600A4C45B /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		2A3607A12371B7B600A4C45B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2A4199D4238CAA46007EBEB7 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		2A685B2C238B2A1E0002DD64 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		2A6FE872238B364D00BE4BDE /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2A6FE874238B373200BE4BDE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2A6FE876238B375600BE4BDE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2A6FE878238B3B7D00BE4BDE /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
-		2A6FE87A238B455800BE4BDE /* dateMonthlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateMonthlyCell.swift; sourceTree = "<group>"; };
+		2A6FE87A238B455800BE4BDE /* DateMonthlyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMonthlyCell.swift; sourceTree = "<group>"; };
 		2A6FE87C238B45D200BE4BDE /* EventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		2A6FE87E238C167100BE4BDE /* Events.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		2A6FE880238C176300BE4BDE /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
@@ -151,7 +147,8 @@
 		2A685B27238B29A00002DD64 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				2A6FE87A238B455800BE4BDE /* dateMonthlyCell.swift */,
+				000DE25A238C74CD00657E26 /* EventTableViewCell.swift */,
+				2A6FE87A238B455800BE4BDE /* DateMonthlyCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -167,12 +164,7 @@
 		2A685B2A238B29C80002DD64 /* viewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				000DE259238C74CD00657E26 /* Event.swift */,
-				000DE25A238C74CD00657E26 /* EventTableViewCell.swift */,
-				000DE258238C74CD00657E26 /* EventTableViewController.swift */,
 				0046CB0C238CA4580076228D /* ShareEventsViewController.swift */,
-				000DE25B238C74CD00657E26 /* user.swift */,
-				17FC2F981E25940900174015 /* SignInViewController.swift */,
 				17FC2F9C1E259E5D00174015 /* SignUpViewController.swift */,
 				29D28095235D44770020EAFA /* S3ImageUploadViewController.swift */,
 				004087AD236FA086005A883B /* S3ImageDownloadViewController.swift */,
@@ -199,7 +191,8 @@
 		2AFC8791238AD400004EF022 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				2A3607A12371B7B600A4C45B /* user.swift */,
+				000DE259238C74CD00657E26 /* Event.swift */,
+				2A3607A12371B7B600A4C45B /* User.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -333,11 +326,11 @@
 				"${BUILT_PRODUCTS_DIR}/AWSRekognition/AWSRekognition.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SPAlert/SPAlert.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -348,11 +341,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSRekognition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputBarAccessoryView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPAlert.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -370,14 +363,14 @@
 				2ABE72F2238C3A420065A599 /* WelcomeViewController.swift in Sources */,
 				2A6FE879238B3B7D00BE4BDE /* NavigationViewController.swift in Sources */,
 				2A6FE87D238B45D200BE4BDE /* EventViewController.swift in Sources */,
+				2AE7FB21238CB5CE00A9B61F /* Event.swift in Sources */,
 				2A6FE885238C19C700BE4BDE /* CreateEventViewController.swift in Sources */,
-				000DE25D238C74CE00657E26 /* EventTableViewController.swift in Sources */,
-				2A3607A22371B7B600A4C45B /* user.swift in Sources */,
+				2A3607A22371B7B600A4C45B /* User.swift in Sources */,
 				0046CB0D238CA4580076228D /* ShareEventsViewController.swift in Sources */,
 				17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */,
 				17FC2F9B1E259E0500174015 /* Constants.swift in Sources */,
 				2A4199D5238CAA46007EBEB7 /* TabViewController.swift in Sources */,
-				2A6FE87B238B455800BE4BDE /* dateMonthlyCell.swift in Sources */,
+				2A6FE87B238B455800BE4BDE /* DateMonthlyCell.swift in Sources */,
 				29D28098235D48050020EAFA /* utils.swift in Sources */,
 				000DE25F238C74CE00657E26 /* EventTableViewCell.swift in Sources */,
 				2A6FE877238B375600BE4BDE /* HomeViewController.swift in Sources */,
