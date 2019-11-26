@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wqa-sh-Aaj">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -8,46 +8,21 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="sZs-vf-ArA">
-            <objects>
-                <navigationController id="Drk-Na-AId" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Ad-AM-xsm">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="wqa-sh-Aaj" kind="relationship" relationship="rootViewController" id="t3l-jC-Ce9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L8l-pH-CvQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-658" y="-617"/>
-        </scene>
-        <!--Settings-->
+        <!--Personal-->
         <scene sceneID="3uJ-d7-34n">
             <objects>
-                <viewController id="wqa-sh-Aaj" customClass="SettingsViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="settings-entryPoint" id="wqa-sh-Aaj" customClass="SettingsViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6tj-h6-2ye">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cXO-mp-l4d"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="oCQ-hC-Xr3">
-                        <barButtonItem key="rightBarButtonItem" image="baseline_close_black_24pt" id="emn-i4-HNN">
-                            <connections>
-                                <action selector="clickDismiss:" destination="wqa-sh-Aaj" id="oB2-je-xip"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Personal" id="oCQ-hC-Xr3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iyq-do-ep2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="93" y="-617"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="baseline_close_black_24pt" width="24" height="24"/>
-    </resources>
 </document>

@@ -35,6 +35,9 @@ class EventViewController: UIViewController {
         }
     }
     
+    @IBAction func chatClicked(_ sender: Any) {
+    }
+    
     func refreshEvents() {
     
         let headers: HTTPHeaders = [
