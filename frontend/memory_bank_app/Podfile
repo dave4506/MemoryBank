@@ -5,6 +5,17 @@ target 'memorybank' do
   use_frameworks!
 
   $awsVersion = '~> 2.10.0'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
+pod 'ImageRow', '~> 4.0'
+pod 'Firebase/Analytics'
+pod 'Firebase/MLVision'
+pod 'Firebase/MLVisionAutoML'
+pod 'Firebase/MLVisionObjectDetection'
+pod 'Firebase/MLVisionBarcodeModel'
+pod 'Firebase/MLVisionFaceModel'
+pod 'Firebase/MLVisionLabelModel'
+pod 'Firebase/MLVisionTextModel'	
   pod 'AWSCore', $awsVersion
   pod 'AWSCognitoIdentityProvider', $awsVersion
   pod 'AWSRekognition', $awsVersion

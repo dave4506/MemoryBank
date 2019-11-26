@@ -17,18 +17,19 @@
 
 import UIKit
 import AWSCognitoIdentityProvider
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var signInViewController: SignInViewController?
-    
+
     var userSession: UserSession?;
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // checkForUserSessionAndRoute()
         self.userSession = UserSession(email: nil, token: nil, isPatient: nil)
+        FirebaseApp.configure()
         return true
     }
     
