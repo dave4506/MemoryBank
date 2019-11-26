@@ -18,14 +18,27 @@ class SettingsViewController: FormViewController {
     }
 
     func configureForm() {
-        form +++ Section()
+        form +++ Section("User Details")
+            <<< LabelRow(){
+                $0.title = "Email"
+                $0.value = getUserSession()?.email ?? ""
+            }
+            <<< ButtonRow(){
+                $0.title = "Change Passcode"
+                $0.cell.tintColor = .gray
+            }
+            +++ Section("Notification Settings")
+            <<< SwitchRow() {
+                $0.title = "Enable Notification"
+                $0.value = true
+            }
+            +++ Section()
             <<< ButtonRow(){
                 $0.title = "Log Out"
                 $0.cell.tintColor = .red
+            }.onCellSelection { cell, row in
+                self.navigationController?.popToRootViewController(animated: true)
             }
     }
-    
-    @IBAction func clickDismiss(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
+
 }

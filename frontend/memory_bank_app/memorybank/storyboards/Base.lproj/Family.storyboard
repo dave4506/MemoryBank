@@ -46,8 +46,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="IQ8-24-sye" kind="relationship" relationship="viewControllers" id="YAL-EK-EZc"/>
-                        <segue destination="rBX-5q-kJT" kind="relationship" relationship="viewControllers" id="KUp-9q-ntG"/>
                         <segue destination="f4i-VN-3jI" kind="relationship" relationship="viewControllers" id="q0H-d6-NpC"/>
+                        <segue destination="KVy-XH-kuZ" kind="relationship" relationship="viewControllers" id="Z2f-Qg-H4n"/>
+                        <segue destination="rBX-5q-kJT" kind="relationship" relationship="viewControllers" id="KUp-9q-ntG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNd-L9-3uk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -255,11 +256,11 @@
             </objects>
             <point key="canvasLocation" x="-2054" y="1984"/>
         </scene>
-        <!--Events-->
+        <!--Family-->
         <scene sceneID="a0R-pw-Xtx">
             <objects>
                 <navigationController id="f4i-VN-3jI" customClass="NavigationViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Events" image="baseline_calendar_today_black_24pt" id="QYx-LA-yl0"/>
+                    <tabBarItem key="tabBarItem" title="Family" image="baseline_emoji_people_black_24pt" id="QYx-LA-yl0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jwC-bW-NnV">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -272,11 +273,11 @@
             </objects>
             <point key="canvasLocation" x="-2780" y="1984"/>
         </scene>
-        <!--Messages-->
+        <!--Personal-->
         <scene sceneID="zmq-pd-0Tc">
             <objects>
                 <navigationController id="rBX-5q-kJT" customClass="NavigationViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" image="baseline_question_answer_black_24pt" id="6Sz-bJ-LS0"/>
+                    <tabBarItem key="tabBarItem" title="Personal" image="baseline_perm_identity_black_24pt" id="6Sz-bJ-LS0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gbk-6p-cqN">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -289,19 +290,47 @@
             </objects>
             <point key="canvasLocation" x="-2780" y="1300"/>
         </scene>
-        <!--messages-entryPoint-->
+        <!--settings-entryPoint-->
         <scene sceneID="unp-1a-s2v">
             <objects>
-                <viewControllerPlaceholder storyboardName="Messages" referencedIdentifier="messages-entryPoint" id="PSb-8p-pHt" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FsR-xI-byp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="settings-entryPoint" id="PSb-8p-pHt" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="87t-rv-Tgy"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FsR-xI-byp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2054" y="1300"/>
         </scene>
+        <!--Messages-->
+        <scene sceneID="yPd-Gd-71q">
+            <objects>
+                <navigationController id="KVy-XH-kuZ" customClass="NavigationViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Messages" image="baseline_question_answer_black_24pt" id="hcW-7d-mzL"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cRU-ki-BTf">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Mic-Mh-cFO" kind="relationship" relationship="rootViewController" id="l9N-Ly-g6E"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mPL-fg-kZi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2780" y="-47"/>
+        </scene>
+        <!--messages-entryPoint-->
+        <scene sceneID="lXR-e0-4QJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Messages" referencedIdentifier="messages-entryPoint" id="Mic-Mh-cFO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QeZ-hm-PsX"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3yY-AP-F4R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2067" y="-47"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="baseline_calendar_today_black_24pt" width="24" height="24"/>
+        <image name="baseline_emoji_people_black_24pt" width="24" height="24"/>
+        <image name="baseline_perm_identity_black_24pt" width="24" height="24"/>
         <image name="baseline_question_answer_black_24pt" width="24" height="24"/>
         <image name="baseline_search_black_24pt" width="24" height="24"/>
     </resources>

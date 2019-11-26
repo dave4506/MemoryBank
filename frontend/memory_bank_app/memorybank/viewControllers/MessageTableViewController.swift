@@ -24,7 +24,6 @@ class MessageTableViewController: UITableViewController {
         #selector(MessageTableViewController.refreshMessages(_:)), for:
         UIControl.Event.valueChanged)
     }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -47,7 +46,7 @@ class MessageTableViewController: UITableViewController {
         
         let cellIdentifier = "MessageTableViewCell"
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MessageTableViewCell  else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ChatTableViewCell else {
             fatalError("The dequeued cell is not an instance of MessageTableViewCell.")
         }
         
@@ -136,6 +135,6 @@ class MessageTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+    */0
 
 }

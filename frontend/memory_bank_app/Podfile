@@ -12,6 +12,7 @@ target 'memorybank' do
   pod 'AWSS3', $awsVersion
   pod 'Alamofire'
   pod 'MessageKit', :git => 'https://github.com/MessageKit/MessageKit.git', :branch => '3.0.0-swift5'
+  pod 'IHKeyboardAvoiding'
   pod 'JTAppleCalendar'
   pod 'ESPullToRefresh'
   pod 'Eureka'

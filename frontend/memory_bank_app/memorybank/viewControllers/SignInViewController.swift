@@ -84,6 +84,7 @@ class SignInViewController: FormViewController {
                     if let token = (response.value as! [String:Any])["token"] {
                         setUserSessionToken(jwtToken: token as! String)
                         setUserSessionStatus(isPatient: self.isPatient)
+                        setUserSessionEmail(email: email)
                         let rootVC = UIStoryboard(name: "Family", bundle: nil).instantiateInitialViewController()!
                         self.navigationController?.pushViewController(rootVC, animated: true)
                     }

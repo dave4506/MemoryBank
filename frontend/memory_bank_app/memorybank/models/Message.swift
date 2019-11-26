@@ -9,10 +9,7 @@
 import Foundation
 import UIKit
 
-class Message {
-    var message: String
-    
-    init(message_in: String){
-        self.message = message_in
-    }
+struct Message {
+    var content: String
+    var from: String
 }

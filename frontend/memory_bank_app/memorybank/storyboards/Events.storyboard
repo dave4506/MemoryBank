@@ -22,10 +22,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D5c-Zi-cZc" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="220"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="wUT-3c-Hcz"/>
+                                    <constraint firstAttribute="height" constant="220" id="wUT-3c-Hcz"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tlB-Hx-XiF">
                                     <size key="itemSize" width="50" height="50"/>
@@ -76,7 +76,7 @@
                                 </connections>
                             </collectionView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tLY-nu-Fw4">
-                                <rect key="frame" x="0.0" y="344" width="414" height="518"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="598"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventTableViewCell" rowHeight="112" id="fYS-gM-cG7" customClass="EventTableViewCell" customModule="memorybank" customModuleProvider="target">
@@ -173,7 +173,7 @@
                         <constraints>
                             <constraint firstItem="D5c-Zi-cZc" firstAttribute="leading" secondItem="rAG-jj-IXF" secondAttribute="leading" id="1um-O3-zjh"/>
                             <constraint firstAttribute="trailing" secondItem="tLY-nu-Fw4" secondAttribute="trailing" id="D4i-T9-rBu"/>
-                            <constraint firstItem="zbB-I3-rck" firstAttribute="top" secondItem="tLY-nu-Fw4" secondAttribute="bottom" id="TfE-XI-HvO"/>
+                            <constraint firstItem="zbB-I3-rck" firstAttribute="top" secondItem="tLY-nu-Fw4" secondAttribute="bottom" id="Osw-nn-bt9"/>
                             <constraint firstItem="tLY-nu-Fw4" firstAttribute="leading" secondItem="rAG-jj-IXF" secondAttribute="leading" id="fyD-dc-4zq"/>
                             <constraint firstItem="tLY-nu-Fw4" firstAttribute="top" secondItem="D5c-Zi-cZc" secondAttribute="bottom" id="iLs-UC-VEY"/>
                             <constraint firstAttribute="trailing" secondItem="D5c-Zi-cZc" secondAttribute="trailing" id="oWP-W6-4b4"/>
@@ -182,7 +182,7 @@
                         <viewLayoutGuide key="safeArea" id="DG8-2Y-3Iz"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Events" image="baseline_calendar_today_black_24pt" id="ndF-nO-ppr"/>
-                    <navigationItem key="navigationItem" title="Events" largeTitleDisplayMode="always" id="Np3-4m-nng">
+                    <navigationItem key="navigationItem" title="Family Events" largeTitleDisplayMode="always" id="Np3-4m-nng">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="baseline_add_black_24pt" id="Fbg-4u-r0x">
                             <connections>
                                 <segue destination="fCQ-EC-TNo" kind="popoverPresentation" popoverAnchorBarButtonItem="Fbg-4u-r0x" id="IXl-d2-tfh">
@@ -302,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OCj-ao-shO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1320" y="2666"/>
+            <point key="canvasLocation" x="-1152" y="2657"/>
         </scene>
     </scenes>
     <resources>

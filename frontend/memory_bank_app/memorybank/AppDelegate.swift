@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // checkForUserSessionAndRoute()
-        self.userSession = UserSession(userName: nil, token: nil, isPatient: nil)
+        self.userSession = UserSession(email: nil, token: nil, isPatient: nil)
         return true
     }
     
