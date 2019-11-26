@@ -34,15 +34,14 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate {
     
     var jwtToken: String?
     
-    @IBOutlet weak var eventNameField: UITextField!
     
+    @IBOutlet weak var eventNameField: UITextField!
     
     @IBOutlet weak var descripField: UITextField!
     
+    @IBOutlet weak var locationField: UITextField!
     
     @IBOutlet weak var startTimeField: UITextField!
-    
-    @IBOutlet weak var locationField: UITextField!
     
     @IBOutlet weak var endTimeField: UITextField!
     
