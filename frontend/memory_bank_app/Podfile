@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '10.0'
 
 target 'memorybank' do
   use_frameworks!
@@ -13,5 +13,6 @@ target 'memorybank' do
   pod 'Alamofire'
   pod 'MessageKit', :git => 'https://github.com/MessageKit/MessageKit.git', :branch => '3.0.0-swift5'
   pod 'JTAppleCalendar'
+  pod 'Loaf'
   pod 'Eureka'
 end

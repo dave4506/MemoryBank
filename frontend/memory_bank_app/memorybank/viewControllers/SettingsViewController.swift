@@ -7,30 +7,25 @@
 //
 
 import UIKit
+import Eureka
 
-class SettingsViewController: UITableViewController {
+class SettingsViewController: FormViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.applyStyles()
-        // Do any additional setup after loading the view.
+        self.configureForm()
+    }
+
+    func configureForm() {
+        form +++ Section()
+            <<< ButtonRow(){
+                $0.title = "Log Out"
+                $0.cell.tintColor = .red
+            }
     }
     
-
-    func applyStyles() {
-        if #available(iOS 11.0, *) {
-            self.navigationController?.navigationBar.prefersLargeTitles = true
-            self.navigationItem.largeTitleDisplayMode = UINavigationItem.LargeTitleDisplayMode.automatic
-        }
+    @IBAction func clickDismiss(_ sender: Any) {
+        self.dismiss(animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

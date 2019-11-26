@@ -16,67 +16,77 @@
 //
 
 import Foundation
-import AWSCognitoIdentityProvider
+import Eureka
 import Alamofire
 
-let TEST_USER = "username"
-let TEST_PASSWORD = "password"
+class SignInViewController: FormViewController {
 
-class SignInViewController: UIViewController {
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
-    var usernameText: String?
+    var email: String?
+    var password: String?
+    var isPatient: Bool = false
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.password.text = nil
-        self.username.text = usernameText
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.configureForm()
+        // Do any additional setup after loading the view.
+    }
+
+    func configureForm() {
+        form +++ Section("Let's get you started")
+            <<< SegmentedRow<String>("segments"){
+                $0.options = ["Family Member", "Patient"]
+                $0.value = "Family Member"
+            }.onChange {
+                self.isPatient = $0.value == "Patient"
+            }
+            <<< TextRow("username"){
+                // $0.hidden = "$segments != 'Family Member'"
+                $0.title = "Email"
+                $0.placeholder = "johnAppleseed@umich.edu"
+            }.cellUpdate { cell, row in
+                self.email = cell.textField.text
+            }
+            <<< PasswordRow("password"){
+                // $0.hidden = "$segments != 'Family Member'"
+                $0.title = "Password"
+                $0.placeholder = "Secret Stuff"
+            }.cellUpdate { cell, row in
+                self.password = cell.textField.text
+            }
+            <<< ButtonRow(){
+                $0.title = "Log In"
+            }.onCellSelection { cell, row in
+                self.signIn()
+            }
     }
     
-    @IBAction func signInPressed(_ sender: AnyObject) {
-        if (self.username.text != nil && self.password.text != nil) {
-            if (self.username.text == TEST_USER && self.password.text == TEST_PASSWORD) {
-                let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "entrypoint")
-                self.navigationController?.pushViewController(homeVC, animated: true)
-            }
-        } else {
-            let alertController = UIAlertController(title: "Missing information",
-                                                    message: "Please enter a valid user name and password",
-                                                    preferredStyle: .alert)
-            let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-            alertController.addAction(retryAction)
+    func handleEmpty() {
+        //TODO
+    }
+    
+    func signIn() {
+        guard let email = self.email else { self.handleEmpty(); return }
+        guard let password = self.password else { self.handleEmpty(); return }
+        
+        print("email", email, "password", password)
+        
+        let parameters = [
+            "email": email,
+            "password": password,
+        ] as Parameters
+        
+        Alamofire.request("https://memorybank-staging.herokuapp.com/auth/signin", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if let _ = response.error {
+                    
+                } else {
+                    if let token = (response.value as! [String:Any])["token"] {
+                        setUserSessionToken(jwtToken: token as! String)
+                        setUserSessionStatus(isPatient: self.isPatient)
+                        let rootVC = UIStoryboard(name: "Family", bundle: nil).instantiateInitialViewController()!
+                        self.navigationController?.pushViewController(rootVC, animated: true)
+                    }
+                }
         }
     }
 }
-
-//extension SignInViewController: AWSCognitoIdentityPasswordAuthentication {
-//
-//    public func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
-//        self.passwordAuthenticationCompletion = passwordAuthenticationCompletionSource
-//        DispatchQueue.main.async {
-//            if (self.usernameText == nil) {
-//                self.usernameText = authenticationInput.lastKnownUsername
-//            }
-//        }
-//    }
-//
-//    public func didCompleteStepWithError(_ error: Error?) {
-//        DispatchQueue.main.async {
-//            if let error = error as NSError? {
-//                let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
-//                                                        message: error.userInfo["message"] as? String,
-//                                                        preferredStyle: .alert)
-//                let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-//                alertController.addAction(retryAction)
-//
-//                self.present(alertController, animated: true, completion:  nil)
-//            } else {
-//                self.username.text = nil
-//                self.dismiss(animated: true, completion: nil)
-//            }
-//        }
-//    }
-//
-//}

@@ -17,84 +17,90 @@
 
 import Foundation
 import UIKit
+import Eureka
+import Alamofire
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: FormViewController {
     
-    var sentTo: String?
-    
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    
-    @IBOutlet weak var phone: UITextField!
-    @IBOutlet weak var email: UITextField!
-    
+    var email: String?
+    var username: String?
+    var password: String?
+    var isPatient: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureForm()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    func configureForm() {
+        form +++ Section("Welcome to MemoryBank")
+            <<< SegmentedRow<String>("segments"){
+                $0.options = ["Family Member", "Patient"]
+                $0.value = "Family Member"
+            }.onChange {
+                self.isPatient = $0.value == "Patient"
+            }
+            <<< TextRow(){
+                $0.title = "Email"
+                $0.placeholder = "johnAppleseed@umich.edu"
+            }.cellUpdate { cell, row in
+                self.email = cell.textField.text
+            }
+            <<< TextRow(){
+                $0.title = "Username"
+                $0.placeholder = "johnAppleseed"
+            }.cellUpdate { cell, row in
+                self.username = cell.textField.text
+            }
+            <<< PasswordRow(){
+                $0.title = "Password"
+                $0.placeholder = "Secret Stuff"
+            }.cellUpdate { cell, row in
+                self.password = cell.textField.text
+            }
+            <<< ButtonRow(){
+                $0.title = "Sign Up"
+            }.onCellSelection { cell, row in
+                self.signUp()
+            }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    func handleEmpty() {
+        //TODO
     }
     
-    @IBAction func signUp(_ sender: AnyObject) {
-//        
-//        guard let userNameValue = self.username.text, !userNameValue.isEmpty,
-//            let passwordValue = self.password.text, !passwordValue.isEmpty else {
-//                let alertController = UIAlertController(title: "Missing Required Fields",
-//                                                        message: "Username / Password are required for registration.",
-//                                                        preferredStyle: .alert)
-//                let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-//                alertController.addAction(okAction)
-//                
-//                self.present(alertController, animated: true, completion:  nil)
-//                return
-//        }
-//        
-//        var attributes = [AWSCognitoIdentityUserAttributeType]()
-//        
-//        if let phoneValue = self.phone.text, !phoneValue.isEmpty {
-//            let phone = AWSCognitoIdentityUserAttributeType()
-//            phone?.name = "phone_number"
-//            phone?.value = phoneValue
-//            attributes.append(phone!)
-//        }
-//        
-//        if let emailValue = self.email.text, !emailValue.isEmpty {
-//            let email = AWSCognitoIdentityUserAttributeType()
-//            email?.name = "email"
-//            email?.value = emailValue
-//            attributes.append(email!)
-//        }
-//        
-//        
-//        
-//        //sign up the user
-//        self.pool?.signUp(userNameValue, password: passwordValue, userAttributes: attributes, validationData: nil).continueWith {[weak self] (task) -> Any? in
-//            guard let strongSelf = self else { return nil }
-//            DispatchQueue.main.async(execute: {
-//                if let error = task.error as NSError? {
-//                    let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
-//                                                            message: error.userInfo["message"] as? String,
-//                                                            preferredStyle: .alert)
-//                    let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-//                    alertController.addAction(retryAction)
-//                    
-//                    self?.present(alertController, animated: true, completion:  nil)
-//                } else if let result = task.result  {
-//                    // handle the case where user has to confirm his identity via email / SMS
-//                    if (result.user.confirmedStatus != AWSCognitoIdentityUserStatus.confirmed) {
-//                        strongSelf.sentTo = result.codeDeliveryDetails?.destination
-//                        strongSelf.performSegue(withIdentifier: "confirmSignUpSegue", sender:sender)
-//                    } else {
-//                        let _ = strongSelf.navigationController?.popToRootViewController(animated: true)
-//                    }
-//                }
-//                
-//            })
-//            return nil
-//        }
+    func signUp() {
+        guard let username = self.username else { self.handleEmpty(); return }
+        guard let password = self.password else { self.handleEmpty(); return }
+        guard let email = self.email else { self.handleEmpty(); return }
+
+        print("email", email, "username", username, "password", password)
+        
+        let parameters = [
+            "email": email,
+            "displayName": username,
+            "password": password,
+        ] as Parameters
+        
+        Alamofire.request("https://memorybank-staging.herokuapp.com/auth/signup", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .responseJSON { response in
+                if let _ = response.error {
+                    
+                } else {
+                    Alamofire.request("https://memorybank-staging.herokuapp.com/auth/signin", method: .post, parameters: parameters, encoding: JSONEncoding.default)
+                     .responseJSON { response in
+                         if let _ = response.error {
+                             
+                         } else {
+                            if let token = (response.value as! [String:Any])["token"] {
+                                setUserSessionToken(jwtToken: token as! String)
+                                setUserSessionStatus(isPatient: self.isPatient)
+                                let rootVC = UIStoryboard(name: "Family", bundle: nil).instantiateInitialViewController()!
+                                self.navigationController?.pushViewController(rootVC, animated: true)
+                            }
+                        }
+                     }
+                }
+            }
     }
 }
