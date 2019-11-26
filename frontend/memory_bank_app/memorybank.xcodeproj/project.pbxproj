@@ -10,6 +10,10 @@
 		000DE25F238C74CE00657E26 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000DE25A238C74CD00657E26 /* EventTableViewCell.swift */; };
 		004087AE236FA086005A883B /* S3ImageDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004087AD236FA086005A883B /* S3ImageDownloadViewController.swift */; };
 		0046CB0D238CA4580076228D /* ShareEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0046CB0C238CA4580076228D /* ShareEventsViewController.swift */; };
+		00DE72D6238CC47E00560278 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DE72D5238CC47E00560278 /* MessageTableViewCell.swift */; };
+		00DE72D8238CC62000560278 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DE72D7238CC62000560278 /* MessageTableViewController.swift */; };
+		00DE72DA238CC64800560278 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DE72D9238CC64800560278 /* Message.swift */; };
+		00DE72DE238CECCA00560278 /* CreateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DE72DD238CECCA00560278 /* CreateMessageViewController.swift */; };
 		17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FC2F7F1E258FC500174015 /* AppDelegate.swift */; };
 		17FC2F851E258FC500174015 /* Family.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F831E258FC500174015 /* Family.storyboard */; };
 		17FC2F871E258FC500174015 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17FC2F861E258FC500174015 /* Assets.xcassets */; };
@@ -42,6 +46,10 @@
 		000DE25A238C74CD00657E26 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		004087AD236FA086005A883B /* S3ImageDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = S3ImageDownloadViewController.swift; sourceTree = "<group>"; };
 		0046CB0C238CA4580076228D /* ShareEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareEventsViewController.swift; sourceTree = "<group>"; };
+		00DE72D5238CC47E00560278 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		00DE72D7238CC62000560278 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		00DE72D9238CC64800560278 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		00DE72DD238CECCA00560278 /* CreateMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMessageViewController.swift; sourceTree = "<group>"; };
 		0C29FBE9C482CC400E7EB58E /* Pods-creko.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-creko.debug.xcconfig"; path = "Pods/Target Support Files/Pods-creko/Pods-creko.debug.xcconfig"; sourceTree = "<group>"; };
 		17FC2F7C1E258FC500174015 /* memorybank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memorybank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17FC2F7F1E258FC500174015 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +184,10 @@
 				2ABE72ED238C34980065A599 /* SignInViewController.swift */,
 				2ABE72F1238C3A420065A599 /* WelcomeViewController.swift */,
 				2A4199D4238CAA46007EBEB7 /* TabViewController.swift */,
+				00DE72DD238CECCA00560278 /* CreateMessageViewController.swift */,
+				00DE72D5238CC47E00560278 /* MessageTableViewCell.swift */,
+				00DE72D7238CC62000560278 /* MessageTableViewController.swift */,
+				00DE72D9238CC64800560278 /* Message.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -252,7 +264,7 @@
 				TargetAttributes = {
 					17FC2F7B1E258FC500174015 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = APHA6W5N27;
+						DevelopmentTeam = MF7TBHZV3U;
 						LastSwiftMigration = 1020;
 					};
 				};
@@ -362,11 +374,13 @@
 				004087AE236FA086005A883B /* S3ImageDownloadViewController.swift in Sources */,
 				2ABE72F2238C3A420065A599 /* WelcomeViewController.swift in Sources */,
 				2A6FE879238B3B7D00BE4BDE /* NavigationViewController.swift in Sources */,
+				00DE72D6238CC47E00560278 /* MessageTableViewCell.swift in Sources */,
 				2A6FE87D238B45D200BE4BDE /* EventViewController.swift in Sources */,
 				2AE7FB21238CB5CE00A9B61F /* Event.swift in Sources */,
 				2A6FE885238C19C700BE4BDE /* CreateEventViewController.swift in Sources */,
 				2A3607A22371B7B600A4C45B /* User.swift in Sources */,
 				0046CB0D238CA4580076228D /* ShareEventsViewController.swift in Sources */,
+				00DE72DA238CC64800560278 /* Message.swift in Sources */,
 				17FC2F9D1E259E5D00174015 /* SignUpViewController.swift in Sources */,
 				17FC2F9B1E259E0500174015 /* Constants.swift in Sources */,
 				2A4199D5238CAA46007EBEB7 /* TabViewController.swift in Sources */,
@@ -376,7 +390,9 @@
 				2A6FE877238B375600BE4BDE /* HomeViewController.swift in Sources */,
 				29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */,
 				2ABE72EE238C34980065A599 /* SignInViewController.swift in Sources */,
+				00DE72DE238CECCA00560278 /* CreateMessageViewController.swift in Sources */,
 				17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */,
+				00DE72D8238CC62000560278 /* MessageTableViewController.swift in Sources */,
 				2A6FE875238B373200BE4BDE /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -508,7 +524,7 @@
 			baseConfigurationReference = 986B61E6285A06198EBBE2B8 /* Pods-memorybank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = APHA6W5N27;
+				DEVELOPMENT_TEAM = MF7TBHZV3U;
 				INFOPLIST_FILE = "$(SRCROOT)/memorybank/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -523,7 +539,7 @@
 			baseConfigurationReference = 2C2B343E53D3691AA7C740AE /* Pods-memorybank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = APHA6W5N27;
+				DEVELOPMENT_TEAM = MF7TBHZV3U;
 				INFOPLIST_FILE = "$(SRCROOT)/memorybank/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
