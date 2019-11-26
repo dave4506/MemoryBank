@@ -40,7 +40,7 @@ class TakePhotoViewController : UIViewController, UIImagePickerControllerDelegat
         dismiss(animated: true, completion: nil)
         let jpegData:Data = selectedImage.jpegData(compressionQuality: 0.95)!
         
-        uploadImageToS3(imageData: jpegData)
+        uploadSearch(imageData: jpegData)
     }
 }
 

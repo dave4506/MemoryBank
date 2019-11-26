@@ -18,6 +18,7 @@ PODS:
   - JTAppleCalendar (7.1.7)
   - MessageKit (3.1.0):
     - InputBarAccessoryView (~> 4.3.0)
+  - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - Eureka
   - JTAppleCalendar
   - MessageKit (from `https://github.com/MessageKit/MessageKit.git`, branch `3.0.0-swift5`)
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
@@ -42,6 +44,7 @@ SPEC REPOS:
     - Eureka
     - InputBarAccessoryView
     - JTAppleCalendar
+    - SwiftyJSON
 
 EXTERNAL SOURCES:
   MessageKit:
@@ -65,7 +68,8 @@ SPEC CHECKSUMS:
   InputBarAccessoryView: 58a348be7ea2736c7eec60e5c315511c2dbb39fd
   JTAppleCalendar: 96da4d8388fa6dc82d6a60d41ef36a015e167e2f
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: dd6e014630620a4e1c68c0dfc98fcd927ed01352
+PODFILE CHECKSUM: df4ad95631a50e64b28402b12aed81a7f349fe36
 
 COCOAPODS: 1.8.4
