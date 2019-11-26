@@ -1,82 +1,71 @@
 //
-// Copyright 2014-2018 Amazon.com,
-// Inc. or its affiliates. All Rights Reserved.
+//  SignInRouteViewController.swift
+//  memorybank
 //
-// Licensed under the Amazon Software License (the "License").
-// You may not use this file except in compliance with the
-// License. A copy of the License is located at
-//
-//     http://aws.amazon.com/asl/
-//
-// or in the "license" file accompanying this file. This file is
-// distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
-// CONDITIONS OF ANY KIND, express or implied. See the License
-// for the specific language governing permissions and
-// limitations under the License.
+//  Created by David Sun on 11/25/19.
+//  Copyright © 2019 Dubal, Rohan. All rights reserved.
 //
 
-import Foundation
-import AWSCognitoIdentityProvider
+import UIKit
+import Eureka
 import Alamofire
 
-let TEST_USER = "username"
-let TEST_PASSWORD = "password"
+class SignInRouteViewController: FormViewController {
 
-class SignInViewController: UIViewController {
-    @IBOutlet weak var username: UITextField!
-    @IBOutlet weak var password: UITextField!
-    var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
-    var usernameText: String?
+    var username: String?
+    var password: String?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.password.text = nil
-        self.username.text = usernameText
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.configureForm()
+        // Do any additional setup after loading the view.
+    }
+
+    func configureForm() {
+        form +++ Section("Let's get you started")
+            <<< SegmentedRow<String>("segments"){
+                $0.options = ["Family Member", "Patient"]
+                $0.value = "Family Member"
+            }
+            <<< TextRow("username"){
+                // $0.hidden = "$segments != 'Family Member'"
+                $0.title = "Email"
+                $0.placeholder = "johnAppleseed@umich.edu"
+            }.cellUpdate { cell, row in
+                self.username = cell.textField.text
+            }
+            <<< PasswordRow("password"){
+                // $0.hidden = "$segments != 'Family Member'"
+                $0.title = "Password"
+                $0.placeholder = "Secret Stuff"
+            }.cellUpdate { cell, row in
+                self.password = cell.textField.text
+            }
+            <<< ButtonRow(){
+                $0.title = "Log In"
+            }.onCellSelection { cell, row in
+                self.signIn()
+            }
     }
     
-    @IBAction func signInPressed(_ sender: AnyObject) {
-        if (self.username.text != nil && self.password.text != nil) {
-            if (self.username.text == TEST_USER && self.password.text == TEST_PASSWORD) {
-                let homeVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "entrypoint")
-                self.navigationController?.pushViewController(homeVC, animated: true)
+    func handleEmpty() {
+        //TODO
+    }
+    
+    func signIn() {
+        guard let username = self.username else { self.handleEmpty(); return }
+        guard let password = self.password else { self.handleEmpty(); return }
+        
+        print("username", username, "password", password)
+        
+        let parameters = [
+            "username": username,
+            "password": password,
+        ] as Parameters
+        
+        Alamofire.request("https://memorybank-staging.herokuapp.com/auth/signin", method: .post, parameters: parameters)
+            .responseJSON { response in
+                print(response)
             }
-        } else {
-            let alertController = UIAlertController(title: "Missing information",
-                                                    message: "Please enter a valid user name and password",
-                                                    preferredStyle: .alert)
-            let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-            alertController.addAction(retryAction)
-        }
     }
 }
-
-//extension SignInViewController: AWSCognitoIdentityPasswordAuthentication {
-//
-//    public func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
-//        self.passwordAuthenticationCompletion = passwordAuthenticationCompletionSource
-//        DispatchQueue.main.async {
-//            if (self.usernameText == nil) {
-//                self.usernameText = authenticationInput.lastKnownUsername
-//            }
-//        }
-//    }
-//
-//    public func didCompleteStepWithError(_ error: Error?) {
-//        DispatchQueue.main.async {
-//            if let error = error as NSError? {
-//                let alertController = UIAlertController(title: error.userInfo["__type"] as? String,
-//                                                        message: error.userInfo["message"] as? String,
-//                                                        preferredStyle: .alert)
-//                let retryAction = UIAlertAction(title: "Retry", style: .default, handler: nil)
-//                alertController.addAction(retryAction)
-//
-//                self.present(alertController, animated: true, completion:  nil)
-//            } else {
-//                self.username.text = nil
-//                self.dismiss(animated: true, completion: nil)
-//            }
-//        }
-//    }
-//
-//}
