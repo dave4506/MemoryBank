@@ -36,6 +36,11 @@
 		2A7A4667238D3BD600C47C77 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A4666238D3BD600C47C77 /* ChatViewController.swift */; };
 		2A7A466A238D4E4800C47C77 /* chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A4669238D4E4800C47C77 /* chat.swift */; };
 		2A7A466D238D51BB00C47C77 /* viewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A466C238D51BB00C47C77 /* viewControllerExtensions.swift */; };
+		2A7A466F238D574E00C47C77 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A7A466E238D574E00C47C77 /* GoogleService-Info.plist */; };
+		2A7A4671238D5AC600C47C77 /* CreateIdentificationRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A4670238D5AC600C47C77 /* CreateIdentificationRequestViewController.swift */; };
+		2A7A4673238D673700C47C77 /* Identification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A4672238D673700C47C77 /* Identification.swift */; };
+		2A7A4675238D681300C47C77 /* IdentificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A4674238D681300C47C77 /* IdentificationTableViewCell.swift */; };
+		2A7A4677238D6A8700C47C77 /* AddFamilyLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7A4676238D6A8700C47C77 /* AddFamilyLabelViewController.swift */; };
 		2ABE72EE238C34980065A599 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE72ED238C34980065A599 /* SignInViewController.swift */; };
 		2ABE72F2238C3A420065A599 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE72F1238C3A420065A599 /* WelcomeViewController.swift */; };
 		2ABE72F3238C3C520065A599 /* OnboardSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2ABE72EF238C39160065A599 /* OnboardSectionHeader.xib */; };
@@ -77,6 +82,11 @@
 		2A7A4666238D3BD600C47C77 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		2A7A4669238D4E4800C47C77 /* chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chat.swift; sourceTree = "<group>"; };
 		2A7A466C238D51BB00C47C77 /* viewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viewControllerExtensions.swift; sourceTree = "<group>"; };
+		2A7A466E238D574E00C47C77 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2A7A4670238D5AC600C47C77 /* CreateIdentificationRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIdentificationRequestViewController.swift; sourceTree = "<group>"; };
+		2A7A4672238D673700C47C77 /* Identification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identification.swift; sourceTree = "<group>"; };
+		2A7A4674238D681300C47C77 /* IdentificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentificationTableViewCell.swift; sourceTree = "<group>"; };
+		2A7A4676238D6A8700C47C77 /* AddFamilyLabelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFamilyLabelViewController.swift; sourceTree = "<group>"; };
 		2ABE72ED238C34980065A599 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		2ABE72EF238C39160065A599 /* OnboardSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardSectionHeader.xib; sourceTree = "<group>"; };
 		2ABE72F1238C3A420065A599 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +141,7 @@
 				2AFC8791238AD400004EF022 /* models */,
 				17FC2F7F1E258FC500174015 /* AppDelegate.swift */,
 				17FC2F861E258FC500174015 /* Assets.xcassets */,
+				2A7A466E238D574E00C47C77 /* GoogleService-Info.plist */,
 				17FC2F8B1E258FC500174015 /* Info.plist */,
 				17FC2F931E25909300174015 /* Supporting Files */,
 				17FC2F9A1E259E0500174015 /* Constants.swift */,
@@ -164,6 +175,7 @@
 				00DE72D5238CC47E00560278 /* ChatTableViewCell.swift */,
 				000DE25A238C74CD00657E26 /* EventTableViewCell.swift */,
 				2A6FE87A238B455800BE4BDE /* DateMonthlyCell.swift */,
+				2A7A4674238D681300C47C77 /* IdentificationTableViewCell.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -193,6 +205,8 @@
 				2A4199D4238CAA46007EBEB7 /* TabViewController.swift */,
 				00DE72DD238CECCA00560278 /* CreateMessageViewController.swift */,
 				2A7A4666238D3BD600C47C77 /* ChatViewController.swift */,
+				2A7A4670238D5AC600C47C77 /* CreateIdentificationRequestViewController.swift */,
+				2A7A4676238D6A8700C47C77 /* AddFamilyLabelViewController.swift */,
 			);
 			path = viewControllers;
 			sourceTree = "<group>";
@@ -227,6 +241,7 @@
 				00DE72D9238CC64800560278 /* Message.swift */,
 				000DE259238C74CD00657E26 /* Event.swift */,
 				2A3607A12371B7B600A4C45B /* User.swift */,
+				2A7A4672238D673700C47C77 /* Identification.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -264,6 +279,7 @@
 				17FC2F791E258FC500174015 /* Frameworks */,
 				17FC2F7A1E258FC500174015 /* Resources */,
 				E3AE3BC58D3D91C5DAC696FA /* [CP] Embed Pods Frameworks */,
+				4F9C8FB323FD51BDE89AF4CD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,6 +332,7 @@
 			files = (
 				2ABE72F3238C3C520065A599 /* OnboardSectionHeader.xib in Resources */,
 				2A6FE881238C176300BE4BDE /* Messages.storyboard in Resources */,
+				2A7A466F238D574E00C47C77 /* GoogleService-Info.plist in Resources */,
 				17FC2F871E258FC500174015 /* Assets.xcassets in Resources */,
 				2A6FE883238C17BC00BE4BDE /* Identify.storyboard in Resources */,
 				17FC2F851E258FC500174015 /* Family.storyboard in Resources */,
@@ -346,6 +363,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4F9C8FB323FD51BDE89AF4CD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-memorybank/Pods-memorybank-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionFaceModel/GoogleMVFaceDetectorResources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMLVisionTextModel/GoogleMVTextDetectorResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVFaceDetectorResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-memorybank/Pods-memorybank-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E3AE3BC58D3D91C5DAC696FA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,12 +397,24 @@
 				"${BUILT_PRODUCTS_DIR}/AWSRekognition/AWSRekognition.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSS3/AWSS3.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/InputBarAccessoryView/InputBarAccessoryView.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/abseil/absl.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -376,12 +425,24 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSRekognition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSS3.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPullToRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InputBarAccessoryView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/absl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -398,6 +459,7 @@
 				004087AE236FA086005A883B /* S3ImageDownloadViewController.swift in Sources */,
 				2ABE72F2238C3A420065A599 /* WelcomeViewController.swift in Sources */,
 				2A6FE879238B3B7D00BE4BDE /* NavigationViewController.swift in Sources */,
+				2A7A4673238D673700C47C77 /* Identification.swift in Sources */,
 				00DE72D6238CC47E00560278 /* ChatTableViewCell.swift in Sources */,
 				2A6FE87D238B45D200BE4BDE /* EventViewController.swift in Sources */,
 				2AE7FB21238CB5CE00A9B61F /* Event.swift in Sources */,
@@ -411,11 +473,14 @@
 				2A7A466A238D4E4800C47C77 /* chat.swift in Sources */,
 				2A4199D5238CAA46007EBEB7 /* TabViewController.swift in Sources */,
 				2A7A466D238D51BB00C47C77 /* viewControllerExtensions.swift in Sources */,
+				2A7A4677238D6A8700C47C77 /* AddFamilyLabelViewController.swift in Sources */,
 				2A6FE87B238B455800BE4BDE /* DateMonthlyCell.swift in Sources */,
 				29D28098235D48050020EAFA /* utils.swift in Sources */,
+				2A7A4671238D5AC600C47C77 /* CreateIdentificationRequestViewController.swift in Sources */,
 				000DE25F238C74CE00657E26 /* EventTableViewCell.swift in Sources */,
 				2A6FE877238B375600BE4BDE /* HomeViewController.swift in Sources */,
 				29D28096235D44770020EAFA /* S3ImageUploadViewController.swift in Sources */,
+				2A7A4675238D681300C47C77 /* IdentificationTableViewCell.swift in Sources */,
 				2ABE72EE238C34980065A599 /* SignInViewController.swift in Sources */,
 				00DE72DE238CECCA00560278 /* CreateMessageViewController.swift in Sources */,
 				17FC2F801E258FC500174015 /* AppDelegate.swift in Sources */,
@@ -554,7 +619,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/memorybank/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.CognitoYourUserPoolsSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memorybank.memorybank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -569,7 +634,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/memorybank/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.CognitoYourUserPoolsSample;
+				PRODUCT_BUNDLE_IDENTIFIER = com.memorybank.memorybank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
