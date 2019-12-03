@@ -146,19 +146,21 @@ extension EventViewController: UITableViewDelegate, UITableViewDataSource {
 
         let event = events[indexPath.row]
 
-        let df = DateFormatter()
+        /**let df = DateFormatter()
         df.dateFormat = "yyyy-MM-dd hh:mm:ss"
         
         let startDate = df.date(from: event.startTime)
         let endDate = df.date(from: event.endTime)
 
         let pdf = DateFormatter()
-        pdf.dateFormat = "MMM d, h:mm a"
+        pdf.dateFormat = "MMM d, h:mm a"*/
         
         cell.nameLabel.text = event.name
         cell.locLabel.text = event.location
-        cell.startLabel.text = pdf.string(from: startDate!)
-        cell.endLabel.text = pdf.string(from: endDate!)
+        cell.startLabel.text = event.startTime
+        cell.endLabel.text = event.endTime
+        /**cell.startLabel.text = pdf.string(from: startDate!)
+        cell.endLabel.text = pdf.string(from: endDate!)*/
 
         return cell
     }
