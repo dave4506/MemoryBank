@@ -8,8 +8,10 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 struct Message {
     var content: String
     var from: String
+    var created: Timestamp
 }

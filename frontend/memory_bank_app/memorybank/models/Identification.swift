@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Firebase
 
 struct Identification {
     var id: String
@@ -15,4 +16,5 @@ struct Identification {
     var guess: String
     var familyLabel: String?
     var familyDescription: String?
+    var created: Timestamp
 }

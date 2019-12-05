@@ -15,6 +15,9 @@ class HomeViewController: UIViewController {
 
     var identifications = [Identification]()
     
+    var fileDownloadCounter = 0
+    var fileDownloadCounterMax = 0
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -50,7 +53,8 @@ class HomeViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 self.identifications = []
-                print("querySnapshot!.documents", querySnapshot!.documents)
+                self.fileDownloadCounter = 0
+                self.fileDownloadCounterMax = querySnapshot!.documents.count
                 for document in querySnapshot!.documents {
                     let id = document.data()
                     print("\(document.documentID) => \(id)")
@@ -62,13 +66,19 @@ class HomeViewController: UIViewController {
                         print(error)
                       } else {
                         let image = UIImage(data: data!)
+                        print("id", id)
                         self.identifications = self.identifications + [(
-                            Identification(id: document.documentID, image: image!, guess: id["guess"] as! String, familyLabel: id["family_label"] as? String, familyDescription: id["family_description"] as? String)
+                            Identification(id: document.documentID, image: image!, guess: id["guess"] as! String, familyLabel: id["family_label"] as? String, familyDescription: id["family_description"] as? String, created: (id["created"] as! Timestamp))
                         )]
-                        print("image received", self.identifications)
-                        DispatchQueue.main.async(execute: {
-                            self.tableView.reloadData()
-                        })
+                        self.identifications = self.identifications.sorted {
+                            $0.created.compare($1.created) == .orderedDescending
+                        }
+                        self.fileDownloadCounter = self.fileDownloadCounter + 1
+                        if self.fileDownloadCounter >= self.fileDownloadCounterMax {
+                            DispatchQueue.main.async(execute: {
+                                self.tableView.reloadData()
+                            })
+                        }
                       }
                     }
                 }
@@ -77,9 +87,6 @@ class HomeViewController: UIViewController {
     }
     
     func labelIdentification(id: Identification) {
-        guard let isPatient = getUserSession()?.isPatient else { return }
-        guard !isPatient else { return }
-        
         let addLabelNavVC = UIStoryboard(name: "Identify", bundle: nil).instantiateViewController(withIdentifier: "Submit-root") as! UINavigationController
         let addLabelVC = addLabelNavVC.viewControllers.first as! AddFamilyLabelViewController
         addLabelVC.identification = id

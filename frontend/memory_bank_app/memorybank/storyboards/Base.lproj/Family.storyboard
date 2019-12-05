@@ -11,7 +11,7 @@
         <scene sceneID="PPV-YQ-3dZ">
             <objects>
                 <navigationController id="IQ8-24-sye" customClass="NavigationViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Identify" image="baseline_search_black_24pt" id="Teb-o9-jJJ"/>
+                    <tabBarItem key="tabBarItem" title="Identify" image="baseline_search_black_36pt" id="Teb-o9-jJJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="twx-Nv-9Z9">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -256,11 +256,11 @@
             </objects>
             <point key="canvasLocation" x="-2054" y="1984"/>
         </scene>
-        <!--Family-->
+        <!--Events-->
         <scene sceneID="a0R-pw-Xtx">
             <objects>
                 <navigationController id="f4i-VN-3jI" customClass="NavigationViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Family" image="baseline_emoji_people_black_24pt" id="QYx-LA-yl0"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="baseline_emoji_people_black_36pt" id="QYx-LA-yl0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jwC-bW-NnV">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -273,11 +273,11 @@
             </objects>
             <point key="canvasLocation" x="-2780" y="1984"/>
         </scene>
-        <!--Personal-->
+        <!--Profile-->
         <scene sceneID="zmq-pd-0Tc">
             <objects>
                 <navigationController id="rBX-5q-kJT" customClass="NavigationViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Personal" image="baseline_perm_identity_black_24pt" id="6Sz-bJ-LS0"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="baseline_perm_identity_black_36pt" id="6Sz-bJ-LS0"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gbk-6p-cqN">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -293,10 +293,10 @@
         <!--settings-entryPoint-->
         <scene sceneID="unp-1a-s2v">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FsR-xI-byp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Settings" referencedIdentifier="settings-entryPoint" id="PSb-8p-pHt" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="87t-rv-Tgy"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FsR-xI-byp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2054" y="1300"/>
         </scene>
@@ -304,7 +304,7 @@
         <scene sceneID="yPd-Gd-71q">
             <objects>
                 <navigationController id="KVy-XH-kuZ" customClass="NavigationViewController" customModule="memorybank" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Messages" image="baseline_question_answer_black_24pt" id="hcW-7d-mzL"/>
+                    <tabBarItem key="tabBarItem" title="Messages" image="baseline_question_answer_black_36pt" id="hcW-7d-mzL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cRU-ki-BTf">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -329,10 +329,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="baseline_emoji_people_black_24pt" width="24" height="24"/>
-        <image name="baseline_perm_identity_black_24pt" width="24" height="24"/>
-        <image name="baseline_question_answer_black_24pt" width="24" height="24"/>
-        <image name="baseline_search_black_24pt" width="24" height="24"/>
+        <image name="baseline_emoji_people_black_36pt" width="36" height="36"/>
+        <image name="baseline_perm_identity_black_36pt" width="36" height="36"/>
+        <image name="baseline_question_answer_black_36pt" width="36" height="36"/>
+        <image name="baseline_search_black_36pt" width="36" height="36"/>
     </resources>
     <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

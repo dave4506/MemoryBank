@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import Firebase
 import IHKeyboardAvoiding
 import Alamofire
 
@@ -21,8 +22,7 @@ class ChatViewController: UIViewController {
         super.viewDidLoad()
         KeyboardAvoiding.avoidingView = self.view
         self.hideKeyboardWhenTappedAround()
-        let isPatient = getUserSession()?.isPatient ?? false
-        self.messages = isPatient ? patient_messages : family_messages
+        self.getMessages()
     }
     
     @IBAction func sendClicked(_ sender: Any) {
@@ -30,56 +30,42 @@ class ChatViewController: UIViewController {
     }
     
     func sendMessage() {
+        guard let message = self.chatTextField.text, !message.isEmpty else { return }
+        guard let email = getUserSession()?.email else { return }
         view.endEditing(true)
-
-        let message = self.chatTextField.text ?? ""
-
-        let parameters = [
-            "receiver_email": "ffstudios1@gmail.com",
-            "message": message,
-        ] as Parameters
-        
-        let headers = [
-            "Authorization": getUserSession()?.token ?? ""
-        ] as HTTPHeaders
-        
-        self.messages = self.messages + [Message(content: message, from: "David")]
+        print("er?")
+        let db = Firestore.firestore()
+        let messageObject = db.collection("messages").document();
         self.chatTextField.text = ""
-        self.chatView.reloadData()
-
-        Alamofire.request("https://memorybank-staging.herokuapp.com/messaging/send", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-            .responseJSON { response in
-                print(response)
-                if let _ = response.error {
-                } else {
-                    self.chatView.reloadData()
-                }
+        messageObject.setData([
+            "content": message,
+            "from": email,
+            "created": FieldValue.serverTimestamp()
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                self.getMessages()
+            }
         }
     }
     
     func getMessages() {
-        let parameters = [:] as Parameters
-        
-        let headers = [
-            "Authorization": getUserSession()?.token ?? ""
-        ] as HTTPHeaders
-        
-        Alamofire.request("https://memorybank-staging.herokuapp.com/messaging/get", method: .get, parameters: parameters, encoding: JSONEncoding.default, headers: headers)
-            .responseJSON { response in
-                if let _ = response.error {
-                } else {
-                    let payload = (response.value as! [[String:Any]])
-                    var newMessages = [Message]()
-                    for dict in payload {
-                        let curr_message:String = dict["message"] as! String
-
-                        let message = Message(content: curr_message, from: "")
-
-                        newMessages += [message]
-                    }
-                    self.messages += newMessages
-                    self.chatView.reloadData()
+        let db = Firestore.firestore()
+        let messagesObject = db.collection("messages")
+        messagesObject.order(by: "created", descending: false).getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.messages = []
+                for document in querySnapshot!.documents {
+                    let id = document.data()
+                    self.messages = self.messages + [
+                        Message(content: id["content"] as! String, from: id["from"] as! String, created: id["created"] as! Timestamp)
+                    ]
                 }
+                self.chatView.reloadData()
+            }
         }
     }
 }

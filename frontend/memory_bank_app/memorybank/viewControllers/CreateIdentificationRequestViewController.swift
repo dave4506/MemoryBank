@@ -58,8 +58,6 @@ class CreateIdentificationRequestViewController: FormViewController {
         
         let imagesRef = storageRef.child("images").child(identificationObject.documentID + ".jpg")
 
-        print(imagesRef.fullPath)
-
         let _ = imagesRef.putData(selectedImage.jpegData(compressionQuality: 0.2)!, metadata: nil) { (metadata, error) in
           guard let _ = metadata else {
             // Uh-oh, an error occurred!
@@ -74,7 +72,8 @@ class CreateIdentificationRequestViewController: FormViewController {
             }
             identificationObject.setData([
                 "guess": self.bestGuess ?? "",
-                "image_url": downloadURL.absoluteString
+                "image_url": downloadURL.absoluteString,
+                "created": FieldValue.serverTimestamp()
             ]) { err in
                 if let err = err {
                     print("Error writing document: \(err)")
@@ -90,8 +89,10 @@ class CreateIdentificationRequestViewController: FormViewController {
     func findBestGuess() {
         guard let selectedImage = self.selectedImage else { return }
         print("attempting to label...")
+        let options = VisionCloudImageLabelerOptions()
+        options.confidenceThreshold = 0.7
         let image = VisionImage(image: selectedImage)
-        let labeler = Vision.vision().onDeviceImageLabeler()
+        let labeler = Vision.vision().cloudImageLabeler(options: options)
         labeler.process(image) { labels, error in
             guard error == nil, let labels = labels else { return }
             if let bestGuess = labels.first {
