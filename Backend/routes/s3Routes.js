@@ -32,17 +32,19 @@ module.exports = (app, AWS) => {
           if (error) {
             return res.status(500).json({ error: 'Could not retrieve s3 objects' });
           }
-
+          console.log("files: ", files);
           // get presigned url
           const bucketParams = {
             Bucket: keys.bucketName,
-            Key: `${user._id}/${req.body.faceName}/image${files.Contents.length}`,
+            Fields: {
+              Key: `${user._id}/${req.body.faceName}/image${files.Contents.length}`,
+            },
             Expires: 60 * 60,
           };
 
-          const url = s3.getSignedUrl('putObject', bucketParams);
+          const urlData = s3.createPresignedPost(bucketParams);
 
-          return res.status(200).json({ url });
+          return res.status(200).json(urlData);
         });
       })(req, res, next);
     },
@@ -66,13 +68,15 @@ module.exports = (app, AWS) => {
 
         const bucketParams = {
           Bucket: keys.bucketName,
-          Key: `search/${user._id}`,
+          Fields: {
+            Key: `search/${user._id}`,
+          },
           Expires: 60 * 60,
         };
 
-        const url = s3.getSignedUrl('putObject', bucketParams);
+        const urlData = s3.createPresignedPost(bucketParams);
 
-        return res.status(200).json({ url });
+        return res.status(200).json(urlData);
       })(req, res, next);
     },
   );
