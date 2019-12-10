@@ -4,9 +4,25 @@ This is memory bank.
 We remember for those that can't!
 
 # Running App: #
-1. Install app on phone via usb cable using Xcode. 
+1. Download repository from github, master branch
 
-2. Build and Run app and follow prompts on screen. 
+2. Navigate to local repository where files are located
+
+3. Navigate to frontend, then memory_bank_app folder
+
+4. Run pod install in a terminal window that is in the local repository
+
+5. Make sure you have the latest version of Xcode.
+
+6. Open xcworkspace file in Xcode
+
+7. Install app on phone via usb cable using Xcode. 
+
+8. Build and Run app and follow prompts on screen. 
+
+9. Our backend server requires Secret AWS Keys. If you would 
+like to test our app, please contact me at bentur@umich.edu, 
+and I will deploy the server
 
 # Folder List : #
 Backend:
