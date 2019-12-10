@@ -9,6 +9,8 @@
 import UIKit
 import Eureka
 import Firebase
+import Alamofire
+import SwiftyJSON
 
 class AddFamilyLabelViewController: FormViewController {
 
@@ -110,6 +112,7 @@ class AddFamilyLabelViewController: FormViewController {
         let db = Firestore.firestore()
         let identificationObject = db.collection("identifcations").document(identification.id);
         print(identificationObject.path)
+        self.getPresignedURL()
         identificationObject.updateData([
             "family_label": self.label,
             "family_description": self.descript
@@ -122,5 +125,116 @@ class AddFamilyLabelViewController: FormViewController {
             }
         }
 
+    }
+    
+    func getPresignedURL(){
+        
+        let parameters = [
+            "faceName": self.label!
+        ] as Parameters
+        
+        let headers = [
+            "Authorization": getUserSession()?.token ?? ""
+        ] as HTTPHeaders
+        
+        Alamofire.request("https://memorybank-staging.herokuapp.com/upload/face", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+                print(response)
+                if let result = response.result.value {
+                    let JSON = result as! NSDictionary
+                    print("json successfully created")
+                    print("JSON: \(JSON)")
+                    let parameters: [String: AnyObject] = JSON.object(forKey: "fields") as! [String : AnyObject]
+                    let S3 = S3UploadCredentials(key: parameters["Key"] as! String, policy: parameters["Policy"] as! String, algorithm: parameters["X-Amz-Algorithm"] as! String, credential: parameters["X-Amz-Credential"] as! String, date: parameters["X-Amz-Date"] as! String, signature: parameters["X-Amz-Signature"] as! String, bucket: parameters["bucket"] as! String)
+                    
+                    DispatchQueue.main.async(execute: {
+                        self.uploadtoS3(image: self.identification!.image, bucketURL: JSON.object(forKey: "url") as! String, uploadCredentials: S3, completion: { (success) -> Void in
+                            if success {
+                                self.uploadtoRekognition()
+                            }
+                        })
+                        
+                    })
+                    
+                }
+        }
+    }
+    
+    func uploadtoS3(image: UIImage, bucketURL: String, uploadCredentials s3: S3UploadCredentials, completion: @escaping ((Bool) -> ())){
+        let parameter = ["Policy": s3.policy,
+                         "X-Amz-Algorithm": s3.algorithm,
+                         "X-Amz-Credential": s3.credential,
+                         "X-Amz-Date": s3.date,
+                         "X-Amz-Signature": s3.signature,
+                         "Key": s3.key,
+                         "bucket": s3.bucket]
+        
+        print(parameter)
+
+        guard let data = image.jpegData(compressionQuality: 1.0) else {
+          let err = NSError(domain: "pl.appbeat", code: 9_999, userInfo: ["Data error": "Was not able to prepare image from data."])
+          completion(false) // Provide a meaningful error for your app here
+          return
+        }
+
+        Alamofire.upload(multipartFormData: { (multipartForm) in
+
+            for (key, value) in parameter {
+
+                multipartForm.append(value.data(using: .utf8)!, withName: key)
+
+            }
+
+            multipartForm.append(data, withName: "file")//, fileName: "file", mimeType: "image/jpeg")
+        }, to: bucketURL, method : .post, headers: nil) { (encodingResult) in
+
+            switch encodingResult {
+            case .success(let upload, _, _):
+                completion(true)
+                upload.responseData { response in
+                    switch response.result {
+                    case .success:
+                        completion(true)
+                        print(response.response!.statusCode)
+
+                        if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                            print("Server Response: \(utf8Text)") // original server data as UTF8 string
+                        }
+                        
+                        break
+                    case .failure(let error):
+                        print(response.response!.statusCode)
+                        debugPrint(error)
+
+                        break
+                    }
+                }
+            case .failure(let encodingError):
+                completion(false)
+                print(encodingError)
+            }
+        }
+        
+    }
+
+
+    func uploadtoRekognition(){
+
+        let headers: HTTPHeaders = [
+            "Authorization": getUserSession()?.token ?? "NULL",
+            "Accept": "application/json"
+        ]
+        
+        let parameters = [
+            "faceName": self.label!
+        ] as Parameters
+
+        Alamofire.request("https://memorybank-staging.herokuapp.com/rekognize", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseJSON{ response in
+            print(response)
+            if let result = response.result.value {
+                if((response.error) == nil){
+                    print(result)
+                }
+            }
+        }
     }
 }

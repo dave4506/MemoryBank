@@ -371,6 +371,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - Protobuf (3.11.0)
+  - SwiftyJSON (5.0.0)
   - TensorFlowLiteC (1.14.0)
   - TensorFlowLiteObjC (1.14.0):
     - TensorFlowLiteC (= 1.14.0)
@@ -398,6 +399,7 @@ DEPENDENCIES:
   - ImageRow (~> 4.0)
   - JTAppleCalendar
   - MessageKit (from `https://github.com/MessageKit/MessageKit.git`, branch `3.0.0-swift5`)
+  - SwiftyJSON
 
 SPEC REPOS:
   trunk:
@@ -445,6 +447,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - SwiftyJSON
     - TensorFlowLiteC
     - TensorFlowLiteObjC
 
@@ -504,9 +507,10 @@ SPEC CHECKSUMS:
   MessageKit: 3beb578737a5aa2bba25cc27c7b6d6faa09af5a7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: 394b2bf29ec303f4325e3ee4892c09e675647152
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TensorFlowLiteC: a6702011fb661928634e59565b5fe262f69692d0
   TensorFlowLiteObjC: ece71b1e78f3df5952996c1606934b1d5538c875
 
-PODFILE CHECKSUM: 6ad048080c46b89ac5260c4b9ce2c865ffd59c4c
+PODFILE CHECKSUM: ff182298cd20efb9fde5d32883f94485d943acfe
 
 COCOAPODS: 1.8.4

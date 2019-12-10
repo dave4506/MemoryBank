@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     
     var fileDownloadCounter = 0
     var fileDownloadCounterMax = 0
+    
 
     @IBOutlet weak var tableView: UITableView!
     

@@ -27,4 +27,5 @@ pod 'Firebase/MLVisionTextModel'
   pod 'JTAppleCalendar'
   pod 'ESPullToRefresh'
   pod 'Eureka'
+  pod 'SwiftyJSON'
 end
