@@ -15,21 +15,25 @@ struct UserSession {
     var isPatient: Bool?
 }
 
+@available(iOS 10.0, *)
 func getUserSession() -> UserSession? {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     return appDelegate.userSession
 }
 
+@available(iOS 10.0, *)
 func setUserSessionToken(jwtToken: String) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.userSession?.token = jwtToken
 }
 
+@available(iOS 10.0, *)
 func setUserSessionStatus(isPatient: Bool) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.userSession?.isPatient = isPatient
 }
 
+@available(iOS 10.0, *)
 func setUserSessionEmail(email: String) {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     appDelegate.userSession?.email = email

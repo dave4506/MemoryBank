@@ -20,6 +20,7 @@ import UIKit
 import Eureka
 import Alamofire
 
+@available(iOS 10.0, *)
 class SignUpViewController: FormViewController {
     
     var email: String?

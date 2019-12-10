@@ -11,6 +11,7 @@ import Firebase
 import FirebaseStorage
 import ESPullToRefresh
 
+@available(iOS 10.0, *)
 class HomeViewController: UIViewController {
 
     var identifications = [Identification]()
@@ -96,6 +97,7 @@ class HomeViewController: UIViewController {
     }
 }
 
+@available(iOS 10.0, *)
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

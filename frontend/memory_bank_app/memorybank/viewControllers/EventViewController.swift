@@ -11,6 +11,7 @@ import JTAppleCalendar
 import Alamofire
 import ESPullToRefresh
 
+@available(iOS 10.0, *)
 class EventViewController: UIViewController {
 
     @IBOutlet weak var eventTableView: UITableView!
@@ -77,6 +78,7 @@ class EventViewController: UIViewController {
     }
 }
 
+@available(iOS 10.0, *)
 extension EventViewController: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         let formatter = DateFormatter()
@@ -87,6 +89,7 @@ extension EventViewController: JTAppleCalendarViewDataSource {
     }
 }
 
+@available(iOS 10.0, *)
 extension EventViewController: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
         let cell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "dateCell", for: indexPath) as! DateMonthlyCell
@@ -128,6 +131,7 @@ extension EventViewController: JTAppleCalendarViewDelegate {
     }
 }
 
+@available(iOS 10.0, *)
 extension EventViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

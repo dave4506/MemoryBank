@@ -8,6 +8,8 @@
 
 import UIKit
 
+@available(iOS 10.0, *)
+@available(iOS 10.0, *)
 class CreateMessageViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {

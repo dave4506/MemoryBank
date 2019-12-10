@@ -12,6 +12,9 @@ import Firebase
 import Alamofire
 import SwiftyJSON
 
+@available(iOS 10.0, *)
+@available(iOS 10.0, *)
+@available(iOS 10.0, *)
 class AddFamilyLabelViewController: FormViewController {
 
     var identification: Identification?

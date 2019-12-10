@@ -10,6 +10,7 @@ import UIKit
 import Eureka
 import Alamofire
 
+@available(iOS 10.0, *)
 class CreateEventViewController: FormViewController {
 
     var eventName: String?

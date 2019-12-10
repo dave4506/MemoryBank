@@ -9,6 +9,7 @@
 import UIKit
 import Eureka
 
+@available(iOS 10.0, *)
 class SettingsViewController: FormViewController {
 
     

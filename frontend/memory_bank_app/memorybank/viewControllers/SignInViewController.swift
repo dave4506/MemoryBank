@@ -19,6 +19,8 @@ import Foundation
 import Eureka
 import Alamofire
 
+@available(iOS 10.0, *)
+@available(iOS 10.0, *)
 class SignInViewController: FormViewController {
 
     var email: String?

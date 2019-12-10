@@ -12,6 +12,7 @@ import Firebase
 import IHKeyboardAvoiding
 import Alamofire
 
+@available(iOS 10.0, *)
 class ChatViewController: UIViewController {
     
     var messages = [Message]()
@@ -70,6 +71,7 @@ class ChatViewController: UIViewController {
     }
 }
 
+@available(iOS 10.0, *)
 extension ChatViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections

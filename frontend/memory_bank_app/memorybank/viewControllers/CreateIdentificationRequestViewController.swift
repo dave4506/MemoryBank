@@ -15,6 +15,7 @@ import AVFoundation
 import Alamofire
 import SwiftyJSON
 
+@available(iOS 10.0, *)
 class CreateIdentificationRequestViewController: FormViewController {
 
     var selectedImage: UIImage?
@@ -70,12 +71,26 @@ class CreateIdentificationRequestViewController: FormViewController {
                 let parameters: [String: AnyObject] = JSON.object(forKey: "fields") as! [String : AnyObject]
                 let S3 = S3UploadCredentials(key: parameters["Key"] as! String, policy: parameters["Policy"] as! String, algorithm: parameters["X-Amz-Algorithm"] as! String, credential: parameters["X-Amz-Credential"] as! String, date: parameters["X-Amz-Date"] as! String, signature: parameters["X-Amz-Signature"] as! String, bucket: parameters["bucket"] as! String)
                 
-                DispatchQueue.main.async(execute: {
-                    self.uploadtoS3(image: selectedImage, bucketURL: JSON.object(forKey: "url") as! String, uploadCredentials: S3, completed: { () -> () in
-                        self.searchRekognition()
+                let ciImage = CIImage(cgImage: selectedImage.cgImage!)
+
+                let options = [CIDetectorAccuracy: CIDetectorAccuracyHigh]
+                let faceDetector = CIDetector(ofType: CIDetectorTypeFace, context: nil, options: options)!
+
+                let faces = faceDetector.features(in: ciImage)
+
+                if let face = faces.first as? CIFaceFeature {
+                    DispatchQueue.main.async(execute: {
+                        self.uploadtoS3(image: selectedImage, bucketURL: JSON.object(forKey: "url") as! String, uploadCredentials: S3, completed: { () -> () in
+                            self.searchRekognition()
+                        })
+                        
                     })
-                    
-                })
+                } else {
+                    self.uploadtoS3(image: selectedImage, bucketURL: JSON.object(forKey: "url") as! String, uploadCredentials: S3, completed: { () -> () in
+                        self.findBestGuess()
+                    })
+                }
+                
                 
             }
         }
@@ -153,6 +168,7 @@ class CreateIdentificationRequestViewController: FormViewController {
                     self.bestGuess = "Waiting for Family"
                     (self.form.rowBy(tag: "guess") as? LabelRow)?.value = self.bestGuess
                     (self.form.rowBy(tag: "guess") as? LabelRow)?.reload()
+                    showLocalNotification()
                     self.submitIDRequest()
                 }
             }
@@ -226,6 +242,7 @@ class CreateIdentificationRequestViewController: FormViewController {
                 print("bestGuess", bestGuess.text)
                 (self.form.rowBy(tag: "guess") as? LabelRow)?.value = bestGuess.text
                 (self.form.rowBy(tag: "guess") as? LabelRow)?.reload()
+                self.submitIDRequest()
             }
         }
     }
