@@ -10,7 +10,7 @@ We remember for those that can't!
 
 3. Navigate to frontend, then memory_bank_app folder
 
-4. Run pod install in a terminal window that is in the local repository
+4. Run pod install --repo-update in a terminal window that is in the local repository
 
 5. Make sure you have the latest version of Xcode.
 
